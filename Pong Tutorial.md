@@ -22,7 +22,7 @@ let Background = (0)
 ```
 
 ## Step 3: Setting Up the Background Image
-Open the advanced section of the toolbox.
+Open the **Advanced** section of the toolbox.
 Click on the Images category.
 Grab a ``||images: create image width () height()||`` circle and place it in the value space for the ``||variables: set Background||`` block.
 ```blocks
@@ -32,7 +32,7 @@ let Background =image.create(0, 0)
 ```
 ## Step 4: Set the Size of the Image
 Open the ``||scene:scene||`` category.
-Add a ``||scene:screenWidth||`` to the image's width and a ``||scene:screenHeight||`` to the image height.
+Add a ``||scene:screenWidth||`` circle to the image's width and a ``||scene:screenHeight||`` circle to the image height.
 ```blocks
 let players = 1
 //@highlight
@@ -44,7 +44,7 @@ Here is where we will edit our background picture to include a net.
 We will use a ``||loops:for loop||`` to create a uniform net.
 ## Step 1: Using a For Loop
 Add a ``||loops:for loop||`` to the ``||loops: on start||`` container.
-Add the ``||scene: screenHeight||`` to the max index value.
+Add the ``||scene: screenHeight||`` circle to the max index value.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
@@ -54,7 +54,7 @@ for (let index = 0; index <= scene.screenHeight(); index++) {
 ```
 ## Step 2: Using an If Statement to Set Up the Net
 Grab an ``||logic:if then loop||`` and add it to the ``||loops:for||`` loop.
-Add a ``||logic: 0 < 0 ||`` diamond (also known as a ``||logic:comparison diamond||`` to the ``||logic:if then loop||``.
+Add a ``||logic: 0 < 0 ||`` diamond (also known as a ``||logic:comparison diamond||``) to the ``||logic:if then loop||``.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
@@ -81,9 +81,9 @@ if (index % 6 < 4) {
 ## Step 4: Creating Our Net
 Add a ``||images:set picture at x () y () color||`` block to the ``||logic:if then loop||``.
 Add a ``||variables: Background||`` circle from the ``||variables:variable||`` category to the ``||images:set picture at x () y () color||`` block.
-Add a ``||math: division||`` block to the x coordinate space.
-Add the ``||scene: screenHeight||`` circle to the ``||math: division||``. Set the divisor to 2.
-Remember to select a color for your net by clicking on the circle at the end of the block.
+Add a ``||math: division||`` block to the **x** coordinate space.
+Add the ``||scene: screenHeight||`` circle to the ``||math: division||``. Set the divisor to **2**.
+**Remember to select a color for your net by clicking on the circle at the end of the block.**
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
@@ -123,9 +123,10 @@ let mySprite = sprites.create(img``,SpriteKind.Player)
 ```
 ## Step 2: Setting the Player1 Paddle
 Click on the triangle next to ``||variables:mySprite||``. 
-Choose the Rename Variable option..
+Choose the ``||variables:Rename Variable...||`` option.
 Rename ``||variables:mySprite||`` to ``||variables:Player1||``.
-Select the Player 1 asset using the sprite editor.  
+Select the Player 1 asset using the sprite editor. It looks like a white Paddle. 
+Feel free to change the color using the sprite editor. 
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -149,11 +150,12 @@ if (index % 6 < 4) {
  }}
 scene.setBackgroundImage(Background)
 let Player1 = sprites.create(assets.image`Player 1`,SpriteKind.Player)
+//@highlight
 controller.moveSprite(Player1)
 ```
 ## Step 4: Moving in One Direction
 Click on the (**+**) button on the ``||controller:move Player1 with buttons||`` block.
-Change the vx value from 100 to 0.
+Change the vx value from **100** to **0**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -169,7 +171,7 @@ controller.moveSprite(Player1, 0, 100)
 ## Step 5: Setting the Player1 Paddle's Position
 Add a ``||sprites: Set mySprite x() y()||`` block from the ``||sprites:sprites||`` category.
 Change ``||variables:mySprite||`` to ``||variables:Player1||``.
-Set the x value to 8 and the y value to 60.
+Set the **x** value to **8** and the **y** value to **60**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -186,7 +188,7 @@ Player1.setPosition(8,60)
 ## Step 6: Setting Up the Player1 Paddle to Stay on Screen
 Add a ``||sprites: set mySprite stay on screen||`` block from the ``||sprites:sprites||`` category.
 Change ``||variables:mySprite||`` to ``||variables:Player1||``.
-Set the value to on.
+Set the value to **on**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -198,11 +200,11 @@ scene.setBackgroundImage(Background)
 let Player1 = sprites.create(assets.image`Player 1`,SpriteKind.Player)
 controller.moveSprite(Player1, 0, 100)
 Player1.setPosition(8,60)
-//@ highlight
+//@highlight
 Player1.setStayInScreen(true)
 ```
 ## Step 7: Setting Up the Player2 Paddle
-We will use the same blocks that we used for Player1's Paddle but renaming the sprite to Player 2.
+We will use the same blocks that we used for Player1's Paddle but changing the sprite to Player2.
 Start with adding the ``||sprites: set mySprite||`` to the ``||loops:on start||`` container.
 Rename ``||variables:mySprite||`` to ``||variables:Player2||``.
 ```blocks
@@ -224,6 +226,7 @@ let Player2 = sprites.create(img``,SpriteKind.Player)
 Assign the Player2 sprite with the Player 2 asset by clicking on the gray box.
 In the editor open the asset tab.
 Choose the paddle labeled Player 2.
+Feel free to change the color in the sprite editor.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -242,7 +245,7 @@ let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
 ## Step 9: Setting Up Player2's Position
 Add the ``||sprites:set mySprite x() y()||`` block from the ``||sprites:sprites||`` category.
 Change ``||basic:mySprite||`` to ``||variables:Player2||``.
-Set the x value to 152 and the y value to 60.
+Set the **x** value to **152** and the **y** value to **60**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -262,7 +265,7 @@ Player2.setPosition(152,60)
 ## Step 10: Setting the Player2 Paddle to Stay on Screen.
 Add a ``||sprites:set mySprite Stay on Screen||`` block to the ``||loops:on start||`` container.
 Change ``||variables:mySprite||`` to ``||variables:Player2||``.
-Set the value to on.
+Set the value to **on**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -300,12 +303,14 @@ Player1.setStayInScreen(true)
 let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
 Player2.setPosition(152,60)
 Player2.setStayInScreen(true)
+//@highlight
 let projectile = sprites.createProjectileFromSprite(img``,Player1,0,0)
 ```
 ## Step 2: Assign the Projectile to the Ball Asset.
 Click on the ``||variables:projectile||``'s gray box to open the sprite editor.
 Open the asset tab.
 Choose the asset labeled Ball.
+Feel free to change the Ball's color. 
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -321,12 +326,13 @@ Player1.setStayInScreen(true)
 let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
 Player2.setPosition(152,60)
 Player2.setStayInScreen(true)
+//@highlight
 let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,0,0)
 ```
 ## Step 3: Assigning Random vx and vy Values.
-Add a ``||math:pick random (min) to (max)||`` circle from the ``||math:math||`` category to the vx and vy value of the ``||sprites:set Projectile from||`` block.
-Set the vx values to a minimum of 50 and maximum of 75.
-Set the vy values to a minimum of 25 and maximum of 50.
+Add a ``||math:pick random (min) to (max)||`` circle from the ``||math:math||`` category to the **vx** and **vy** value of the ``||sprites:set Projectile from||`` block.
+Set the vx values to a minimum of **50** and maximum of **75**.
+Set the vy values to a minimum of **25** and maximum of **50**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -342,12 +348,13 @@ Player1.setStayInScreen(true)
 let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
 Player2.setPosition(152,60)
 Player2.setStayInScreen(true)
+//@highlight
 let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,randint(50,75),randint(25,50))
 ```
 ## Step 4: Moving the Ball
 Add a ``||sprites:change mySprite x by ()||`` block to the ``||loops:on start||`` container.
 Change ``||variables:mySprite||`` to ``||variables:projectile||``.
-Change the value from 0 to 3.
+Change the value from **0** to **3**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -364,12 +371,13 @@ let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
 Player2.setPosition(152,60)
 Player2.setStayInScreen(true)
 let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,randint(50,75),randint(25,50))
+//@highlight
 projectile.x +=3
 ```
 ## Step 5: Setting the Ball to Bounce
 Add a ``||sprites:set mySprite Bounce on Walls||`` block from the ``||sprites:sprites||`` category.
 Change ``||variables:mySprite||`` to ``||variables:projectile||``.
-Set the value to true.
+Set the value to **on**.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -387,6 +395,7 @@ Player2.setPosition(152,60)
 Player2.setStayInScreen(true)
 let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,randint(50,75),randint(25,50))
 projectile.x +=3
+//@highlight
 projectile.setBounceOnWall(true)
 ```
 ## Part 5: Setting up the Scoring System
@@ -394,6 +403,7 @@ Now that we have set up our paddles and ball we can move on to set up our scorin
 ## Step 1: Adding an On Game Update Container
 Add a ``||game:on game update||`` container from the ``||game:game||`` category.
 ```blocks
+//@highlight
 game.onUpdate(function(){})
 ```
 ## Step 2: Setting Up our If Then Containers
@@ -401,6 +411,7 @@ Add an ``||logic:if then loop||`` from the ``||logic:logic||`` category.
 Add a ``||logic: comparison||`` diamond from the ``||logic:logic||`` category to your ``||logic:if then loop||``.
 ```blocks
 game.onUpdate(function(){
+//@highlight
 if (0 < 0) {
 }})
 ```
@@ -409,17 +420,19 @@ Add a ``||sprites:mySprite x||`` circle from the ``||sprites:sprites||`` group t
 ```blocks
 game.onUpdate(function(){
 let mySprite: Sprite = null
+  //@highlight
   if (mySprite.x > mySprite.x) {
   
   }
 })
 ```
 ## Step 4: Adjusting Our Sprites and Values
-Change the comparison diamond so it reads ``||variables:projectile||`` ``||sprites:x||`` is greater than (>) ``||variables:Player2||`` ``||sprites:right||``.
+Change the comparison diamond so it reads ``||variables:projectile||`` ``||sprites:x||`` is greater than ``||logic:(>)||`` ``||variables:Player2||`` ``||sprites:right||``.
 ```blocks
 let projectile: Sprite = null
 let Player2: Sprite = null
 game.onUpdate(function(){
+  //@highlight
   if (projectile.x > Player2.right) {
   
   }
@@ -433,6 +446,7 @@ let projectile: Sprite = null
 let Player2: Sprite = null
 game.onUpdate(function(){
   if (projectile.x > Player2.right) {
+  //@highlight
   info.player1.changeScoreBy(1) 
   }
 })
@@ -446,6 +460,7 @@ let Player2: Sprite = null
 game.onUpdate(function(){
   if (projectile.x > Player2.right) {
   info.player1.changeScoreBy(1) 
+  //@highlight
   music.jumpUp.play()
   }
 })
@@ -460,12 +475,13 @@ game.onUpdate(function(){
   if (projectile.x > Player2.right) {
   info.player1.changeScoreBy(1) 
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(0,0)
   }
 })
 ```
 ## Step 8: Resetting the Ball's Horizontal Position to Player1
-Add a ``||math:addition||`` circle to the x value for your ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||``.
+Add a ``||math:addition||`` circle to the **x** value for your ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||``.
 Add a ``||sprites:mySprite x||`` circle to your ``||math:addition circle||``.
 Change ``||variables:mySprite||`` to ``||variables:Player1||``.
 Use the ``||math:addition||``to add ``||math: 3||`` to the ``||variables:projectile||`` ``||sprites:x value||``.
@@ -477,13 +493,14 @@ game.onUpdate(function(){
   if (projectile.x > Player2.right) {
   info.player1.changeScoreBy(1) 
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(Player1.x +3, 0)
   }
 })
 ```
 
 ## Step 9: Resetting the Ball's Vertical Position to Player1
-Add a ``||sprites:mySprite x||`` circle to the ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||`` y value. 
+Add a ``||sprites:mySprite x||`` circle to the ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||`` **y** value. 
 Change ``||variables:mySprite||`` to ``||variables:Player1||``.
 Change ``||sprites:x||`` to ``||sprites:y||``.
 ```blocks
@@ -494,6 +511,7 @@ game.onUpdate(function(){
   if (projectile.x > Player2.right) {
   info.player1.changeScoreBy(1) 
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(Player1.x +3, Player1.y)
   }
 })
@@ -512,6 +530,7 @@ game.onUpdate(function(){
   info.player1.changeScoreBy(1) 
   music.jumpUp.play()
   projectile.setPosition(Player1.x +3,Player1.y)
+  //@highlight
   projectile.setVelocity(0,0)
   }
 })
@@ -530,14 +549,15 @@ game.onUpdate(function(){
   info.player1.changeScoreBy(1) 
   music.jumpUp.play()
   projectile.setPosition(Player1.x +3,Player1.y)
+  //@highlight
   projectile.setVelocity(randint(50,75),randint(25,50))
   }
 })
 ```
 ## Step 12: Setting up Player2's Scoring System
-Click the + button on the ``||logic:if then||`` container twice.
+Click the (**+**) button on the ``||logic:if then||`` container twice.
 This will create an ``||logic:else if||`` loop and an ``||logic:else||`` loop.
-Click the - button to remove the ``||logic:else||`` loop.
+Click the (**-**) button to remove the ``||logic:else||`` loop.
 ```blocks
 let projectile: Sprite = null
 let Player2: Sprite = null
@@ -548,7 +568,9 @@ game.onUpdate(function(){
   music.jumpUp.play()
   projectile.setPosition(Player1.x +3,Player1.y)
   projectile.setVelocity(randint(50,75),randint(25,50))
-  } else if (false){
+  } 
+  //@highlight
+  else if (false){
   }
 })
 ```
