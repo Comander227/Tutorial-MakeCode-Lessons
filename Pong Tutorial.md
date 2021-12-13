@@ -989,6 +989,7 @@ Now we are going to establish the controls for Player 2.
 Drag a ``||controller: on player 2 A button pressed||`` to the workspace.
 Change ``||controller: A||`` to ``||controller: up||``.
 ```blocks
+//@highlight
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
 })
 ```
@@ -998,6 +999,7 @@ Add a ``||variables:set players to 0||`` block to the ``||controller: on player 
 Change the value from ``||variables:0||`` to ``||variables:2||``.
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
+//@highlight
 let players = 2
 })
 ```
@@ -1007,10 +1009,11 @@ let players = 2
 Add a ``||controller: player 2 move mySprite with buttons||`` to the ``||controller: on player 2 up button pressed||`` container.
 Change ``||variables:mySprite||`` to ``||variables:Player2||``.
 Click on the ``||controller: +||`` button.
-Change the ``||controller: vx||`` value to 0.
+Change the ``||controller: vx||`` value to **0**.
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
 let players = 2
+//@highlight
 controller.player2.moveSprite(Player2,0,100)
 })
 ```
@@ -1025,6 +1028,7 @@ let players = 2
 controller.player2.moveSprite(Player2,0,100)
 })
  
+//@highlight
 controller.player2.onButtonEvent(ControllerButton.Down,ControllerButtonEvent.Pressed, function(){
 let players = 2
 controller.player2.moveSprite(Player2,0,100)
