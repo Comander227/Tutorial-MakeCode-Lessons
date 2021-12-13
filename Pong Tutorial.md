@@ -972,10 +972,28 @@ let Player2: Sprite = null
 let projectile: Sprite = null
 game.onUpdate(function(){
  if (projectile.y > scene.screenWidth() /2 && players == 1){
+   if (projectile.y > Player2.y){
+   //@highlight
+   Player2.y += 2
+   }else {
+   }
+ }
+})
+```
+
+## Step 8: Moving the Computer's Paddle.
+Duplicate the ``||sprites:change mySprite x by ()||`` block in the ``||logic:if the loop||`` and add it to the ``||logic:else loop||``.\
+Change the values so the second block reads  ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by -2||``.
+```blocks
+let Player2: Sprite = null
+let projectile: Sprite = null
+game.onUpdate(function(){
+ if (projectile.y > scene.screenWidth() /2 && players == 1){
    //@highlight
    if (projectile.y > Player2.y){
    Player2.y += 2
    }else {
+   //@highlight
    Player2.y += -2
    }
  }
