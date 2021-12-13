@@ -659,7 +659,7 @@ game.onUpdate(function(){
 ## Step 17: Resetting the Ball's Horizontal Position to Player2
 Add a ``||math:subtraction||`` circle to the x value ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||``.
 Add a ``||sprites:mySprite x||`` circle to the beginning of your ``||math:subtraction circle||``.
-Change ``||variables:mySprite||`` to ``||variables:Player2||``.`.
+Change ``||variables:mySprite||`` to ``||variables:Player2||``.
 Use the ``||math:subtraction||``to subtract ``||math: 3||`` to the ``||variables:projectile||`` ``||sprites:x value||``.
 
 ```blocks
