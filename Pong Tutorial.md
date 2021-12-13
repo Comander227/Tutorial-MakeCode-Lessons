@@ -816,8 +816,9 @@ Add ``||math:multiplication||`` circle to the value.
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
  let mySprite: Sprite = null
+   //@highlight
    mySprite.x = 0 * 0
-   mySprite.x = 0 * 0
+
 })
 ```
 
@@ -852,7 +853,7 @@ Change the first ``||sprites:set otherSprite X||`` to ``||sprites:set otherSprit
 Set the ``||math:multiplication||`` circle to read ``||math: -1.1 x||`` ``||variables:otherSprite||`` ``||sprites:vx||``.
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
- 
+   //@highlight
    otherSprite.vx = -1.1 * otherSprite.vx
    otherSprite.x = 0 * otherSprite.x
 })
@@ -865,18 +866,20 @@ Set the ``||math:multiplication||`` circle to read ``||math: 1.1 x||`` ``||varia
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
  
    otherSprite.vx = -1.1 * otherSprite.vx
+   //@highlight
    otherSprite.vy = 1.1 * otherSprite.vy
 })
 ```
  
 ## Step 6: Adding A Sound Effect.
 Add ``||music:play tone at Middle C for 1/2 beat||`` to the ``||sprites:on overlap||`` container.
-Change ``||music: Middle C||`` to ``||music:Middle B||``. If you can't find Middle B, enter the value 494.
+Change ``||music: Middle C||`` to ``||music:Middle B||``. If you can't find Middle B, enter the value **494**.
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
  
    otherSprite.vx = -1.1 * otherSprite.vx
    otherSprite.vy = 1.1 * otherSprite.vy
+   //@highlight
    music.playTone(494,music.beat(BeatFraction.Half))
 })
 ```
@@ -886,6 +889,7 @@ Now we are going to set up our Player2 paddle to function as a computer so we ca
 ## Step 1: Adding a New Container
 Grab a new ``||game:on game update||`` container.
 ```blocks
+//@highlight
 game.onUpdate(function(){
  
 })
@@ -895,6 +899,7 @@ Add an ``||logic:if then loop||`` to your ``||game: on game update||`` container
 Add an ``||logic: and||`` diamond to the ``||logic:if then loop||``.
 ```blocks
 game.onUpdate(function(){
+ //@highlight
  if (true && true){
  }
 })
@@ -908,6 +913,7 @@ Set the diamond so it reads ``||variables:projectile||`` ``||sprites:y||`` ``||l
 ```blocks
 let projectile: Sprite = null
 game.onUpdate(function(){
+ //@highlight
  if (projectile.y > scene.screenWidth() /2 && true){
  }
 })
@@ -917,11 +923,12 @@ game.onUpdate(function(){
 We need to check how many players we have. 
 Add an ``||logic: =||`` comparison diamond to the second half of the ``||logic:and||`` diamond.
 Add the ``||variables:players||`` from the ``||variables:variables||`` category to the ``|||logic:=||``comparison diamond.
-Set the value to 1.
-It should read ``||variables:players||`` ``||logic:=||`` 1.
+Set the value to **1**.
+It should read ``||variables:players||`` ``||logic:=||`` **1**.
 ```blocks
 let projectile: Sprite = null
 game.onUpdate(function(){
+ //@highlight
  if (projectile.y > scene.screenWidth() /2 && players == 1){
  }
 })
@@ -933,6 +940,7 @@ Add an ``||logic: if then else loop||`` to the ``||logic: if then loop||`` you a
 let projectile: Sprite = null
 game.onUpdate(function(){
  if (projectile.y > scene.screenWidth() /2 && players == 1){
+   //@highlight
    if (true){
    }else {
    }
@@ -948,6 +956,7 @@ let Player2: Sprite = null
 let projectile: Sprite = null
 game.onUpdate(function(){
  if (projectile.y > scene.screenWidth() /2 && players == 1){
+   //@highlight
    if (projectile.y > Player2.y){
    }else {
    }
@@ -963,6 +972,7 @@ let Player2: Sprite = null
 let projectile: Sprite = null
 game.onUpdate(function(){
  if (projectile.y > scene.screenWidth() /2 && players == 1){
+   //@highlight
    if (projectile.y > Player2.y){
    Player2.y += 2
    }else {
