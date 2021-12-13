@@ -17,9 +17,10 @@ Use the ``||Variables: Make a Variable ||`` button to create a variable named Ba
 Add a ``||variables:set Background||`` block to the ``||loops:on start||`` loop
 ```blocks
 let players = 1
-let Background = 0
-
+//@highlight
+let Background = (0)
 ```
+
 ## Step 3: Setting Up the Background Image
 Open the advanced section of the toolbox.
 Click on the Images category.
