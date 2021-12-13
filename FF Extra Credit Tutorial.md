@@ -195,7 +195,7 @@ let mySprite: Sprite = null
 
 ## Step 11: Making My Enemy Move
 
-**Enemies on the move **
+**Enemies on the move**
 
 ---
 Send your enemies after the shark by adding the ``||sprites:set [myEnemy] follow [mySprite]||`` block to **the end** of the ``||game:on game update every [2500] ms||`` container where ``||variables:myEnemy||`` is made.
