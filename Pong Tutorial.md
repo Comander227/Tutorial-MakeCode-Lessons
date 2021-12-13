@@ -588,7 +588,9 @@ game.onUpdate(function(){
   music.jumpUp.play()
   projectile.setPosition(Player1.x +3,Player1.y)
   projectile.setVelocity(randint(50,75),randint(25,50))
-  } else if (projectile.x < Player1.left){
+  } 
+  //@highlight
+  else if (projectile.x < Player1.left){
   }
 })
 ```
@@ -606,6 +608,7 @@ game.onUpdate(function(){
   projectile.setPosition(Player1.x +3,Player1.y)
   projectile.setVelocity(randint(50,75),randint(25,50))
   } else if (projectile.x < Player1.left){
+  //@highlight
   info.player2.changeScoreBy(1)
  
   }
@@ -626,6 +629,7 @@ game.onUpdate(function(){
   projectile.setVelocity(randint(50,75),randint(25,50))
   } else if (projectile.x < Player1.left){
   info.player2.changeScoreBy(1)
+  //@highlight
   music.jumpUp.play()
   }
 })
@@ -647,6 +651,7 @@ game.onUpdate(function(){
   } else if (projectile.x < Player1.left){
   info.player2.changeScoreBy(1)
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(0,0)
   }
 })
@@ -670,6 +675,7 @@ game.onUpdate(function(){
   } else if (projectile.x < Player1.left){
   info.player2.changeScoreBy(1)
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(Player2.x -3,0)
   }
 })
@@ -692,6 +698,7 @@ game.onUpdate(function(){
   } else if (projectile.x < Player1.left){
   info.player2.changeScoreBy(1)
   music.jumpUp.play()
+  //@highlight
   projectile.setPosition(Player2.x -3,Player2.y)
   }
 })
@@ -713,6 +720,7 @@ game.onUpdate(function(){
   info.player2.changeScoreBy(1)
   music.jumpUp.play()
   projectile.setPosition(Player2.x -3,Player2.y)
+  //@highlight
   projectile.setVelocity(0,0)
   }
 })
@@ -735,14 +743,38 @@ game.onUpdate(function(){
   info.player2.changeScoreBy(1)
   music.jumpUp.play()
   projectile.setPosition(Player2.x -3,Player2.y)
+  //@highlight
   projectile.setVelocity(randint(-75,-50),randint(-50,-25))
   }
 })
 ```
  
-## Step 21: Setting up the Players Starting Score.
-Add two ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
-Change one of the ``||info:set player 2 score to 0||`` to ``||info:set player 1 score to 0||``.
+## Step 21: Setting up Player1's Starting Score.
+Add one ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
+Change ``||info:set player 2 score to 0||`` to ``||info:set player 1 score to 0||``.
+```blocks
+let players = 1
+let Background = image.create(scene.screenWidth(), scene.screenHeight())
+for (let index = 0; index <= scene.screenHeight(); index++) {
+if (index % 6 < 4) {
+     Background.setPixel(scene.screenWidth() / 2, index, 1)
+ }}
+scene.setBackgroundImage(Background)
+let Player1 = sprites.create(assets.image`Player 1`,SpriteKind.Player)
+controller.moveSprite(Player1, 0, 100)
+Player1.setPosition(8,60)
+Player1.setStayInScreen(true)
+let Player2 = sprites.create(assets.image`Player 2`,SpriteKind.Player)
+Player2.setPosition(152,60)
+Player2.setStayInScreen(true)
+let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,randint(50,75),randint(25,50))
+projectile.x +=3
+projectile.setBounceOnWall(true)
+//@highlight
+info.player1.setScore(0)
+```
+## Step 21: Setting up Player2's Starting Score.
+Add another ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight())
@@ -762,6 +794,7 @@ let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,r
 projectile.x +=3
 projectile.setBounceOnWall(true)
 info.player1.setScore(0)
+//@highlight
 info.player2.setScore(0)
 ```
  
@@ -772,13 +805,14 @@ Now we will use an ``||sprites:On Overlap||`` container to make our ball bounce 
 Add an new ``||sprites: on Overlap||`` container to the workspace.
 Change the ``||variables:otherSprite||`` ``||sprites:kind||`` from ``||sprites:player||`` to ``||sprites:projectile||``.
 ```blocks
+//@highlight
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
  
 })
 ```
 ## Step 2: Updating the Ball's Velocity
-Add two ``||sprites:set mySprite x to ()||`` to the ``||sprites:on Overlap||`` container.
-Add ``||math:multiplication||`` circles to each value. 
+Add a ``||sprites:set mySprite x to ()||`` to the ``||sprites:on Overlap||`` container.
+Add ``||math:multiplication||`` circle to the value. 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
  let mySprite: Sprite = null
@@ -786,19 +820,32 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
    mySprite.x = 0 * 0
 })
 ```
+
+
 ## Step 3: Altering the Value
-Add a``||sprites: mySprite x||`` circles to each of your ``||math:multiplication||`` values.
+Add a``||sprites: mySprite x||`` circles to your ``||math:multiplication||`` value.
 Drag the local ``||variables:otherSprite||`` over the all of the ``||variables:mySprite||`` variables
 
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
- 
+   //@highlight
    otherSprite.x = 0 * otherSprite.x
-   otherSprite.x = 0 * otherSprite.x
+
 })
 ```
+## Step 4: Duplicating the Block.
+Copy the ``||sprites:set otherSprite x to||`` ``||math:(0 * otherSprite.x)||`` by right clicking on the whole block and selecting duplicate. 
+Set the new block below the previous one.
+```blocks
+sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
+   otherSprite.x = 0 * otherSprite.x
+   //@highlight
+   otherSprite.x = 0 * otherSprite.x
+})
+``` 
+ 
  
 ## Step 4: Setting the vx Values
 Change the first ``||sprites:set otherSprite X||`` to ``||sprites:set otherSprite vx||``.
