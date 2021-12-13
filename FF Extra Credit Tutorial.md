@@ -174,7 +174,7 @@ game.onUpdateInterval(2500, function () {
 
 ## Step 10: Randomizing the Enemy Spawn Point
 
-**Shake up the enemy **
+**Shake up the enemy**
 Let's start the submarine at a random height to keep things interesting.
 
 ---
