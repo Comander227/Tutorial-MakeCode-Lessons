@@ -138,7 +138,7 @@ game.onUpdateInterval(2500, function () {
 ```
 ## Step 8: Setting the Spawn Point for Our Enemy
 
-** Location, Location, Location! **
+**Location, Location, Location!**
 
 It's time to tell the new enemy sprites where to spawn.
 
