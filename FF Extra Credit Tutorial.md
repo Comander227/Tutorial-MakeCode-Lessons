@@ -678,6 +678,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.PowerUp, function (sprite, other
 info.onCountdownEnd(function () {
     game.over(true)
 })
+info.onLifeZero(function () {
+    game.over(false)
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
