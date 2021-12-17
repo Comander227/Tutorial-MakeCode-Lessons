@@ -1,4 +1,4 @@
-https://arcade.makecode.com/#tutorial:60288-97202-01218-02186
+https://arcade.makecode.com/#tutorial:67095-52275-80214-36662
 
 
 
