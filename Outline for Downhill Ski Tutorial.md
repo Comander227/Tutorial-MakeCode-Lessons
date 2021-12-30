@@ -239,6 +239,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSpr
     info.changeLifeBy(-1)
 })
 	
+	-Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
+	-Add an on life zero container from the info category to the workspace.
+	info.onLifeZero(function () {
+})
+	-Add a game over block from the game category to the on life zero container. 
+	info.onLifeZero(function () {
+    game.over(false)
+})
+	
 
 	-Lets have our player score some points. 
 	-Grab the on destory sprite of kind container from the sprites category. 
@@ -273,10 +282,82 @@ let PurpleGateTimer = 5000
 	forever(function () {
     pause(100)
 })
-	-Add the 
+	-Add the PurpleGateTimer variable circle from the varaiables category to the value in the pause block. 
+	forever(function () {
+    pause(PurpleGateTimer)
+})
+	-Add the set mySprite2 block from the sprites section under the pause block. 
+	-Change mySprite2 to PurpleGate.
+	-Change the kind to PGate. 
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+}
+let PurpleGate: Sprite = null
+	forever(function () {
+    pause(PurpleGateTimer)
+    PurpleGate = sprites.create(img``, SpriteKind.PGate)
+})
+
+	-Set the asset of the PurpleGate to the Purple Gate Sprite by clicking on the grey box, selecting my assets and choosing the purple gate image. 
+	    forever (function (){
+	    pause(PurpleGateTimer)
+	    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+})
+
+	-Duplicate the set Rocks position block from the Rocks forever loop. 
+	-Change Rocks to PurpleGate.
+	forever(function () {
+    pause(PurpleGateTimer)
+       PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+    PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+})
+
+	-Duplicate the set Rocks vx 0 and vy SkierSpeed block from the Rocks forever loop and add it to your new forever loop.
+	-change Rocks to PurpleGate. 
+	forever(function () {
+    pause(PurpleGateTimer)
+    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+    PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    PurpleGate.setVelocity(0, SkierSpeed)
+})
 
 
+	-Lets make our purple gate do something. 
+	-Add an on sprite of kind player overlaps otherSprite of kind player container onto the workspace.
+	-Change the otherSprite kind from Player to PGate.
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+	
+})
 
+	-First we need to remove the gate.
+	-Add a destroy mySprite block from the sprite category. 
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    mySprite.destroy()
+})
+	-Next grab the local otherSprite variable from the overlap container and replace the mySprite circle.
+	**Grab the Gif**
+	-Feel free to add an effect on the destory code.
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.coolRadial, 200)
+})
+
+	-Now we want to add some additonal effects. 
+	-How about making our Skier faster.
+	-Add a change SkierSpeed block to the overlap code.
+	-Change the value to -5. 
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.coolRadial, 200)
+    SkierSpeed += -5
+})
+	-Next lets give our player additonal points for hitting the gates. 
+	-Add a change score by 1 block to the overlap code.
+	-Change the value from 1 to 3.
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.coolRadial, 200)
+    SkierSpeed += -5
+    info.changeScoreBy(3)
+})
 
 	Establish obstacles
 		Rocks
