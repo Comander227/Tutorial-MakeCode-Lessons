@@ -432,8 +432,64 @@ let PurpleGateTimer = 5000
     distance += SkierSpeed * -0.05
 })
 ```
+## Showing the distance value
 
-		
+	Add a show long text block from the ``||game:game||`` category to your on life zero continer. Be sure to add it above the game over block. 
+	Set the text to appear in the center of the screen.
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("", DialogLayout.Center)
+    game.over(false)
+})
+```
+	Add a join text circle from the ``||text:text||`` catagory under the advanced section. 
+	Add a third value space by clicking the plus button on the variable circle. 
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("Hello" + "World" + "", DialogLayout.Center)
+    game.over(false)
+})
+```
+	Place a round circle from the ``||math:math||`` catagory into the middle value space.
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("Hello" + Math.round(0) + "", DialogLayout.Center)
+    game.over(false)
+})
+```
+	Add the distance variable cirlce to the value space in the round cirlce. 
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("Hello" + Math.round(distance) + "", DialogLayout.Center)
+    game.over(false)
+})
+```
+	Replace the text so it reads ``||text:"you went"||`` ``||math:round||`` ``||variables:distance||`` ``||text:"feet"||``.
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    game.over(false)
+})
+```
+
+	Add a change score by block from the ``||info:info||`` catagory. 
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(1)
+    game.over(false)
+})
+	```
+	Duplicate the round distance circle and add it to the score block.
+	```blocks
+	info.onLifeZero(function () {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(Math.round(distance))
+    game.over(false)
+})
+```
+
+	
 
 
 
