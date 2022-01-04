@@ -489,11 +489,154 @@ let PurpleGateTimer = 5000
 })
 ```
 # Creating a Win Condition
-
+	### Add another forever loop to your workspace.
+	```blocks
+	forever(function () {
 	
+})
+```
+	### Add an if then loop to the forever loop you just placed.
+	```blocks
+	forever(function () {
+    if (true) {
+    	
+    }
+})
+```
+### Add a comparison diamond to the if then loop. Change the symbol from less than < to great than or equal >=.
+```blocks
+forever(function () {
+    if (0 >= 0) {
+    	
+    }
+})
+```
 
+	### Add a distance varaiable circle to the first value in the comparison. Set the second value to a high number such as 500. 
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+    	
+    }
+})
+```
+## Adding the the checkered gate. 
+	### Add a set mySprite2 to sprite [] of kind Player.
+	### Rename mySprite2 to CheckGate.
+	### Change the kind from Player to a new kind called CGate. 
+	```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
+	
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(img` `, SpriteKind.CGate)
+    }
+})
 
-
+```
+	### Click on the grey box and select the checkered gate from the my Assets section.
+	
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+    }
+})
+```
+	### Create a new variable called CGateTimer in our on start loop.
+	### Set the value to 7000
+	```blocks
+	let CheckGate: Sprite = null
+let PurpleGate: Sprite = null
+let Rocks: Sprite = null
+let distance = 0
+scene.setBackgroundColor(1)
+let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+mySprite.setStayInScreen(true)
+mySprite.setPosition(80, 11)
+distance = 0
+let SkierSpeed = -20
+let RockSpawnTime = 2000
+let PurpleGateTimer = 5000
+let CGateTimer = 7000
+```
+	###Copy the set position block from the Purple gate forever loop and place it in the if then statement for the CheckGate loop.
+	### Change PurpleGate to CheckGate. 
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    }
+})
+```
+	### Copy the set PurpleGate vx and vy block from the Purple Gate forever loop and add it to the ChcekGate Loop.
+	### Change PurpleGate to CheckGate. 
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+        CheckGate.setVelocity(0, SkierSpeed)
+    }
+})
+```
+	### Add a pause block within the forever loop, but outside the if then statement.
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+        CheckGate.setVelocity(0, SkierSpeed)
+    }
+    pause(100)
+})
+	```
+	### Add a CheckGateTimer varaiable circle to the value space in the pause block. 
+	```blocks
+	forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+        CheckGate.setVelocity(0, SkierSpeed)
+    }
+    pause(CGateTimer)
+})
+```
+	### Add an overlap container and adjust the kinds so it reads when sprite of kind Player overlaps otherSprite kind of CGate. 
+	```blocks
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+	
+})
+```
+	### Copy the long text block from the on life zero container and add it to the overlap code we just added.
+	```blocks 
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+})
+``` 
+	### Copy the change score by round distance block from the on life zero container and add it to the overlap container. 
+	```blocks
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(Math.round(distance))
+})
+```
+	### Add a game over block from the ``||game:game||`` catagory to the overlap code.
+	### Change the value from lose to win. 
+	### Feel free to add an effect. 
+	```blocks
+	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(Math.round(distance))
+    game.over(true)
+})
+```
 
 
 
