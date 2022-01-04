@@ -488,6 +488,7 @@ let PurpleGateTimer = 5000
     game.over(false)
 })
 ```
+# Creating a Win Condition
 
 	
 
