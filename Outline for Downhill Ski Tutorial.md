@@ -638,24 +638,78 @@ let CGateTimer = 7000
 })
 ```
 
+## Final Code
 
-
-
-
-
-
-	Establish obstacles
-		Rocks
-		Trees
-	Establish obstacles overlap
-	Game Over on Crash? 
-On Zero Life
-	
-	Adjust Speed Value
-	Set scoring system 
-	
-7. Create Gates 
-
-8.        Create Key Variables
-	RockSpeed should be a managable integer.
-	RockSpawnTime should be a value in miliseconds. 
+```blocks
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.coolRadial, 200)
+    SkierSpeed += -5
+    info.changeScoreBy(3)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.blizzard, 100)
+    info.changeLifeBy(-1)
+})
+sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
+    info.changeScoreBy(1)
+})
+info.onLifeZero(function () {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(Math.round(distance))
+    game.over(false)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    info.changeScoreBy(Math.round(distance))
+    game.over(true)
+})
+let CheckGate: Sprite = null
+let PurpleGate: Sprite = null
+let Rocks: Sprite = null
+let distance = 0
+scene.setBackgroundColor(1)
+let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+mySprite.setStayInScreen(true)
+mySprite.setPosition(80, 11)
+distance = 0
+let SkierSpeed = -20
+let RockSpawnTime = 2000
+let PurpleGateTimer = 5000
+let CGateTimer = 7000
+forever(function () {
+    pause(100)
+    distance += SkierSpeed * -0.05
+})
+forever(function () {
+    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    Rocks.setVelocity(0, SkierSpeed)
+    Rocks.setFlag(SpriteFlag.AutoDestroy, true)
+    pause(RockSpawnTime)
+})
+forever(function () {
+    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+    PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    PurpleGate.setVelocity(0, SkierSpeed)
+    pause(PurpleGateTimer)
+})
+forever(function () {
+    if (distance >= 500) {
+        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+        CheckGate.setVelocity(0, SkierSpeed)
+    }
+    pause(CGateTimer)
+})
+game.onUpdateInterval(3000, function () {
+    SkierSpeed += -5
+    SkierSpeed = Math.max(SkierSpeed, -100)
+    RockSpawnTime += -200
+    RockSpawnTime = Math.max(RockSpawnTime, 500)
+})
