@@ -377,12 +377,62 @@ let PurpleGate: Sprite = null
 		Create new variable
 		Call it distance
 		Set it to 0 
+	```blocks
+	scene.setBackgroundColor(1)
+let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+mySprite.setStayInScreen(true)
+mySprite.setPosition(80, 11)
+let distance = 0
+let SkierSpeed = -20
+let RockSpawnTime = 2000
+let PurpleGateTimer = 5000
+```
+	
+	
 	### Adjusting distance
 	 Add another forever loop into the workspace
+	 ```blocks
+	 forever(function () {
+	
+})
+```
 	 Grab a pause block from the loop category
-	 Leave the pause value as 100ms because we want to update the distance often. 
+	 Leave the pause value as 100ms because we want to update the distance often.
+	 ```blocks
+	 forever(function () {
+    pause(100)
+})
+```
 	 Grab a change variabale block and place it under the pause block.
+	 ```blocks
+	 forever(function () {
+    pause(100)
+    distance += 1
+})
+```
 	 Place a multiplication cirlce in the varaiable's value space. 
+	 ```blocks
+	 forever(function () {
+    pause(100)
+    distance += 0 * 0
+})
+```
+	Grab the SkierSpeed variable circle and place it in one of the spaces for the multiplication circle.
+	```blocks
+	forever(function () {
+    pause(100)
+    distance += SkierSpeed * 0
+})
+```
+	Set the other value to -0.05
+	```blocks
+	forever(function () {
+    pause(100)
+    distance += SkierSpeed * -0.05
+})
+```
+
 		
 
 
