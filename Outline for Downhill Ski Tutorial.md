@@ -1,6 +1,15 @@
-1. Set up your background to white for your snow
+#Downhill Ski Game Jam 
+## Set up your background to white for your snow
+### Add a set background block from the ``||scene:scene||`` section to your ``||loops:on start||`` container
+	```blocks
 	scene.setBackgroundColor(1)
-2. Set your skier sprite
+	```
+
+
+##Setting your Skier Sprite
+### Next we are going to add our ``||sprites:Set mySprite to 
+
+Set your skier sprite
 	scene.setBackgroundColor(1)
 	let mySprite = sprites.create(assets.image`Skier`,SpriteKind.Player)
 
@@ -358,6 +367,32 @@ let PurpleGate: Sprite = null
     SkierSpeed += -5
     info.changeScoreBy(3)
 })
+
+
+
+
+
+# Adding Distance values
+	### Set your varaible in the on start container
+		Create new variable
+		Call it distance
+		Set it to 0 
+	### Adjusting distance
+	 Add another forever loop into the workspace
+	 Grab a pause block from the loop category
+	 Leave the pause value as 100ms because we want to update the distance often. 
+	 Grab a change variabale block and place it under the pause block.
+	 Place a multiplication cirlce in the varaiable's value space. 
+		
+
+
+
+
+
+
+
+
+
 
 	Establish obstacles
 		Rocks
