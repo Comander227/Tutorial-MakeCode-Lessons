@@ -1,35 +1,68 @@
 #Downhill Ski Game Jam 
-## Set up your background to white for your snow
-### Add a set background block from the ``||scene:scene||`` section to your ``||loops:on start||`` container
+
+## Setting your background
+### Set up your background to white for your snow
+Add a set background block from the ``||scene:scene||`` section to your ``||loops:on start||`` container
+	
 	```blocks
 	scene.setBackgroundColor(1)
 	```
 
 
-##Setting your Skier Sprite
-### Next we are going to add our ``||sprites:Set mySprite to 
+## Creating your Skier Sprite
+### Setting the Player Sprite
 
-Set your skier sprite
+Next we are going to add our ``||sprites:Set mySprite to sprite [] of kind Player||`` to our ``||loops:on start||`` contianer. 
+	
+	```blocks
+		scene.setBackgroundColor(1); 
+		let mySprite = sprites.create(img``,SpriteKind.Player)
+	```
+
+### Adding the Skier asset. 
+Click on the grey box in the ``||sprites:set mySprite to [] of kind player||`` block. 
+Next select the My Assets tab and click on the Skier Asset. 
+Then click done. 
+
+```blocks
 	scene.setBackgroundColor(1)
 	let mySprite = sprites.create(assets.image`Skier`,SpriteKind.Player)
+```
 
-3. Make your character move
+### Moving our Skier
+Now we are going to add our ``||controller:move mySprite with buttons||`` block to our ``||loops:on start||`` container. 
+
+```blocks
 	scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
+```
+### Keeping our Skier on screen 
+Add a ``||sprites:set mySprite stay in screen||`` block from the ``||sprites:sprites||`` category to our ``||loops:on start||`` container. 
 
-4. Set your skier to stay on screen
+```blocks
 scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
+```
 
-5. Set the position of the skier
+### Setting the Skier's position
+Add a ``||sprites: set mySprite position to x() y()||`` from the ``||sprites:sprites||`` category to our ``||loops:on start||`` container. 
+
+```blocks
 scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
+```
+
+
+
+## Creating our Rock Obstacle
+
+### 
 
 6.Create Obstcales
 -Creating the Rock
