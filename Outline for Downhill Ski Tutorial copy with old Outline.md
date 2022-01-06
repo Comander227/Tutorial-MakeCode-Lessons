@@ -86,12 +86,30 @@ let Rocks: Sprite = null
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
 })
 ```
-## Positioning the Rocks
 
-- :paper plane: Grab a ``||sprites:set mySprite position to x() y()||`` and place it in the ``||game:on game update every 500ms||`` container. 
-- :mouse pointer: Change **mySprite** to **Rocks**
 
-```blocks
+
+
+
+6.Create Obstcales
+-Creating the Rock
+	-Grab an on game update every 500 ms container
+		game.onUpdateInterval(500, function () {
+	
+})
+	-Add a set mySprite block. Rename the sprite to Rock. Create a new SpriteKind called Rocks. 
+	let Rocks: Sprite = null
+	game.onUpdateInterval(500, function () {
+     Rocks = sprites.create(img``, SpriteKind.Rock)
+})
+	-assign the rock asset to the rock sprite we just created. 
+	let Rocks: Sprite = null
+	game.onUpdateInterval(500, function () {
+    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+})
+	-Grab a set position block and place it in the container. 
+	-Change mySprite to Rocks
+	
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
@@ -100,8 +118,6 @@ let Rocks: Sprite = null
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(0, 0)
 })
-```
-
 
 	-Grab a screen hight circle and place that in the y value. 
 	game.onUpdateInterval(500, function () {
