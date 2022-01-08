@@ -274,6 +274,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 ```
 
+## Step 15.1: Game Over on Life Zero
+- :id card: Add an ``||info:on life zero||`` container to your workspace from the ``||info:info||`` category. 
+- :circle: Add a ``||game:game over||`` block to the ``||info:on life zero||`` container. 
+- :mouse pointer: Set the value to Lose and feel free to add an effect by clicking the + button.
+
+```blocks
+info.onLifeZero(function () {
+    game.over(false)
+})
+```   
+
 ## Step 16: Destroying Our Enemy
 Add another ``||sprites:on Overlap||`` container. 
 Change the first Sprite Kind from **Player** to **Projectile**.
