@@ -124,7 +124,7 @@ let Rocks: Sprite = null
 })
 ```
 
-## Setting the Rock's Velocity.
+## Setting the Rock's Velocity
 - :paper plane: Grab a ``||sprites:set mySprite vx() vy()||`` block from the ``||sprites:sprites||`` category and add it to the ``||game:on game update every 500ms||`` container. 
 - :mouse pointer: Change **mySprite** to **Rocks**.
 - :mouse pointer: set the **vx** value to **0**
@@ -137,16 +137,22 @@ let Rocks: Sprite = null
     Rocks.setVelocity(0, -50)
 })
 ```
+## Destroying our Rocks when off screen
 
-	-Grab the set mySprite auto destory block and place it in the on game update every 500 ms container. 
-	-Change mySpite to Rocks.
-	-Set the value to true.
+- :paper plane: Grab a ``||sprites:set mySprite auto destory||`` block from the ``||sprites:sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
+- :mouse pointer: Change **mySprite** to **Rocks**.
+- :mouse pointer: Set the value to **true**
+
+```blocks
 game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
     mySprite.setFlag(SpriteFlag.AutoDestroy, true)
 })
+```
+
+
 
 	-Lets adjust the speed of this using a variable that we can manipulate.
 	-Lets create a new variable to use as our speed. 
