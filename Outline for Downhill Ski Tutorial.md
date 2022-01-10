@@ -22,8 +22,8 @@
 ## Giving our Skier an image
 ### Adding the Skier asset 
 - :paint brush: Click on the grey box in the ``||sprites:set mySprite to [] of kind Player||`` block. 
-Next select the My Assets tab and click on the Skier Asset. 
-Then click done. 
+- :mouse pointer: Next select the My Assets tab and click on the Skier Asset. 
+- :mouse pointer: Then click done. 
 
 ```blocks
 	scene.setBackgroundColor(1)
@@ -127,8 +127,8 @@ let Rocks: Sprite = null
 ## Setting the Rock's Velocity
 - :paper plane: Grab a ``||sprites:set mySprite vx() vy()||`` block from the ``||sprites:sprites||`` category and add it to the ``||game:on game update every 500ms||`` container. 
 - :mouse pointer: Change **mySprite** to **Rocks**.
-- :mouse pointer: set the **vx** value to **0**
-- :mouse pointer: set **vy** to **-50**  
+- :mouse pointer: Set the **vx** value to **0**
+- :mouse pointer: Set **vy** to **-50**  
 
 ```blocks 
 	game.onUpdateInterval(500, function () {
@@ -152,13 +152,16 @@ game.onUpdateInterval(500, function () {
 })
 ```
 
+## Creating a Skier Speed Variable
+Lets adjust the speed of this using a variable that we can manipulate. 
 
+- :align justify: Click on the ``||variables:variables||`` catagory. 
+- :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
+- :mouse pointer: Name the new variable **SkierSpeed**.
+- :align justify: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
+- :mouse pointer: Set the value to **-20**.
 
-	-Lets adjust the speed of this using a variable that we can manipulate.
-	-Lets create a new variable to use as our speed. 
-	-In the variable section click on the button that says "make a variable"
-	-Name the new variable SkierSpeed.
-	-Set the value to -20
+```blocks
 	scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
@@ -166,8 +169,19 @@ mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
 let SkierSpeed = -20
 
-	-Create another variable and name it RockSpawnTimer
-	-set the value to 2000
+```
+
+## Creating A Spawn Timer for the Rocks
+
+We are going to create a second variable and use it as a spawn timer for our obstacles. 
+
+- :align justify: Click on the ``||variables:variables||`` catagory. 
+- :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
+- :mouse pointer: Name the new variable **RockSpawnTimer**.
+- :align justify: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
+- :mouse pointer: Set the value to **2000**.
+
+```blocks
 	scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
@@ -175,41 +189,62 @@ mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
 let SkierSpeed = -20
 let RockSpawnTime = 2000
+```
 
+## Adjusting our Rocks Spawn Code
+To make this function work we need to change the way the spawn code for the rock works.
 
-	-To make this function work we need to change the way the spawn code for the rock works.
-	-Replace the on game update every 500ms seconds with a forever loop from the loops section.
+- :redo: Replace the ``||game:on game update every 500ms seconds||`` with a ``||loops: forever loop||`` from the ``||loops:loops||`` section.
+
+```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
+
 	forever(function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
-    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
-	-Add a pause block from the loops section to the bottom of the forever loop. 
-	forever(function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
-    Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
-    Rocks.setVelocity(0, -50)
-    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
-    pause(100)
-})
+```
 
-	-Set the pause value to the RockSpawnTimer variable circle.
+## Using the RockSpawn Time Variable
+
+- :redo: Add a ``||loops: pause||`` block from the``||loops:loops||``category to the bottom of the ``||loops: forever loop||``.
+- :align justify: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` catagory to the ``||loops:pause||`` block.
+
+```blocks 
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
+
 	forever(function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
     mySprite.setFlag(SpriteFlag.AutoDestroy, true)
     pause(RockSpawnTime)
 })
-	-Add the Skier Speed to the vy value of the Rocks sprite. 
+```
+## Adding the Skier's Speed to the Rock 
+- :align justify: Add a ``||variables:SkierSpeed||`` value cirlce to the **vy** value of our Rock. 
+
+```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	forever(function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, SkierSpeed)
     mySprite.setFlag(SpriteFlag.AutoDestroy, true)
     pause(RockSpawnTime)
 })
+```
+
+
+
 
 	-lets adjust the speed values so they change over time. 
 	-Grab a new on game update every 500 ms container. 
@@ -434,16 +469,18 @@ let PurpleGate: Sprite = null
 		Create new variable
 		Call it distance
 		Set it to 0 
+	
+	
 	```blocks
 	scene.setBackgroundColor(1)
-let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setStayInScreen(true)
-mySprite.setPosition(80, 11)
-let distance = 0
-let SkierSpeed = -20
-let RockSpawnTime = 2000
-let PurpleGateTimer = 5000
+	let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
+	controller.moveSprite(mySprite)
+	mySprite.setStayInScreen(true)
+	mySprite.setPosition(80, 11)
+	let distance = 0
+	let SkierSpeed = -20
+	let RockSpawnTime = 2000
+	let PurpleGateTimer = 5000
 ```
 	
 	
@@ -694,8 +731,10 @@ let CGateTimer = 7000
     game.over(true)
 })
 ```
+```
 
 ## Final Code
+This is the final code for the game
 
 ```blocks
 namespace SpriteKind {
