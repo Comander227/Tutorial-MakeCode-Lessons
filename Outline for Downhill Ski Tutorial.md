@@ -155,10 +155,10 @@ game.onUpdateInterval(500, function () {
 ## Creating a Skier Speed Variable
 Lets adjust the speed of this using a variable that we can manipulate. 
 
-- :align justify: Click on the ``||variables:variables||`` catagory. 
+- :bars: Click on the ``||variables:variables||`` catagory. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
 - :mouse pointer: Name the new variable **SkierSpeed**.
-- :align justify: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
+- :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **-20**.
 
 ```blocks
@@ -175,10 +175,10 @@ let SkierSpeed = -20
 
 We are going to create a second variable and use it as a spawn timer for our obstacles. 
 
-- :align justify: Click on the ``||variables:variables||`` catagory. 
+- :bars: Click on the ``||variables:variables||`` catagory. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
 - :mouse pointer: Name the new variable **RockSpawnTimer**.
-- :align justify: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
+- :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **2000**.
 
 ```blocks
@@ -212,7 +212,7 @@ To make this function work we need to change the way the spawn code for the rock
 ## Using the RockSpawn Time Variable
 
 - :redo: Add a ``||loops: pause||`` block from the``||loops:loops||``category to the bottom of the ``||loops: forever loop||``.
-- :align justify: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` catagory to the ``||loops:pause||`` block.
+- :bars: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` catagory to the ``||loops:pause||`` block.
 
 ```blocks 
 	namespace SpriteKind {
@@ -228,7 +228,7 @@ To make this function work we need to change the way the spawn code for the rock
 })
 ```
 ## Adding the Skier's Speed to the Rock 
-- :align justify: Add a ``||variables:SkierSpeed||`` value cirlce to the **vy** value of our Rock. 
+- :bars: Add a ``||variables:SkierSpeed||`` value cirlce to the **vy** value of our Rock. 
 
 ```blocks
 	namespace SpriteKind {
@@ -243,40 +243,41 @@ To make this function work we need to change the way the spawn code for the rock
 })
 ```
 
+## Adjusting The Speed as the Game is Played
+The skier's speed should increase as you play the game. Let's set up a container to take care of that process. 
 
-
-
-	-lets adjust the speed values so they change over time. 
-	-Grab a new on game update every 500 ms container. 
-	-Change the value to 3000
+- :circle: Add a new ``||game: on game update every 500ms||`` container. 
+- :mouse pointer: Change the value to **3000**.
+ 
+```blocks
 	game.onUpdateInterval(3000, function () {
 	
 })
+```
 
-	-Add a change SkierSpeed block from the variables group to the on game update every 3000ms contianer. 
-	-Set the value to -5. 
+## Modifying the Skier Speed Value
+- :bars: Add a ``||variables: change SkierSpeed by 0||`` block to the ``||game:on game update every 3000ms||`` contianer. 
+- :mouse pointer: set the value to **-5**.
+
+```blocks
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
 })
+```
 
-	-We need to set a top speed for the skier.
-	-Grab another set SkierSpeed block and place it under the change SkierSpeed Block.
-	game.onUpdateInterval(3000, function () {
-    SkierSpeed += -5
-    SkierSpeed = 0
-})
+## Clamping the Skier's Speed value
+- :bars: Add a ``||variables:set SkierSpeed to 0||`` block under the ``||variables:change SkierSpeed by -5||``
+- :calculator: Add a ``||math:max of 0 and 0||`` circle to the ``||variables:set SkierSpeed to 0||`` value space. 
+- :bars: Add a ``||variables:SkierSpeed||`` circle to the first value space in the ``||math:max of 0 and 0||``.
+- :mouse pointer: Change the second value in the ``||math:max of||`` ``||variables:SkierSpeed||`` ``||math: and 0||`` to **-100**.
 
-	-Add a grab max of 0 and 0 cirlce from the Math group.
-	game.onUpdateInterval(3000, function () {
-    SkierSpeed += -5
-    SkierSpeed = Math.max(0, 0)
-})
-	-Add a SkierSpeed varaible circle to the first max value space. 
-	-Set the second value to be a desired skier speed max value. Rememeber it needs to be negative. -100 works. 
+```blocks
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
     SkierSpeed = Math.max(SkierSpeed, -100)
 })
+
+```
 
 	-The same concept can be used to adjust the RockSpawnTime speed. 
 	-Grab a change RockSpawnTime block and place it under the set SkierSpeed block. 
