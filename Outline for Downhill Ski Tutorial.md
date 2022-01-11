@@ -12,7 +12,7 @@
 ## Creating your Skier Sprite
 ### Setting the Player Sprite
 
-- :paper plane: Next we are going to add our ``||sprites:set mySprite to sprite [] of kind Player||`` to our ``||loops:on start||`` contianer. 
+- :paper plane: Next we are going to add our ``||sprites:set mySprite to sprite [] of kind Player||`` to our ``||loops:on start||`` container. 
 	
 	```blocks
 		scene.setBackgroundColor(1); 
@@ -31,7 +31,7 @@
 ```
 
 ## Moving our Skier
-### Asignning controllers to our sprite 
+### Assigning controllers to our sprite 
 - :game: Now we are going to add our ``||controller:move mySprite with buttons||`` block to our ``||loops:on start||`` container. 
 
 ```blocks
@@ -66,7 +66,7 @@ mySprite.setPosition(80, 11)
 
 ## Creating our Rock Obstacle
 ### Setting up the container
-- :cirlce: Grab an ``||game:on game update every 500 ms||`` container from the ``||game:game||`` category. 
+- :circle: Grab an ``||game:on game update every 500 ms||`` container from the ``||game:game||`` category. 
 
 ```blocks
 game.onUpdateInterval(500, function () {
@@ -81,6 +81,10 @@ game.onUpdateInterval(500, function () {
 - :mouse pointer: Change the sprite kind from **Player** to a new kind called **Rock**
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
+
 let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
@@ -114,12 +118,15 @@ let Rocks: Sprite = null
 ```
 ## Randomizing the Rock's X Position
 
-- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:math||`` catagory to the **x** value of ``||sprites: set Rock position x() y||````||scene:screen height||``.
+- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:math||`` category to the **x** value of ``||sprites: set Rock position x() y||````||scene:screen height||``.
 - :tree: Add a ``||scene:screen width||`` circle from the ``||scene:scene||`` category to the **max** value of the ``||math:pick random (0) to (0)||``.
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	game.onUpdateInterval(500, function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+   let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
 })
 ```
@@ -131,31 +138,37 @@ let Rocks: Sprite = null
 - :mouse pointer: Set **vy** to **-50**  
 
 ```blocks 
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	game.onUpdateInterval(500, function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    lets Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
 })
 ```
 ## Destroying our Rocks when off screen
 
-- :paper plane: Grab a ``||sprites:set mySprite auto destory||`` block from the ``||sprites:sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
+- :paper plane: Grab a ``||sprites:set mySprite auto destroy||`` block from the ``||sprites:sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
 - :mouse pointer: Change **mySprite** to **Rocks**.
 - :mouse pointer: Set the value to **true**
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
-    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
 ```
 
 ## Creating a Skier Speed Variable
-Lets adjust the speed of this using a variable that we can manipulate. 
+Let's adjust the speed of this using a variable that we can manipulate. 
 
-- :bars: Click on the ``||variables:variables||`` catagory. 
+- :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
 - :mouse pointer: Name the new variable **SkierSpeed**.
 - :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
@@ -175,7 +188,7 @@ let SkierSpeed = -20
 
 We are going to create a second variable and use it as a spawn timer for our obstacles. 
 
-- :bars: Click on the ``||variables:variables||`` catagory. 
+- :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
 - :mouse pointer: Name the new variable **RockSpawnTimer**.
 - :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
@@ -212,7 +225,7 @@ To make this function work we need to change the way the spawn code for the rock
 ## Using the RockSpawn Time Variable
 
 - :redo: Add a ``||loops: pause||`` block from the``||loops:loops||``category to the bottom of the ``||loops: forever loop||``.
-- :bars: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` catagory to the ``||loops:pause||`` block.
+- :bars: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` category to the ``||loops:pause||`` block.
 
 ```blocks 
 	namespace SpriteKind {
@@ -223,12 +236,12 @@ To make this function work we need to change the way the spawn code for the rock
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
-    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    Rocks.setFlag(SpriteFlag.AutoDestroy, true)
     pause(RockSpawnTime)
 })
 ```
 ## Adding the Skier's Speed to the Rock 
-- :bars: Add a ``||variables:SkierSpeed||`` value cirlce to the **vy** value of our Rock. 
+- :bars: Add a ``||variables:SkierSpeed||`` value circle to the **vy** value of our Rock. 
 
 ```blocks
 	namespace SpriteKind {
@@ -256,7 +269,7 @@ The skier's speed should increase as you play the game. Let's set up a container
 ```
 
 ## Modifying the Skier Speed Value
-- :bars: Add a ``||variables: change SkierSpeed by 0||`` block to the ``||game:on game update every 3000ms||`` contianer. 
+- :bars: Add a ``||variables: change SkierSpeed by 0||`` block to the ``||game:on game update every 3000ms||`` container. 
 - :mouse pointer: set the value to **-5**.
 
 ```blocks
@@ -294,8 +307,8 @@ The same concept can be used to adjust the RockSpawnTime speed.
 })
 ```
 ## Clamping the Rock Spawn Timer
-- :bars: Grab a ``||variables:set RockSpawnTime to 0||`` block from the ``||variables:variables||`` catagory and place it under the ``||variables:change RockSpawnTime by -200||``. 
-- :calculator: Add a ``||math:max value of 0 and 0||`` circle from the ``||math:math||`` catagory to the value space in the ``||variables:set RockSpawnTime||`` block. 
+- :bars: Grab a ``||variables:set RockSpawnTime to 0||`` block from the ``||variables:variables||`` category and place it under the ``||variables:change RockSpawnTime by -200||``. 
+- :calculator: Add a ``||math:max value of 0 and 0||`` circle from the ``||math:math||`` category to the value space in the ``||variables:set RockSpawnTime||`` block. 
 - :bars: Add a ``||variables:RockSpawnTime||`` circle to the first value in the ``||math:max value of 0 and 0||`` circle. 
 - :mouse pointer: Change the second value from **0** to **500**.	
 
@@ -308,28 +321,41 @@ The same concept can be used to adjust the RockSpawnTime speed.
 })
 ```
 
-	-Now that we have set up the timers, lets set up the overlap code. 
-	-Grab an on spirte of Player kind overlaps otherSprite of Player kind container and place it in the workspace. 
-	-Change the otherSprite kind from Player to Rock.
+## Setting up the Collision Code
+MakeCode Arcade uses overlap containers to determine when object collide. 
+
+- :paper plane: Grab an ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container and place it into the workspace.
+- :mouse pointer: Change the otherSprite kind from **Player** to **Rock**.
+
+```blocks
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
 	
 })
+```
+## When Our Skier Crashes into a Rock
+If our skier crashes into a rock, we want them to lose a life and destroy the rock. Let do that in steps. 
 
-	-If our skier crashes into a rock, we want them to lose a life and destory the rock. Let do that in steps. 
-	-First lets destory the rock if it runs into our player. 
-	-Add  destory block to the overlap code. 
-	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
-    mySprite.destroy()
-})
-	-Next we need to use the local otherSprite variable from our overlap container to make sure that we destory the correct rock. 
-	**insert GIF here**
-	-Feel free to change the destory effect if you want. 
+First let's destroy the rock if it runs into our player.
+
+- :paper plane: Grab a ``||sprites:destroy mySprite||``block from the ``||sprites:Sprites||`` category and place it in the ``||sprites: on sprite of kind Player overlaps otherSprite of kind Rock||``. 
+- :mouse pointer: Take the local variable of ``||variables:otherSprite||`` and replace the ``||variables:mySprite||`` circle in the ``||sprites:destroy||`` block. 
+- :mouse pointer: Click on the **+** to add an effect to your ``||sprites:destroy||`` block.   
+ 
+	![Grab the sprite value from the title bar of the outer container](/static/skillmap/assets/sprite-from-container.gif "This is how your block knows which sprite to use")
+
+```blocks 
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
     otherSprite.destroy(effects.blizzard, 100)
 })
+```
+
+
 	-Next lets take a life from our player. 
 	-Add a change player life by -1 block from the info section into our overlap container. 
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
@@ -348,12 +374,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSpr
 	
 
 	-Lets have our player score some points. 
-	-Grab the on destory sprite of kind container from the sprites category. 
+	-Grab the on destroy sprite of kind container from the sprites category. 
 	-Change the kind from Player to Rocks.
 	sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
 	
 })
-	-Add a change score by 1 block from the info category to the on destory sprite of Rock kind container. 
+	-Add a change score by 1 block from the info category to the on destroy sprite of Rock kind container. 
 	sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
     info.changeScoreBy(1)
 })
@@ -380,7 +406,7 @@ let PurpleGateTimer = 5000
 	forever(function () {
     pause(100)
 })
-	-Add the PurpleGateTimer variable circle from the varaiables category to the value in the pause block. 
+	-Add the PurpleGateTimer variable circle from the variables category to the value in the pause block. 
 	forever(function () {
     pause(PurpleGateTimer)
 })
@@ -435,12 +461,12 @@ let PurpleGate: Sprite = null
 })
 	-Next grab the local otherSprite variable from the overlap container and replace the mySprite circle.
 	**Grab the Gif**
-	-Feel free to add an effect on the destory code.
+	-Feel free to add an effect on the destroy code.
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
 })
 
-	-Now we want to add some additonal effects. 
+	-Now we want to add some additional effects. 
 	-How about making our Skier faster.
 	-Add a change SkierSpeed block to the overlap code.
 	-Change the value to -5. 
@@ -448,7 +474,7 @@ let PurpleGate: Sprite = null
     otherSprite.destroy(effects.coolRadial, 200)
     SkierSpeed += -5
 })
-	-Next lets give our player additonal points for hitting the gates. 
+	-Next let's give our player additional points for hitting the gates. 
 	-Add a change score by 1 block to the overlap code.
 	-Change the value from 1 to 3.
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
@@ -462,7 +488,7 @@ let PurpleGate: Sprite = null
 
 
 # Adding Distance values
-	### Set your varaible in the on start container
+	### Set your variable in the on start container
 		Create new variable
 		Call it distance
 		Set it to 0 
@@ -495,14 +521,14 @@ let PurpleGate: Sprite = null
     pause(100)
 })
 ```
-	 Grab a change variabale block and place it under the pause block.
+	 Grab a change variable block and place it under the pause block.
 	 ```blocks
 	 forever(function () {
     pause(100)
     distance += 1
 })
 ```
-	 Place a multiplication cirlce in the varaiable's value space. 
+	 Place a multiplication circle in the variables value space. 
 	 ```blocks
 	 forever(function () {
     pause(100)
@@ -525,7 +551,7 @@ let PurpleGate: Sprite = null
 ```
 ## Showing the distance value
 
-	Add a show long text block from the ``||game:game||`` category to your on life zero continer. Be sure to add it above the game over block. 
+	Add a show long text block from the ``||game:game||`` category to your on life zero container. Be sure to add it above the game over block. 
 	Set the text to appear in the center of the screen.
 	```blocks
 	info.onLifeZero(function () {
@@ -533,7 +559,7 @@ let PurpleGate: Sprite = null
     game.over(false)
 })
 ```
-	Add a join text circle from the ``||text:text||`` catagory under the advanced section. 
+	Add a join text circle from the ``||text:text||`` category under the advanced section. 
 	Add a third value space by clicking the plus button on the variable circle. 
 	```blocks
 	info.onLifeZero(function () {
@@ -541,14 +567,14 @@ let PurpleGate: Sprite = null
     game.over(false)
 })
 ```
-	Place a round circle from the ``||math:math||`` catagory into the middle value space.
+	Place a round circle from the ``||math:math||`` category into the middle value space.
 	```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + Math.round(0) + "", DialogLayout.Center)
     game.over(false)
 })
 ```
-	Add the distance variable cirlce to the value space in the round cirlce. 
+	Add the distance variable circle to the value space in the round circle. 
 	```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + Math.round(distance) + "", DialogLayout.Center)
@@ -563,7 +589,7 @@ let PurpleGate: Sprite = null
 })
 ```
 
-	Add a change score by block from the ``||info:info||`` catagory. 
+	Add a change score by block from the ``||info:info||`` category. 
 	```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
@@ -603,7 +629,7 @@ forever(function () {
 })
 ```
 
-	### Add a distance varaiable circle to the first value in the comparison. Set the second value to a high number such as 500. 
+	### Add a distance variable circle to the first value in the comparison. Set the second value to a high number such as 500. 
 	```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -614,7 +640,7 @@ forever(function () {
 ## Adding the the checkered gate. 
 	### Add a set mySprite2 to sprite [] of kind Player.
 	### Rename mySprite2 to CheckGate.
-	### Change the kind from Player to a new kind called CGate. 
+	### Change the kind from Player to a new kind called Gate. 
 	```blocks
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
@@ -688,7 +714,7 @@ let CGateTimer = 7000
     pause(100)
 })
 	```
-	### Add a CheckGateTimer varaiable circle to the value space in the pause block. 
+	### Add a CheckGateTimer variable circle to the value space in the pause block. 
 	```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -718,7 +744,7 @@ let CGateTimer = 7000
     info.changeScoreBy(Math.round(distance))
 })
 ```
-	### Add a game over block from the ``||game:game||`` catagory to the overlap code.
+	### Add a game over block from the ``||game:game||`` category to the overlap code.
 	### Change the value from lose to win. 
 	### Feel free to add an effect. 
 	```blocks
