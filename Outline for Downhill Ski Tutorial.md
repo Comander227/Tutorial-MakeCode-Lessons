@@ -279,38 +279,34 @@ The skier's speed should increase as you play the game. Let's set up a container
 
 ```
 
-	-The same concept can be used to adjust the RockSpawnTime speed. 
-	-Grab a change RockSpawnTime block and place it under the set SkierSpeed block. 
-	-Set the value to -200
-	game.onUpdateInterval(3000, function () {
-    SkierSpeed += -5
-    SkierSpeed = Math.max(SkierSpeed, -100)
-    RockSpawnTime += -200
-})
-	-Grab another set RockSpawnTime block.
-	game.onUpdateInterval(3000, function () {
-    SkierSpeed += -5
-    SkierSpeed = Math.max(SkierSpeed, -100)
-    RockSpawnTime += -200
-    RockSpawnTime = 0
-})
+## Modifying the Rock's Spawn Timer
+The same concept can be used to adjust the RockSpawnTime speed. 
 
-	- Grab another max of 0 and 0 cirlce and place it in the set RockSpawnTime vlaue space.
+- :bars: Add another ``||variables:change RockSpawnTime||`` block and place it under the ``||variables:set SkierSpeed||`` block.
+- :mouse pointer: set the value to **-200** 
+
+
+```blocks
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
     SkierSpeed = Math.max(SkierSpeed, -100)
     RockSpawnTime += -200
-    RockSpawnTime = Math.max(0, 0)
 })
-	-Grab a RockSpawnTime cirlce and place it in the first value space. 
-	-change the second value to 500. 
+```
+## Clamping the Rock Spawn Timer
+- :bars: Grab a ``||variables:set RockSpawnTime to 0||`` block from the ``||variables:variables||`` catagory and place it under the ``||variables:change RockSpawnTime by -200||``. 
+- :calculator: Add a ``||math:max value of 0 and 0||`` circle from the ``||math:math||`` catagory to the value space in the ``||variables:set RockSpawnTime||`` block. 
+- :bars: Add a ``||variables:RockSpawnTime||`` circle to the first value in the ``||math:max value of 0 and 0||`` circle. 
+- :mouse pointer: Change the second value from **0** to **500**.	
+
+```blocks
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
     SkierSpeed = Math.max(SkierSpeed, -100)
     RockSpawnTime += -200
     RockSpawnTime = Math.max(RockSpawnTime, 500)
 })
-
+```
 
 	-Now that we have set up the timers, lets set up the overlap code. 
 	-Grab an on spirte of Player kind overlaps otherSprite of Player kind container and place it in the workspace. 
