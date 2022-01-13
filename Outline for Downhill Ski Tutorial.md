@@ -78,7 +78,7 @@ game.onUpdateInterval(500, function () {
 ### Setting the Rock Sprite
 - :paper plane: Add a ``||sprites:set mySprite to sprite [] of kind Player||`` block to the ``||game:update game every 500 ms||`` container. 
 - :paint brush: Click on the grey box to open the sprite editor. Open the **My Assets** tab. Select the **rock** image. 
-- :mouse pointer: Change the sprite kind from **Player** to a new kind called **Rock**
+- :mouse pointer: Change the sprite kind from **Player** and add a new kind called **Rock**
 
 ```blocks
 	namespace SpriteKind {
@@ -427,32 +427,54 @@ First we need to set up a new container.
 	
 })
 ```
-	-Add the set mySprite2 block from the sprites section under the pause block. 
-	-Change mySprite2 to PurpleGate.
-	-Change the kind to PGate. 
+## Adding the Purple Gate Sprite
+Now to assign our Purple Gate Sprite.
+
+
+- :paper plane: Add a ``||sprites:set mySprite2 to sprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category and add it to the ``||loops:forever||`` container. 
+- :mouse pointer: Change **mySprite2** to **PurpleGate**.
+- :mouse pointer: Change the kind from **Player** and add a new option called **PGate**. 
+
+```blocks	
 	namespace SpriteKind {
-    export const Rock = SpriteKind.create()
     export const PGate = SpriteKind.create()
 }
 let PurpleGate: Sprite = null
 	forever(function () {
-    pause(PurpleGateTimer)
     PurpleGate = sprites.create(img``, SpriteKind.PGate)
 })
+```
+## Assigning the Purple Gate Asset
 
-	-Set the asset of the PurpleGate to the Purple Gate Sprite by clicking on the grey box, selecting my assets and choosing the purple gate image. 
+- :mouse pointer: Click on the grey box to open up the editor. Open the My Assets tab. Click on the **Purple Gate** asset. 
+```blocks	
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+let PurpleGate: Sprite = null
 	    forever (function (){
-	    pause(PurpleGateTimer)
 	    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
 })
+```
+## Let's not reinvent the wheel
+We are going to use code that we already wrote to make this process a bit easier. 
 
-	-Duplicate the set Rocks position block from the Rocks forever loop. 
-	-Change Rocks to PurpleGate.
+- :mouse pointer: Duplicate the ``||sprites:set Rocks position||`` block from the Rock Spawn ``||loops:forever loop||``. This can be done by right clicking on the block you would like to copy and then selecting **Duplicate** from the menu. 
+- :mouse pointer: Change **Rocks** to **PurpleGate**.
+
+
+```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+let PurpleGate: Sprite = null
+
 	forever(function () {
     pause(PurpleGateTimer)
        PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
 })
+```
 
 	-Duplicate the set Rocks vx 0 and vy SkierSpeed block from the Rocks forever loop and add it to your new forever loop.
 	-change Rocks to PurpleGate. 
