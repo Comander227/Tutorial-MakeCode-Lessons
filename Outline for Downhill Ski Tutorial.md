@@ -14,10 +14,10 @@
 
 - :paper plane: Next we are going to add our ``||sprites:set mySprite to sprite [] of kind Player||`` to our ``||loops:on start||`` container. 
 	
-	```blocks
+```blocks
 		scene.setBackgroundColor(1); 
 		let mySprite = sprites.create(img``,SpriteKind.Player)
-	```
+```
 
 ## Giving our Skier an image
 ### Adding the Skier asset 
@@ -354,42 +354,60 @@ namespace SpriteKind {
     otherSprite.destroy(effects.blizzard, 100)
 })
 ```
+## Skier Should Lose a Life
+If the skier hits the rock they should lose a life.
 
+- :id card: Grab a ``||info:change life by -1||`` block from the ``||info:info||`` category and place it under the ``||sprites:destroy otherSprite||`` block. 
 
-	-Next lets take a life from our player. 
-	-Add a change player life by -1 block from the info section into our overlap container. 
+```blocks
+
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
     otherSprite.destroy(effects.blizzard, 100)
     info.changeLifeBy(-1)
 })
-	
-	-Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
-	-Add an on life zero container from the info category to the workspace.
-	info.onLifeZero(function () {
-})
-	-Add a game over block from the game category to the on life zero container. 
+```
+## What Happens When We Run Out of Lives?
+Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
+
+- :id card: Add an ``||info:on life zero||`` container from the ``||info:info||`` category to the workspace.
+- :circle: Add a ``||game:game over||`` block to the ``||info:on life zero||`` container. 
+
+```blocks
 	info.onLifeZero(function () {
     game.over(false)
 })
-	
+```
 
-	-Lets have our player score some points. 
-	-Grab the on destroy sprite of kind container from the sprites category. 
-	-Change the kind from Player to Rocks.
-	sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
+## Giving Our Player Some Points
+Let's have our player score some points for every Rock that they avoid. 
 	
-})
-	-Add a change score by 1 block from the info category to the on destroy sprite of Rock kind container. 
+- :paper plane: Grab the ``||sprites:on destroy sprite of kind Player||`` container from the ``||sprites:sprites||`` category and place it in the workspace. 
+- :mouse pointer: Change the kind from **Player** to **Rocks**.
+- :id card: Add a ``||info:change score by 1||`` block to the ``||sprites:on destroy sprite of kind Rock||`` container. 
+	
+```blocks 
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 	sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
     info.changeScoreBy(1)
 })
+```
+## Adding Additional Incentives
+Let's create an additional objective for our player to collect as they play the game. 
 
-	-Now we are going to set up an incentive for our player to pick up. 
-	-Create a new variable by clicking the make a variable button in the variables section.
-	-Name the variable PurpleGateTimer. 
-	-Grab the set PurpleGateTimer block and add it to the on start container. 
-	-Set the value to 5000
-	scene.setBackgroundColor(1)
+
+- :bars: Create a new ``||variables:variable||`` by clicking the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category.
+- :mouse pointer: Name the variable **PurpleGateTimer**. 
+- :bars: Grab a ``||variables:set PurpleGateTimer to 0||`` block from the ``||variables:Variables||`` category and add it to the ``||loops:on start||`` container. 
+- :mouse pointer: Set the value to **5000**
+
+
+```blocks
+scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
@@ -397,19 +415,18 @@ mySprite.setPosition(80, 11)
 let SkierSpeed = -20
 let RockSpawnTime = 2000
 let PurpleGateTimer = 5000
+```
 
-	-Grab another forever loop from the loop category. 
+## Spawning the Purple Gate
+First we need to set up a new container. 
+
+- :redo: Grab a ``||loops:forever||`` container from the ``||loops:loops||`` category. 
+
+```blocks
 	forever(function () {
 	
 })
-	-Add the pause 100 ms block from the loop category to the top of the forever loop you just added. 
-	forever(function () {
-    pause(100)
-})
-	-Add the PurpleGateTimer variable circle from the variables category to the value in the pause block. 
-	forever(function () {
-    pause(PurpleGateTimer)
-})
+```
 	-Add the set mySprite2 block from the sprites section under the pause block. 
 	-Change mySprite2 to PurpleGate.
 	-Change the kind to PGate. 
@@ -444,6 +461,15 @@ let PurpleGate: Sprite = null
     PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     PurpleGate.setVelocity(0, SkierSpeed)
+})
+
+	-Add the pause 100 ms block from the loop category to the top of the forever loop you just added. 
+	forever(function () {
+    pause(100)
+})
+	-Add the PurpleGateTimer variable circle from the variables category to the value in the pause block. 
+	forever(function () {
+    pause(PurpleGateTimer)
 })
 
 
@@ -487,14 +513,14 @@ let PurpleGate: Sprite = null
 
 
 
-# Adding Distance values
-	### Set your variable in the on start container
+## Adding Distance values
+### Set your variable in the on start container
 		Create new variable
 		Call it distance
 		Set it to 0 
 	
 	
-	```blocks
+```blocks
 	scene.setBackgroundColor(1)
 	let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 	controller.moveSprite(mySprite)
@@ -507,9 +533,9 @@ let PurpleGate: Sprite = null
 ```
 	
 	
-	### Adjusting distance
+## Adjusting distance
 	 Add another forever loop into the workspace
-	 ```blocks
+```blocks
 	 forever(function () {
 	
 })
@@ -553,7 +579,7 @@ let PurpleGate: Sprite = null
 
 	Add a show long text block from the ``||game:game||`` category to your on life zero container. Be sure to add it above the game over block. 
 	Set the text to appear in the center of the screen.
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("", DialogLayout.Center)
     game.over(false)
@@ -561,28 +587,28 @@ let PurpleGate: Sprite = null
 ```
 	Add a join text circle from the ``||text:text||`` category under the advanced section. 
 	Add a third value space by clicking the plus button on the variable circle. 
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + "World" + "", DialogLayout.Center)
     game.over(false)
 })
 ```
 	Place a round circle from the ``||math:math||`` category into the middle value space.
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + Math.round(0) + "", DialogLayout.Center)
     game.over(false)
 })
 ```
 	Add the distance variable circle to the value space in the round circle. 
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + Math.round(distance) + "", DialogLayout.Center)
     game.over(false)
 })
 ```
 	Replace the text so it reads ``||text:"you went"||`` ``||math:round||`` ``||variables:distance||`` ``||text:"feet"||``.
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     game.over(false)
@@ -590,15 +616,15 @@ let PurpleGate: Sprite = null
 ```
 
 	Add a change score by block from the ``||info:info||`` category. 
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(1)
     game.over(false)
 })
-	```
+```
 	Duplicate the round distance circle and add it to the score block.
-	```blocks
+```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
@@ -607,7 +633,7 @@ let PurpleGate: Sprite = null
 ```
 # Creating a Win Condition
 	### Add another forever loop to your workspace.
-	```blocks
+```blocks
 	forever(function () {
 	
 })
@@ -629,8 +655,8 @@ forever(function () {
 })
 ```
 
-	### Add a distance variable circle to the first value in the comparison. Set the second value to a high number such as 500. 
-	```blocks
+### Add a distance variable circle to the first value in the comparison. Set the second value to a high number such as 500. 
+```blocks
 	forever(function () {
     if (distance >= 500) {
     	
@@ -638,10 +664,10 @@ forever(function () {
 })
 ```
 ## Adding the the checkered gate. 
-	### Add a set mySprite2 to sprite [] of kind Player.
-	### Rename mySprite2 to CheckGate.
-	### Change the kind from Player to a new kind called Gate. 
-	```blocks
+### Add a set mySprite2 to sprite [] of kind Player.
+### Rename mySprite2 to CheckGate.
+### Change the kind from Player to a new kind called Gate. 
+```blocks
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
     export const PGate = SpriteKind.create()
@@ -655,18 +681,18 @@ forever(function () {
 })
 
 ```
-	### Click on the grey box and select the checkered gate from the my Assets section.
+### Click on the grey box and select the checkered gate from the my Assets section.
 	
-	```blocks
+```blocks
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
     }
 })
 ```
-	### Create a new variable called CGateTimer in our on start loop.
+### Create a new variable called CGateTimer in our on start loop.
 	### Set the value to 7000
-	```blocks
+```blocks
 	let CheckGate: Sprite = null
 let PurpleGate: Sprite = null
 let Rocks: Sprite = null
@@ -682,9 +708,9 @@ let RockSpawnTime = 2000
 let PurpleGateTimer = 5000
 let CGateTimer = 7000
 ```
-	###Copy the set position block from the Purple gate forever loop and place it in the if then statement for the CheckGate loop.
-	### Change PurpleGate to CheckGate. 
-	```blocks
+###Copy the set position block from the Purple gate forever loop and place it in the if then statement for the CheckGate loop.
+### Change PurpleGate to CheckGate. 
+```blocks
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
@@ -692,9 +718,9 @@ let CGateTimer = 7000
     }
 })
 ```
-	### Copy the set PurpleGate vx and vy block from the Purple Gate forever loop and add it to the ChcekGate Loop.
-	### Change PurpleGate to CheckGate. 
-	```blocks
+### Copy the set PurpleGate vx and vy block from the Purple Gate forever loop and add it to the ChcekGate Loop.
+### Change PurpleGate to CheckGate. 
+```blocks
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
@@ -703,8 +729,8 @@ let CGateTimer = 7000
     }
 })
 ```
-	### Add a pause block within the forever loop, but outside the if then statement.
-	```blocks
+### Add a pause block within the forever loop, but outside the if then statement.
+```blocks
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
@@ -713,9 +739,9 @@ let CGateTimer = 7000
     }
     pause(100)
 })
-	```
-	### Add a CheckGateTimer variable circle to the value space in the pause block. 
-	```blocks
+```
+### Add a CheckGateTimer variable circle to the value space in the pause block. 
+```blocks
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
@@ -725,36 +751,36 @@ let CGateTimer = 7000
     pause(CGateTimer)
 })
 ```
-	### Add an overlap container and adjust the kinds so it reads when sprite of kind Player overlaps otherSprite kind of CGate. 
-	```blocks
+### Add an overlap container and adjust the kinds so it reads when sprite of kind Player overlaps otherSprite kind of CGate. 
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
 	
 })
 ```
-	### Copy the long text block from the on life zero container and add it to the overlap code we just added.
-	```blocks 
+### Copy the long text block from the on life zero container and add it to the overlap code we just added.
+```blocks 
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
 })
 ``` 
-	### Copy the change score by round distance block from the on life zero container and add it to the overlap container. 
-	```blocks
+### Copy the change score by round distance block from the on life zero container and add it to the overlap container. 
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
 })
 ```
-	### Add a game over block from the ``||game:game||`` category to the overlap code.
-	### Change the value from lose to win. 
-	### Feel free to add an effect. 
-	```blocks
+### Add a game over block from the ``||game:game||`` category to the overlap code.
+### Change the value from lose to win. 
+### Feel free to add an effect. 
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
     game.over(true)
 })
 ```
-```
+
 
 ## Final Code
 This is the final code for the game
