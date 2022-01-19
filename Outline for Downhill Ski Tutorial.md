@@ -166,7 +166,7 @@ game.onUpdateInterval(500, function () {
 ```
 
 ## Creating a Skier Speed Variable
-Let's adjust the speed of this using a variable that we can manipulate. 
+###Let's adjust the speed of this using a variable that we can manipulate. 
 
 - :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
@@ -185,8 +185,7 @@ let SkierSpeed = -20
 ```
 
 ## Creating A Spawn Timer for the Rocks
-
-We are going to create a second variable and use it as a spawn timer for our obstacles. 
+###We are going to create a second variable and use it as a spawn timer for our obstacles. 
 
 - :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
@@ -205,7 +204,7 @@ let RockSpawnTime = 2000
 ```
 
 ## Adjusting our Rocks Spawn Code
-To make this function work we need to change the way the spawn code for the rock works.
+###To make this function work we need to change the way the spawn code for the rock works.
 
 - :redo: Replace the ``||game:on game update every 500ms seconds||`` with a ``||loops: forever loop||`` from the ``||loops:loops||`` section.
 
@@ -257,7 +256,7 @@ To make this function work we need to change the way the spawn code for the rock
 ```
 
 ## Adjusting The Speed as the Game is Played
-The skier's speed should increase as you play the game. Let's set up a container to take care of that process. 
+###The skier's speed should increase as you play the game. Let's set up a container to take care of that process. 
 
 - :circle: Add a new ``||game: on game update every 500ms||`` container. 
 - :mouse pointer: Change the value to **3000**.
@@ -293,7 +292,7 @@ The skier's speed should increase as you play the game. Let's set up a container
 ```
 
 ## Modifying the Rock's Spawn Timer
-The same concept can be used to adjust the RockSpawnTime speed. 
+###The same concept can be used to adjust the RockSpawnTime speed. 
 
 - :bars: Add another ``||variables:change RockSpawnTime||`` block and place it under the ``||variables:set SkierSpeed||`` block.
 - :mouse pointer: set the value to **-200** 
@@ -322,7 +321,7 @@ The same concept can be used to adjust the RockSpawnTime speed.
 ```
 
 ## Setting up the Collision Code
-MakeCode Arcade uses overlap containers to determine when object collide. 
+###MakeCode Arcade uses overlap containers to determine when object collide. 
 
 - :paper plane: Grab an ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container and place it into the workspace.
 - :mouse pointer: Change the otherSprite kind from **Player** to **Rock**.
@@ -336,9 +335,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSpr
 })
 ```
 ## When Our Skier Crashes into a Rock
-If our skier crashes into a rock, we want them to lose a life and destroy the rock. Let do that in steps. 
+###If our skier crashes into a rock, we want them to lose a life and destroy the rock. Let do that in steps. 
 
-First let's destroy the rock if it runs into our player.
+###First let's destroy the rock if it runs into our player.
 
 - :paper plane: Grab a ``||sprites:destroy mySprite||``block from the ``||sprites:Sprites||`` category and place it in the ``||sprites: on sprite of kind Player overlaps otherSprite of kind Rock||``. 
 - :mouse pointer: Take the local variable of ``||variables:otherSprite||`` and replace the ``||variables:mySprite||`` circle in the ``||sprites:destroy||`` block. 
@@ -355,7 +354,7 @@ namespace SpriteKind {
 })
 ```
 ## Skier Should Lose a Life
-If the skier hits the rock they should lose a life.
+###If the skier hits the rock they should lose a life.
 
 - :id card: Grab a ``||info:change life by -1||`` block from the ``||info:info||`` category and place it under the ``||sprites:destroy otherSprite||`` block. 
 
@@ -370,7 +369,7 @@ namespace SpriteKind {
 })
 ```
 ## What Happens When We Run Out of Lives?
-Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
+###Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
 
 - :id card: Add an ``||info:on life zero||`` container from the ``||info:info||`` category to the workspace.
 - :circle: Add a ``||game:game over||`` block to the ``||info:on life zero||`` container. 
@@ -382,7 +381,7 @@ Since we make the player lose a life we need to tell the game what should happen
 ```
 
 ## Giving Our Player Some Points
-Let's have our player score some points for every Rock that they avoid. 
+###Let's have our player score some points for every Rock that they avoid. 
 	
 - :paper plane: Grab the ``||sprites:on destroy sprite of kind Player||`` container from the ``||sprites:sprites||`` category and place it in the workspace. 
 - :mouse pointer: Change the kind from **Player** to **Rocks**.
@@ -397,7 +396,7 @@ namespace SpriteKind {
 })
 ```
 ## Adding Additional Incentives
-Let's create an additional objective for our player to collect as they play the game. 
+###Let's create an additional objective for our player to collect as they play the game. 
 
 
 - :bars: Create a new ``||variables:variable||`` by clicking the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category.
@@ -418,7 +417,7 @@ let PurpleGateTimer = 5000
 ```
 
 ## Spawning the Purple Gate
-First we need to set up a new container. 
+###First we need to set up a new container. 
 
 - :redo: Grab a ``||loops:forever||`` container from the ``||loops:loops||`` category. 
 
@@ -428,7 +427,7 @@ First we need to set up a new container.
 })
 ```
 ## Adding the Purple Gate Sprite
-Now to assign our Purple Gate Sprite.
+###Now to assign our Purple Gate Sprite.
 
 
 - :paper plane: Add a ``||sprites:set mySprite2 to sprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category and add it to the ``||loops:forever||`` container. 
@@ -447,6 +446,7 @@ let PurpleGate: Sprite = null
 ## Assigning the Purple Gate Asset
 
 - :mouse pointer: Click on the grey box to open up the editor. Open the My Assets tab. Click on the **Purple Gate** asset. 
+
 ```blocks	
 	namespace SpriteKind {
     export const PGate = SpriteKind.create()
@@ -456,8 +456,9 @@ let PurpleGate: Sprite = null
 	    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
 })
 ```
+
 ## Let's not reinvent the wheel
-We are going to use code that we already wrote to make this process a bit easier. 
+###We are going to use code that we already wrote to make this process a bit easier. 
 
 - :mouse pointer: Duplicate the ``||sprites:set Rocks position||`` block from the Rock Spawn ``||loops:forever loop||``. This can be done by right clicking on the block you would like to copy and then selecting **Duplicate** from the menu. 
 - :mouse pointer: Change **Rocks** to **PurpleGate**.
@@ -470,70 +471,91 @@ We are going to use code that we already wrote to make this process a bit easier
 let PurpleGate: Sprite = null
 
 	forever(function () {
-    pause(PurpleGateTimer)
        PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
 })
 ```
 
-	-Duplicate the set Rocks vx 0 and vy SkierSpeed block from the Rocks forever loop and add it to your new forever loop.
-	-change Rocks to PurpleGate. 
+
+##Let's continue to not reinvent the wheel
+
+- :mouse pointer: Duplicate the ``||sprites:set Rocks vx 0 and vy SkierSpeed||`` block from the Rock's ``||loops:forever loop||`` and add it to your new ``||loops:forever loop||``.
+
+- :mouse pointer: change **Rocks** to **PurpleGate**. 
+
+```blocks
 	forever(function () {
-    pause(PurpleGateTimer)
     PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     PurpleGate.setVelocity(0, SkierSpeed)
 })
+```
 
-	-Add the pause 100 ms block from the loop category to the top of the forever loop you just added. 
-	forever(function () {
-    pause(100)
-})
-	-Add the PurpleGateTimer variable circle from the variables category to the value in the pause block. 
-	forever(function () {
+## Adding some timer to your Purple Gate Code
+- :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:loop||`` category to the top of the ``||loops:forever loop||`` you just added.
+- :bars: Grab the ``||variables:PurpleGateTimer||`` variable circle from the ``||variables:variables||`` category and add it to the ``||loops:pause 100ms||`` block's value space. 
+
+```blocks
+forever(function () {
+    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+    PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    PurpleGate.setVelocity(0, SkierSpeed)
     pause(PurpleGateTimer)
 })
+```
+## What happens when our Skier hits a Purple Gate
 
+###Lets make our purple gate do something
+ 
+- :paper plane: Add an ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container onto the workspace.
+- :mouse pointer: Change the ``||variables:otherSprite||`` kind from **Player** to **PGate**.
 
-	-Lets make our purple gate do something. 
-	-Add an on sprite of kind player overlaps otherSprite of kind player container onto the workspace.
-	-Change the otherSprite kind from Player to PGate.
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
 	
 })
+```
+## Removing the Gate
+### To properly set up our overlap code we need to remove the gate once our skier collides with it. 
 
-	-First we need to remove the gate.
-	-Add a destroy mySprite block from the sprite category. 
-	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
-    mySprite.destroy()
-})
-	-Next grab the local otherSprite variable from the overlap container and replace the mySprite circle.
-	**Grab the Gif**
-	-Feel free to add an effect on the destroy code.
+- :paper plane: Add a ``||sprites:destroy mySprite||`` block from the ``||sprites:Sprite||`` category. 
+
+- :mouse pointer: Grab the local ``||variables:otherSprite||`` circle from the ``||sprites:overlap||`` container and use it to replace ``||variables:mySprite||`` in the ``||sprites:destroy mySprite||`` block.  
+
+![Grab the sprite value from the title bar of the outer container](/static/skillmap/assets/sprite-from-container.gif "This is how your block knows which sprite to use")
+
+- :mouse pointer: Feel free to press the **+** button to add an effect for your gate. 	
+	
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
 })
+```
+## Increasing the Skier's Speed. 
+### Let's use our Purple Gate to increase our Skier's speed
 
-	-Now we want to add some additional effects. 
-	-How about making our Skier faster.
-	-Add a change SkierSpeed block to the overlap code.
-	-Change the value to -5. 
+- :bars: Add a ``||variables:change SkierSpeed by 1||`` block from the ``||variables:variables||`` category to the ``||sprites:Purple Gate overlap||`` container.
+- :mouse pointer: Change the value to **-5**. 
+
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
     SkierSpeed += -5
 })
-	-Next let's give our player additional points for hitting the gates. 
-	-Add a change score by 1 block to the overlap code.
-	-Change the value from 1 to 3.
+```
+## Scoring Additional Points for our Skier
+### When our Skier runs into the Purple Gate they should score extra points.
+
+- :id card: Add a ``||info:change score by 1||`` block from the ``||info:info category||`` to the ``||sprites:overlap||`` code.
+- :mouse pointer: Change the value from **1** to **3**.
+
+```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
     SkierSpeed += -5
     info.changeScoreBy(3)
 })
-
-
-
-
+```
 
 ## Adding Distance values
 ### Set your variable in the on start container
