@@ -359,7 +359,6 @@ namespace SpriteKind {
 - :id card: Grab a ``||info:change life by -1||`` block from the ``||info:info||`` category and place it under the ``||sprites:destroy otherSprite||`` block. 
 
 ```blocks
-
 namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
