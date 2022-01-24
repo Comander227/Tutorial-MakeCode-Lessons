@@ -490,7 +490,7 @@ let PurpleGate: Sprite = null
 })
 ```
 
-## Adding some timer to your Purple Gate Code
+## Adding a timer to your Purple Gate Code
 - :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:loop||`` category to the top of the ``||loops:forever loop||`` you just added.
 - :bars: Grab the ``||variables:PurpleGateTimer||`` variable circle from the ``||variables:variables||`` category and add it to the ``||loops:pause 100ms||`` block's value space. 
 
@@ -558,10 +558,9 @@ forever(function () {
 
 ## Adding Distance values
 ### Set your variable in the on start container
-		Create new variable
-		Call it distance
-		Set it to 0 
-	
+- :bars: Create a new ``||variables:variable||``by clicking on the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category. 
+- :bars: Name the variable **distance**.
+- :bars: Add a ``||variables:Set distance to 0||`` block to your ``||loops:on start||`` container. 	
 	
 ```blocks
 	scene.setBackgroundColor(1)
@@ -577,128 +576,109 @@ forever(function () {
 	
 	
 ## Adjusting distance
-	 Add another forever loop into the workspace
-```blocks
+
+### To adjust our distance variable we need to set up a forever loop to do so. 
+
+- :redo: Add a ``||loops:forever loop||`` container from the ``||loops:loops||`` category into the workspace.
+- :redo: Add a ``||loops: pause||``block from the ``||loops:loops||`` category to the ``||loops:forever||`` container. 
+
+ ```blocks
 	 forever(function () {
+    pause(100)
+})
+```
+
+##Going the Distance
+
+### Now we will add blocks to increase our distance over time based off the Skier's Speed. 
 	
-})
-```
-	 Grab a pause block from the loop category
-	 Leave the pause value as 100ms because we want to update the distance often.
-	 ```blocks
-	 forever(function () {
-    pause(100)
-})
-```
-	 Grab a change variable block and place it under the pause block.
-	 ```blocks
-	 forever(function () {
-    pause(100)
-    distance += 1
-})
-```
-	 Place a multiplication circle in the variables value space. 
-	 ```blocks
-	 forever(function () {
-    pause(100)
-    distance += 0 * 0
-})
-```
-	Grab the SkierSpeed variable circle and place it in one of the spaces for the multiplication circle.
-	```blocks
-	forever(function () {
-    pause(100)
-    distance += SkierSpeed * 0
-})
-```
-	Set the other value to -0.05
-	```blocks
+- :bars: Grab a ``||variables:change distance by 1||`` block from the ``||variables:Variables||`` category and place it under the ``||loops:pause||`` block.
+- :calculator: Add a ``||math:multiplication||`` circle (``||math: 0 * 0||``) from the ``||math:Math||`` category and use it to replace the value in the ``||variables: change distance by 1||`` block.
+- :bars: Add a ``||variables:SkierSpeed||`` circle from the ``||variables:Variables||`` category and place it in the ``||math:multiplication||`` circle. 
+- :mouse pointer: Change the second value from **0** to **-0.05**
+
+
+```blocks
 	forever(function () {
     pause(100)
     distance += SkierSpeed * -0.05
 })
 ```
+
 ## Showing the distance value
 
-	Add a show long text block from the ``||game:game||`` category to your on life zero container. Be sure to add it above the game over block. 
-	Set the text to appear in the center of the screen.
+- :circle: Add a show long text block from the ``||game:game||`` category to your ``||info:on life zero||`` container. 
+- :mouse pointer: Be sure to add it **above** the game over block. 
+- :mouse pointer: Set the text to appear in the **center** of the screen.
 ```blocks
 	info.onLifeZero(function () {
     game.showLongText("", DialogLayout.Center)
     game.over(false)
 })
 ```
-	Add a join text circle from the ``||text:text||`` category under the advanced section. 
-	Add a third value space by clicking the plus button on the variable circle. 
+	
+## Showing A Long Message
+
+- :chevron down: Click on the **Advanced** category to gain access to the ``||text:Text||`` category. 
+- :text width: Add a ``||text:join "Hello" "World" ||`` circle from the ``||text:Text||`` category.
+- :mouse pointer: Add a third value space by clicking the **+** button on the ``||text:join "Hello" "World"||``circle. 
 ```blocks
 	info.onLifeZero(function () {
     game.showLongText("Hello" + "World" + "", DialogLayout.Center)
     game.over(false)
 })
 ```
-	Place a round circle from the ``||math:math||`` category into the middle value space.
-```blocks
-	info.onLifeZero(function () {
-    game.showLongText("Hello" + Math.round(0) + "", DialogLayout.Center)
-    game.over(false)
-})
-```
-	Add the distance variable circle to the value space in the round circle. 
-```blocks
-	info.onLifeZero(function () {
-    game.showLongText("Hello" + Math.round(distance) + "", DialogLayout.Center)
-    game.over(false)
-})
-```
-	Replace the text so it reads ``||text:"you went"||`` ``||math:round||`` ``||variables:distance||`` ``||text:"feet"||``.
+
+## Adding the Distance to our Message
+
+- :calculator: Place a ``||math:round||`` circle from the ``||math:Math||`` category into the ``||text:middle text space||``.
+- :bars: Add a ``||variables:distance||`` circle from the ``||variables:Variables||`` category. 
+- :text width: Replace the other two text spaces so it reads ``||text:"you went"||`` ``||math:round||`` ``||variables:distance||`` ``||text:"feet"||``.
+
 ```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+    game.over(false)
+})
+```
+## Giving the Player more points based off distance
+
+### Let's give the player more points the longer they are able to stay alive. 
+
+- :id card: Add a ``||info:change score by 1||`` block from the ``||info:Info||`` category.
+- :calculator: Add a ``||math:round 0||`` circle from the ``||math:Math||`` category to the value space of the ``||info:change score by 1||`` block 
+- :bars: Add a ``||variables:distance||`` circle from the ``||variables:Variables||`` category and place in the value space of the ``||math:round 0||`` circle.  
+
+
+```blocks
+	info.onLifeZero(function () {
+    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+info.changeScoreBy(Math.round(distance))
     game.over(false)
 })
 ```
 
-	Add a change score by block from the ``||info:info||`` category. 
-```blocks
-	info.onLifeZero(function () {
-    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
-    info.changeScoreBy(1)
-    game.over(false)
-})
-```
-	Duplicate the round distance circle and add it to the score block.
-```blocks
-	info.onLifeZero(function () {
-    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
-    info.changeScoreBy(Math.round(distance))
-    game.over(false)
-})
-```
 # Creating a Win Condition
-	### Add another forever loop to your workspace.
+### Let's give our player a way to win the game. 
+- :redo: Add a ``||forever loop||`` container from the ``||loop:Loops||`` category. 
+- :random: Add an ``||logic: if true then||`` container from the ``||logic:Logic||`` category and add it too the ``||loops:forever||``container.
+
 ```blocks
-	forever(function () {
-	
-})
-```
-	### Add an if then loop to the forever loop you just placed.
-	```blocks
 	forever(function () {
     if (true) {
     	
     }
 })
 ```
-### Add a comparison diamond to the if then loop. Change the symbol from less than < to great than or equal >=.
-```blocks
-forever(function () {
-    if (0 >= 0) {
-    	
-    }
-})
-```
 
-### Add a distance variable circle to the first value in the comparison. Set the second value to a high number such as 500. 
+## Deciding when to spawn the Win Condition.
+### We want the player to have to go a certain distance in order to have the chance to win the game.
+
+- :random: Add a ``||logic:comparison||`` diamond (``||logic: 0 < 0||``) from the ``||logic:Logic||`` category to the **true** value of the ``||logic:if true then||`` container. 
+- :mouse pointer: change **<** to **≥**. 
+- :bars: Add a ``||variables:distance||`` circle from the ``||variables:Variables||`` category to the first value in our ``||logic:comparison||`` diamond. 
+- :mouse pointer: change the second value of **0** to **500**.
+
 ```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -706,10 +686,14 @@ forever(function () {
     }
 })
 ```
+
 ## Adding the the checkered gate. 
-### Add a set mySprite2 to sprite [] of kind Player.
-### Rename mySprite2 to CheckGate.
-### Change the kind from Player to a new kind called Gate. 
+
+- :paper plane: Add a ``||sprites:set mySprite2 to sprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category and add it to our ``||logic:if distance ≥ 500 then||`` container.
+- :mouse pointer: Rename **mySprite2** to **CheckGate** by clicking on the name and choosing the ``||variables:Rename Variable||`` option.
+- :mouse pointer: Change the kind from **Player** to a new kind called **CGate**.
+
+ 
 ```blocks
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
@@ -722,9 +706,11 @@ forever(function () {
         CheckGate = sprites.create(img` `, SpriteKind.CGate)
     }
 })
-
 ```
-### Click on the grey box and select the checkered gate from the my Assets section.
+
+## Assigning the Checked Gate its asset. 
+
+- :mouse pointer: Click on the grey box and select the **checkered gate** from the my Assets section.
 	
 ```blocks
 	forever(function () {
@@ -733,10 +719,18 @@ forever(function () {
     }
 })
 ```
-### Create a new variable called CGateTimer in our on start loop.
-	### Set the value to 7000
+
+##Setting up a Checkered Gate Timer
+### We need to create a new variable that will be used as a timer to spawn the Checkered Gate. 
+
+- :bars: Create a new ``||variables: variable||`` by clicking the ``||variables: Make A Variable||`` button in the ``||variables:Variables||`` category. 
+- :mouse pointer: name the new variable **CGateTimer**
+- :bars: Add a ``||variables:set CGateTimer to 0||`` block to our ``||loops:on start||`` container.
+- :mouse pointer: change the value from **0** to **7000**. 
+
+
 ```blocks
-	let CheckGate: Sprite = null
+let CheckGate: Sprite = null
 let PurpleGate: Sprite = null
 let Rocks: Sprite = null
 let distance = 0
@@ -751,8 +745,16 @@ let RockSpawnTime = 2000
 let PurpleGateTimer = 5000
 let CGateTimer = 7000
 ```
-###Copy the set position block from the Purple gate forever loop and place it in the if then statement for the CheckGate loop.
-### Change PurpleGate to CheckGate. 
+
+## Positioning the Checkered Gate
+
+### We want the checkered gate to function in a similar way to the Purple Gate. To set this up we are going to copy blocks from the Purple Gate Spawn Code. 
+
+- :mouse pointer: Copy the ``||sprites: set PurpleGate position to x||`` ``||math:pick random 0 to||`` ``||scene:screen width||`` ``||sprites: y||`` ``||scene: screen height||`` by **right clicking** on the block and selecting duplicate. 
+- :mouse pointer: Add the duplicated block to the Checkered Gate ``||loops:forever loop||`` container. 
+- :mouse pointer: Change ``||variables:PurpleGate||`` to ``||variables:CheckGate||``
+
+ 
 ```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -761,8 +763,16 @@ let CGateTimer = 7000
     }
 })
 ```
-### Copy the set PurpleGate vx and vy block from the Purple Gate forever loop and add it to the ChcekGate Loop.
-### Change PurpleGate to CheckGate. 
+
+## Moving the Checkered Gate
+
+
+### We want the checkered gate to move in a similar way to the Purple Gate. To set this up we are going to copy blocks from the Purple Gate Spawn Code. 
+
+- :mouse pointer: Copy the ``||sprites:set PurpleGate vx 0 and vy SkierSpeed||``block by **right clicking** on the block and selecting the **duplicate** option.
+- :mouse pointer: Add the copied block to the **CheckGate** ``||loops:forever loop||`` container. 
+- :mouse pointer: change ``||variables:PurpleGate||`` to ``||variables:CheckGate||``.
+
 ```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -772,18 +782,12 @@ let CGateTimer = 7000
     }
 })
 ```
-### Add a pause block within the forever loop, but outside the if then statement.
-```blocks
-	forever(function () {
-    if (distance >= 500) {
-        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
-        CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
-        CheckGate.setVelocity(0, SkierSpeed)
-    }
-    pause(100)
-})
-```
-### Add a CheckGateTimer variable circle to the value space in the pause block. 
+
+## Implementing our CheckGate Timer.
+
+- :redo: Add a ``||loops:pause 100ms||`` block from the ``||loops:Loop||`` category to the end of your Checkered Gate  ``||loops:forever loop||`` container so it is **outside** the ``||logic:if then||`` container.
+- :bars: Add the ``||variables:CGateTimer||`` circle from the ``||variables:Variables||`` category and add it to the value space in the ``||loops:pause||`` block. 
+
 ```blocks
 	forever(function () {
     if (distance >= 500) {
@@ -794,28 +798,39 @@ let CGateTimer = 7000
     pause(CGateTimer)
 })
 ```
-### Add an overlap container and adjust the kinds so it reads when sprite of kind Player overlaps otherSprite kind of CGate. 
+
+## Crossing the finish line
+### We need to add code to make something happen once the player touches the Checkered Gate. Let's start by adding an overlap container.  
+- :paper plane: Add an ``||sprites: on mySprite of kind Player overlaps otherSprite of kind Player||`` container to the workspace.
+- :mouse pointer: Change the kind of ``||variables:otherSprite||`` from **Player** to **CGate**.
+ 
 ```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
 	
 })
 ```
-### Copy the long text block from the on life zero container and add it to the overlap code we just added.
-```blocks 
-	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
-    game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
-})
-``` 
-### Copy the change score by round distance block from the on life zero container and add it to the overlap container. 
+
+## Adding the Score
+### We want the player's score to include their distance if they win. To do this we will use the same text blocks that are in our game over code. 
+
+- :mouse pointer: Copy the ``||game: long text||`` block from the ``||info:on life zero||`` container by **right clicking** on the block and selecting **duplicate** from the menu.
+- :mouse pointer: Add the duplicated block to the ``||sprites:on overlap||`` container we just added.
+- :mouse pointer: Copy the ``||info: change score by round distance||`` block from the ``||info: on life zero||`` container by **right clicking** on the block and selecting **duplicate** from the menu.
+- :mouse pointer: Add the duplicated block to the ``||sprites:on overlap||`` container we just added. 
+
 ```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
 })
 ```
-### Add a game over block from the ``||game:game||`` category to the overlap code.
-### Change the value from lose to win. 
-### Feel free to add an effect. 
+
+## Winning the game
+
+- :circle: Add a ``||game:game over||`` block from the ``||game:Game||`` category to the ``||sprites: on overlap||`` container we just added.
+- :mouse pointer: Change the value from **lose** to **win**.
+- :mouse pointer: Feel free to add an effect by clicking on the **+** button. 
+
 ```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
