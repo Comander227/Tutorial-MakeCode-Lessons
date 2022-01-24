@@ -111,6 +111,10 @@ let Rocks: Sprite = null
 
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
+let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(0, scene.screenHeight())
@@ -118,7 +122,7 @@ let Rocks: Sprite = null
 ```
 ## Randomizing the Rock's X Position
 
-- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:math||`` category to the **x** value of ``||sprites: set Rock position x() y||````||scene:screen height||``.
+- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:math||`` category to the **x** value of ``||sprites: set Rock position x() y||`` ``||scene:screen height||``.
 - :tree: Add a ``||scene:screen width||`` circle from the ``||scene:scene||`` category to the **max** value of the ``||math:pick random (0) to (0)||``.
 
 ```blocks
@@ -142,7 +146,7 @@ let Rocks: Sprite = null
     export const Rock = SpriteKind.create()
 }
 	game.onUpdateInterval(500, function () {
-    lets Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
 })
