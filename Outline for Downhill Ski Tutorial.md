@@ -2,7 +2,7 @@
 
 ## Setting your background
 ### Set up your background to white for your snow
-- :tree: Add a set background block from the ``||scene:scene||`` section to your ``||loops:on start||`` container
+- :tree: Add a ``||scene:set background color to ()||`` block from the ``||scene:Scene||`` category to your ``||loops:on start||`` container.
 	
 	```blocks
 	scene.setBackgroundColor(1)
@@ -12,7 +12,7 @@
 ## Creating your Skier Sprite
 ### Setting the Player Sprite
 
-- :paper plane: Next we are going to add our ``||sprites:set mySprite to sprite [] of kind Player||`` to our ``||loops:on start||`` container. 
+- :paper plane: Next we are going to add our ``||sprites:set mySprite to sprite [] of kind Player||`` from our ``||sprites:Sprites||`` category to our ``||loops:on start||`` container. 
 	
 ```blocks
 		scene.setBackgroundColor(1); 
@@ -22,8 +22,8 @@
 ## Giving our Skier an image
 ### Adding the Skier asset 
 - :paint brush: Click on the grey box in the ``||sprites:set mySprite to [] of kind Player||`` block. 
-- :mouse pointer: Next select the My Assets tab and click on the Skier Asset. 
-- :mouse pointer: Then click done. 
+- :mouse pointer: Next select the **My Assets** tab and click on the **Skier** asset. 
+- :mouse pointer: Then click **done**. 
 
 ```blocks
 	scene.setBackgroundColor(1)
@@ -32,7 +32,7 @@
 
 ## Moving our Skier
 ### Assigning controllers to our sprite 
-- :game: Now we are going to add our ``||controller:move mySprite with buttons||`` block to our ``||loops:on start||`` container. 
+- :game: Now we are going to add our ``||controller:move mySprite with buttons||`` block from our ``||controller:Controller||`` category to our ``||loops:on start||`` container. 
 
 ```blocks
 	scene.setBackgroundColor(1)
@@ -41,7 +41,7 @@ controller.moveSprite(mySprite)
 ```
 ## Don't lose the Skier
 ### Keeping our Skier on screen 
-- :paper plane: Add a ``||sprites:set mySprite stay in screen||`` block from the ``||sprites:sprites||`` category to our ``||loops:on start||`` container. 
+- :paper plane: Add a ``||sprites:set mySprite stay in screen||`` block from the ``||sprites:Sprites||`` category to our ``||loops:on start||`` container. 
 
 ```blocks
 scene.setBackgroundColor(1)
@@ -52,7 +52,8 @@ mySprite.setStayInScreen(true)
 
 ## Where should our skier start?
 ### Setting the Skier's position
-- :paper plane: Add a ``||sprites: set mySprite position to x() y()||`` from the ``||sprites:sprites||`` category to our ``||loops:on start||`` container. 
+- :paper plane: Add a ``||sprites: set mySprite position to x() y()||`` from the ``||sprites:Sprites||`` category to our ``||loops:on start||`` container.
+- :mouse pointer: We want our Skier to start at the top of the screen so change the **x value** from **0** to **80** and the **y value** from **0** to **11** 
 
 ```blocks
 scene.setBackgroundColor(1)
@@ -66,7 +67,7 @@ mySprite.setPosition(80, 11)
 
 ## Creating our Rock Obstacle
 ### Setting up the container
-- :circle: Grab an ``||game:on game update every 500 ms||`` container from the ``||game:game||`` category. 
+- :circle: Grab an ``||game:on game update every 500 ms||`` container from the ``||game:Game||`` category. 
 
 ```blocks
 game.onUpdateInterval(500, function () {
@@ -76,7 +77,7 @@ game.onUpdateInterval(500, function () {
 
 ## Establishing our Rock
 ### Setting the Rock Sprite
-- :paper plane: Add a ``||sprites:set mySprite to sprite [] of kind Player||`` block to the ``||game:update game every 500 ms||`` container. 
+- :paper plane: Add a ``||sprites:set mySprite to sprite [] of kind Player||`` block from the ``||sprites:Sprite||`` category to the ``||game:update game every 500 ms||`` container. 
 - :paint brush: Click on the grey box to open the sprite editor. Open the **My Assets** tab. Select the **rock** image. 
 - :mouse pointer: Change the sprite kind from **Player** and add a new kind called **Rock**
 
@@ -92,7 +93,7 @@ let Rocks: Sprite = null
 ```
 ## Positioning the Rocks
 
-- :paper plane: Grab a ``||sprites:set mySprite position to x() y()||`` and place it in the ``||game:on game update every 500ms||`` container. 
+- :paper plane: Grab a ``||sprites:set mySprite position to x() y()||`` from the ``||sprites:Sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
 - :mouse pointer: Change **mySprite** to **Rocks**
 
 ```blocks
@@ -107,7 +108,7 @@ let Rocks: Sprite = null
 ```
 
 ## Starting the Rock Off Screen
-- :tree: Add a ``||scene: screen height||`` circle to the **y** value of ``||sprites: set Rocks position x() y()||``.
+- :tree: Add a ``||scene: screen height||`` circle from the ``||scene:Scene||`` category to the **y** value of ``||sprites: set Rocks position x() y()||``.
 
 
 ```blocks
@@ -120,10 +121,11 @@ let Rocks: Sprite = null
     Rocks.setPosition(0, scene.screenHeight())
 })
 ```
+
 ## Randomizing the Rock's X Position
 
-- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:math||`` category to the **x** value of ``||sprites: set Rock position x() y||`` ``||scene:screen height||``.
-- :tree: Add a ``||scene:screen width||`` circle from the ``||scene:scene||`` category to the **max** value of the ``||math:pick random (0) to (0)||``.
+- :calculator: Add a ``||math: pick random () to ()||`` from the ``||math:Math||`` category to the **x** value of ``||sprites: set Rock position x() y||`` ``||scene:screen height||``.
+- :tree: Add a ``||scene:screen width||`` circle from the ``||scene:Scene||`` category to the **max** value of the ``||math:pick random (0) to (0)||``.
 
 ```blocks
 	namespace SpriteKind {
@@ -136,10 +138,11 @@ let Rocks: Sprite = null
 ```
 
 ## Setting the Rock's Velocity
-- :paper plane: Grab a ``||sprites:set mySprite vx() vy()||`` block from the ``||sprites:sprites||`` category and add it to the ``||game:on game update every 500ms||`` container. 
-- :mouse pointer: Change **mySprite** to **Rocks**.
+
+- :paper plane: Grab a ``||sprites:set mySprite vx() vy()||`` block from the ``||sprites:Sprites||`` category and add it to the ``||game:on game update every 500ms||`` container. 
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:Rocks||``.
 - :mouse pointer: Set the **vx** value to **0**
-- :mouse pointer: Set **vy** to **-50**  
+- :mouse pointer: Set **vy** value to **-50**  
 
 ```blocks 
 	namespace SpriteKind {
@@ -153,8 +156,8 @@ let Rocks: Sprite = null
 ```
 ## Destroying our Rocks when off screen
 
-- :paper plane: Grab a ``||sprites:set mySprite auto destroy||`` block from the ``||sprites:sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
-- :mouse pointer: Change **mySprite** to **Rocks**.
+- :paper plane: Grab a ``||sprites:set mySprite auto destroy||`` block from the ``||sprites:Sprites||`` category and place it in the ``||game:on game update every 500ms||`` container. 
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||varaiables:Rocks||``.
 - :mouse pointer: Set the value to **true**
 
 ```blocks
@@ -162,7 +165,7 @@ let Rocks: Sprite = null
     export const Rock = SpriteKind.create()
 }
 game.onUpdateInterval(500, function () {
-    Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
@@ -170,11 +173,11 @@ game.onUpdateInterval(500, function () {
 ```
 
 ## Creating a Skier Speed Variable
-###Let's adjust the speed of this using a variable that we can manipulate. 
+### Let's adjust the speed of this using a variable that we can manipulate. 
 
 - :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
-- :mouse pointer: Name the new variable **SkierSpeed**.
+- :mouse pointer: Name the new variable ``||variables:SkierSpeed||``.
 - :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **-20**.
 
@@ -189,11 +192,11 @@ let SkierSpeed = -20
 ```
 
 ## Creating A Spawn Timer for the Rocks
-###We are going to create a second variable and use it as a spawn timer for our obstacles. 
+### We are going to create a second variable and use it as a spawn timer for our obstacles. 
 
 - :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
-- :mouse pointer: Name the new variable **RockSpawnTimer**.
+- :mouse pointer: Name the new variable ``||variables:RockSpawnTimer||``.
 - :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **2000**.
 
@@ -208,9 +211,9 @@ let RockSpawnTime = 2000
 ```
 
 ## Adjusting our Rocks Spawn Code
-###To make this function work we need to change the way the spawn code for the rock works.
+### To make this function work we need to change the way the spawn code for the rock works.
 
-- :redo: Replace the ``||game:on game update every 500ms seconds||`` with a ``||loops: forever loop||`` from the ``||loops:loops||`` section.
+- :redo: Replace the ``||game:on game update every 500ms seconds||`` with a ``||loops: forever loop||`` from the ``||loops:Loops||`` section.
 
 ```blocks
 	namespace SpriteKind {
@@ -227,8 +230,8 @@ let RockSpawnTime = 2000
 
 ## Using the RockSpawn Time Variable
 
-- :redo: Add a ``||loops: pause||`` block from the``||loops:loops||``category to the bottom of the ``||loops: forever loop||``.
-- :bars: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:variables||`` category to the ``||loops:pause||`` block.
+- :redo: Add a ``||loops: pause||`` block from the``||loops:Loops||``category to the bottom of the ``||loops: forever loop||``.
+- :bars: Add a ``||variables:RockSpawnTime||`` value circle from the ``||variables:Variables||`` category to the value space in the ``||loops:pause||`` block.
 
 ```blocks 
 	namespace SpriteKind {
@@ -244,7 +247,7 @@ let RockSpawnTime = 2000
 })
 ```
 ## Adding the Skier's Speed to the Rock 
-- :bars: Add a ``||variables:SkierSpeed||`` value circle to the **vy** value of our Rock. 
+- :bars: Add a ``||variables:SkierSpeed||`` value circle from the ``||variables:Variables||`` category to the **vy** value of our Rock. 
 
 ```blocks
 	namespace SpriteKind {
@@ -254,15 +257,15 @@ let RockSpawnTime = 2000
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, SkierSpeed)
-    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    Rocks.setFlag(SpriteFlag.AutoDestroy, true)
     pause(RockSpawnTime)
 })
 ```
 
 ## Adjusting The Speed as the Game is Played
-###The skier's speed should increase as you play the game. Let's set up a container to take care of that process. 
+### The skier's speed should increase as you play the game. Let's set up a container to take care of that process. 
 
-- :circle: Add a new ``||game: on game update every 500ms||`` container. 
+- :circle: Add a new ``||game: on game update every 500ms||`` container from the ``||game:Game||`` category. 
 - :mouse pointer: Change the value to **3000**.
  
 ```blocks
@@ -272,7 +275,7 @@ let RockSpawnTime = 2000
 ```
 
 ## Modifying the Skier Speed Value
-- :bars: Add a ``||variables: change SkierSpeed by 0||`` block to the ``||game:on game update every 3000ms||`` container. 
+- :bars: Add a ``||variables: change SkierSpeed by 0||`` block from the ``||variables:Variables||`` category to the ``||game:on game update every 3000ms||`` container. 
 - :mouse pointer: set the value to **-5**.
 
 ```blocks
@@ -282,9 +285,9 @@ let RockSpawnTime = 2000
 ```
 
 ## Clamping the Skier's Speed value
-- :bars: Add a ``||variables:set SkierSpeed to 0||`` block under the ``||variables:change SkierSpeed by -5||``
-- :calculator: Add a ``||math:max of 0 and 0||`` circle to the ``||variables:set SkierSpeed to 0||`` value space. 
-- :bars: Add a ``||variables:SkierSpeed||`` circle to the first value space in the ``||math:max of 0 and 0||``.
+- :bars: Add a ``||variables:set SkierSpeed to 0||`` block from the ``||variables:Variables||`` category under the ``||variables:change SkierSpeed by -5||`` 
+- :calculator: Add a ``||math:max of 0 and 0||`` circle from the ``||math:Math||`` category to the ``||variables:set SkierSpeed to 0||`` value space. 
+- :bars: Add a ``||variables:SkierSpeed||`` circle from the ``||variables:Variables||`` category to the first value space in the ``||math:max of 0 and 0||``.
 - :mouse pointer: Change the second value in the ``||math:max of||`` ``||variables:SkierSpeed||`` ``||math: and 0||`` to **-100**.
 
 ```blocks
@@ -296,9 +299,9 @@ let RockSpawnTime = 2000
 ```
 
 ## Modifying the Rock's Spawn Timer
-###The same concept can be used to adjust the RockSpawnTime speed. 
+### The same concept can be used to adjust the RockSpawnTime speed. 
 
-- :bars: Add another ``||variables:change RockSpawnTime||`` block and place it under the ``||variables:set SkierSpeed||`` block.
+- :bars: Add another ``||variables:change RockSpawnTime||`` block from the ``||variables:Variables||`` category and place it under the ``||variables:set SkierSpeed||`` block.
 - :mouse pointer: set the value to **-200** 
 
 
@@ -310,9 +313,9 @@ let RockSpawnTime = 2000
 })
 ```
 ## Clamping the Rock Spawn Timer
-- :bars: Grab a ``||variables:set RockSpawnTime to 0||`` block from the ``||variables:variables||`` category and place it under the ``||variables:change RockSpawnTime by -200||``. 
-- :calculator: Add a ``||math:max value of 0 and 0||`` circle from the ``||math:math||`` category to the value space in the ``||variables:set RockSpawnTime||`` block. 
-- :bars: Add a ``||variables:RockSpawnTime||`` circle to the first value in the ``||math:max value of 0 and 0||`` circle. 
+- :bars: Grab a ``||variables:set RockSpawnTime to 0||`` block from the ``||variables:Variables||`` category and place it under the ``||variables:change RockSpawnTime by -200||``. 
+- :calculator: Add a ``||math:max value of 0 and 0||`` circle from the ``||math:Math||`` category to the value space in the ``||variables:set RockSpawnTime||`` block. 
+- :bars: Add a ``||variables:RockSpawnTime||`` circle from the ``||variables:Variables||`` category to the first value in the ``||math:max value of 0 and 0||`` circle. 
 - :mouse pointer: Change the second value from **0** to **500**.	
 
 ```blocks
@@ -325,10 +328,10 @@ let RockSpawnTime = 2000
 ```
 
 ## Setting up the Collision Code
-###MakeCode Arcade uses overlap containers to determine when object collide. 
+### MakeCode Arcade uses overlap containers to determine when object collide. 
 
-- :paper plane: Grab an ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container and place it into the workspace.
-- :mouse pointer: Change the otherSprite kind from **Player** to **Rock**.
+- :paper plane: Grab an ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category and place it into the workspace.
+- :mouse pointer: Change the ``||variables:otherSprite||`` kind from **Player** to **Rock**.
 
 ```blocks
 	namespace SpriteKind {
@@ -339,9 +342,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSpr
 })
 ```
 ## When Our Skier Crashes into a Rock
-###If our skier crashes into a rock, we want them to lose a life and destroy the rock. Let do that in steps. 
+### If our skier crashes into a rock, we want them to lose a life and destroy the rock. Let do that in steps. 
 
-###First let's destroy the rock if it runs into our player.
+### First let's destroy the rock if it runs into our player.
 
 - :paper plane: Grab a ``||sprites:destroy mySprite||``block from the ``||sprites:Sprites||`` category and place it in the ``||sprites: on sprite of kind Player overlaps otherSprite of kind Rock||``. 
 - :mouse pointer: Take the local variable of ``||variables:otherSprite||`` and replace the ``||variables:mySprite||`` circle in the ``||sprites:destroy||`` block. 
@@ -358,9 +361,9 @@ namespace SpriteKind {
 })
 ```
 ## Skier Should Lose a Life
-###If the skier hits the rock they should lose a life.
+### If the skier hits the rock they should lose a life.
 
-- :id card: Grab a ``||info:change life by -1||`` block from the ``||info:info||`` category and place it under the ``||sprites:destroy otherSprite||`` block. 
+- :id card: Grab a ``||info:change life by -1||`` block from the ``||info:Info||`` category and place it under the ``||sprites:destroy otherSprite||`` block. 
 
 ```blocks
 namespace SpriteKind {
@@ -372,10 +375,10 @@ namespace SpriteKind {
 })
 ```
 ## What Happens When We Run Out of Lives?
-###Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
+### Since we make the player lose a life we need to tell the game what should happen when we run out of them. 
 
-- :id card: Add an ``||info:on life zero||`` container from the ``||info:info||`` category to the workspace.
-- :circle: Add a ``||game:game over||`` block to the ``||info:on life zero||`` container. 
+- :id card: Add an ``||info:on life zero||`` container from the ``||info:Info||`` category to the workspace.
+- :circle: Add a ``||game:game over||`` block from the ``||game:Game||`` to the ``||info:on life zero||`` container. 
 
 ```blocks
 	info.onLifeZero(function () {
@@ -384,11 +387,11 @@ namespace SpriteKind {
 ```
 
 ## Giving Our Player Some Points
-###Let's have our player score some points for every Rock that they avoid. 
+### Let's have our player score some points for every Rock that they avoid. 
 	
-- :paper plane: Grab the ``||sprites:on destroy sprite of kind Player||`` container from the ``||sprites:sprites||`` category and place it in the workspace. 
+- :paper plane: Grab the ``||sprites:on destroy sprite of kind Player||`` container from the ``||sprites:Sprites||`` category and place it in the workspace. 
 - :mouse pointer: Change the kind from **Player** to **Rocks**.
-- :id card: Add a ``||info:change score by 1||`` block to the ``||sprites:on destroy sprite of kind Rock||`` container. 
+- :id card: Add a ``||info:change score by 1||`` block from the ``||info:Info||`` category to the ``||sprites:on destroy sprite of kind Rock||`` container. 
 	
 ```blocks 
 namespace SpriteKind {
@@ -399,11 +402,11 @@ namespace SpriteKind {
 })
 ```
 ## Adding Additional Incentives
-###Let's create an additional objective for our player to collect as they play the game. 
+### Let's create an additional objective for our player to collect as they play the game. 
 
 
 - :bars: Create a new ``||variables:variable||`` by clicking the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category.
-- :mouse pointer: Name the variable **PurpleGateTimer**. 
+- :mouse pointer: Name the variable ``||variables:PurpleGateTimer||``. 
 - :bars: Grab a ``||variables:set PurpleGateTimer to 0||`` block from the ``||variables:Variables||`` category and add it to the ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **5000**
 
@@ -420,21 +423,23 @@ let PurpleGateTimer = 5000
 ```
 
 ## Spawning the Purple Gate
-###First we need to set up a new container. 
+### First we need to set up a new container. 
 
-- :redo: Grab a ``||loops:forever||`` container from the ``||loops:loops||`` category. 
+- :redo: Grab a ``||loops:forever loop||`` container from the ``||loops:loops||`` category. 
 
 ```blocks
 	forever(function () {
 	
 })
 ```
+
 ## Adding the Purple Gate Sprite
-###Now to assign our Purple Gate Sprite.
+### Now to assign our Purple Gate Sprite.
 
 
 - :paper plane: Add a ``||sprites:set mySprite2 to sprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category and add it to the ``||loops:forever||`` container. 
-- :mouse pointer: Change **mySprite2** to **PurpleGate**.
+- :bars: Rename the sprite by clicking on the name and selecting ``||variables:Rename variable||``
+- :mouse pointer: Change ``||variables:mySprite2||`` to ``||variables:PurpleGate||``
 - :mouse pointer: Change the kind from **Player** and add a new option called **PGate**. 
 
 ```blocks	
@@ -448,7 +453,9 @@ let PurpleGate: Sprite = null
 ```
 ## Assigning the Purple Gate Asset
 
-- :mouse pointer: Click on the grey box to open up the editor. Open the My Assets tab. Click on the **Purple Gate** asset. 
+- :mouse pointer: Click on the grey box to open up the editor. Open the **My Assets** tab. 
+- :mouse pointer: Click on the **Purple Gate** asset. 
+- :mouse pointer: Click **done**.
 
 ```blocks	
 	namespace SpriteKind {
@@ -461,7 +468,7 @@ let PurpleGate: Sprite = null
 ```
 
 ## Let's not reinvent the wheel
-###We are going to use code that we already wrote to make this process a bit easier. 
+### We are going to use code that we already wrote to make this process a bit easier. 
 
 - :mouse pointer: Duplicate the ``||sprites:set Rocks position||`` block from the Rock Spawn ``||loops:forever loop||``. This can be done by right clicking on the block you would like to copy and then selecting **Duplicate** from the menu. 
 - :mouse pointer: Change **Rocks** to **PurpleGate**.
@@ -480,7 +487,7 @@ let PurpleGate: Sprite = null
 ```
 
 
-##Let's continue to not reinvent the wheel
+## Let's continue to not reinvent the wheel
 
 - :mouse pointer: Duplicate the ``||sprites:set Rocks vx 0 and vy SkierSpeed||`` block from the Rock's ``||loops:forever loop||`` and add it to your new ``||loops:forever loop||``.
 
@@ -508,7 +515,7 @@ forever(function () {
 ```
 ## What happens when our Skier hits a Purple Gate
 
-###Lets make our purple gate do something
+### Let's make our purple gate do something
  
 - :paper plane: Add an ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container onto the workspace.
 - :mouse pointer: Change the ``||variables:otherSprite||`` kind from **Player** to **PGate**.
