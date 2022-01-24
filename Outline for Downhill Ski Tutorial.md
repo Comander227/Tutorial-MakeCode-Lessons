@@ -5,6 +5,7 @@
 - :tree: Add a ``||scene:set background color to ()||`` block from the ``||scene:Scene||`` category to your ``||loops:on start||`` container.
 	
 	```blocks
+	// @highlight 
 	scene.setBackgroundColor(1)
 	```
 
@@ -16,6 +17,7 @@
 	
 ```blocks
 		scene.setBackgroundColor(1); 
+		// @highlight
 		let mySprite = sprites.create(img``,SpriteKind.Player)
 ```
 
@@ -27,6 +29,7 @@
 
 ```blocks
 	scene.setBackgroundColor(1)
+	// @highlight
 	let mySprite = sprites.create(assets.image`Skier`,SpriteKind.Player)
 ```
 
@@ -37,6 +40,7 @@
 ```blocks
 	scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
+// @highlight
 controller.moveSprite(mySprite)
 ```
 ## Don't lose the Skier
@@ -47,6 +51,7 @@ controller.moveSprite(mySprite)
 scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
+// @highlight
 mySprite.setStayInScreen(true)
 ```
 
@@ -60,6 +65,7 @@ scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
+// @highlight
 mySprite.setPosition(80, 11)
 ```
 
@@ -70,6 +76,7 @@ mySprite.setPosition(80, 11)
 - :circle: Grab an ``||game:on game update every 500 ms||`` container from the ``||game:Game||`` category. 
 
 ```blocks
+// @highlight
 game.onUpdateInterval(500, function () {
 	
 })
@@ -88,6 +95,7 @@ game.onUpdateInterval(500, function () {
 
 let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
+    // @highlight
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
 })
 ```
@@ -103,6 +111,7 @@ let Rocks: Sprite = null
 let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    // @highlight
     Rocks.setPosition(0, 0)
 })
 ```
@@ -118,6 +127,7 @@ let Rocks: Sprite = null
 let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
     Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    // @highlight
     Rocks.setPosition(0, scene.screenHeight())
 })
 ```
@@ -133,6 +143,7 @@ let Rocks: Sprite = null
 }
 	game.onUpdateInterval(500, function () {
    let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
+    // @highlight
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
 })
 ```
@@ -151,6 +162,7 @@ let Rocks: Sprite = null
 	game.onUpdateInterval(500, function () {
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    // @highlight
     Rocks.setVelocity(0, -50)
 })
 ```
@@ -168,6 +180,7 @@ game.onUpdateInterval(500, function () {
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
+   // @highlight
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
 ```
@@ -187,6 +200,7 @@ let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
+// @highlight
 let SkierSpeed = -20
 
 ```
@@ -207,6 +221,7 @@ controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
 let SkierSpeed = -20
+// @highlight
 let RockSpawnTime = 2000
 ```
 
@@ -224,6 +239,7 @@ let RockSpawnTime = 2000
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
+   // @highlight
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
 ```
@@ -243,6 +259,7 @@ let RockSpawnTime = 2000
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
+    // @highlight
     pause(RockSpawnTime)
 })
 ```
@@ -258,6 +275,7 @@ let RockSpawnTime = 2000
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, SkierSpeed)
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
+    // @highlight
     pause(RockSpawnTime)
 })
 ```
@@ -269,6 +287,7 @@ let RockSpawnTime = 2000
 - :mouse pointer: Change the value to **3000**.
  
 ```blocks
+	// @highlight
 	game.onUpdateInterval(3000, function () {
 	
 })
@@ -280,7 +299,8 @@ let RockSpawnTime = 2000
 
 ```blocks
 	game.onUpdateInterval(3000, function () {
-    SkierSpeed += -5
+   // @highlight
+   SkierSpeed += -5
 })
 ```
 
@@ -293,6 +313,7 @@ let RockSpawnTime = 2000
 ```blocks
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
+    // @highlight
     SkierSpeed = Math.max(SkierSpeed, -100)
 })
 
@@ -309,6 +330,7 @@ let RockSpawnTime = 2000
 	game.onUpdateInterval(3000, function () {
     SkierSpeed += -5
     SkierSpeed = Math.max(SkierSpeed, -100)
+    // @highlight
     RockSpawnTime += -200
 })
 ```
@@ -323,6 +345,7 @@ let RockSpawnTime = 2000
     SkierSpeed += -5
     SkierSpeed = Math.max(SkierSpeed, -100)
     RockSpawnTime += -200
+    // @highlight
     RockSpawnTime = Math.max(RockSpawnTime, 500)
 })
 ```
@@ -337,6 +360,7 @@ let RockSpawnTime = 2000
 	namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
+// @highlight
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
 	
 })
@@ -357,6 +381,7 @@ namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
+    // @highlight
     otherSprite.destroy(effects.blizzard, 100)
 })
 ```
@@ -371,6 +396,7 @@ namespace SpriteKind {
 }
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.Rock, function (sprite, otherSprite) {
     otherSprite.destroy(effects.blizzard, 100)
+    // @highlight
     info.changeLifeBy(-1)
 })
 ```
@@ -382,6 +408,7 @@ namespace SpriteKind {
 
 ```blocks
 	info.onLifeZero(function () {
+    // @highlight
     game.over(false)
 })
 ```
@@ -397,6 +424,7 @@ namespace SpriteKind {
 namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
+	// @highlight
 	sprites.onDestroyed(SpriteKind.Rock, function (sprite) {
     info.changeScoreBy(1)
 })
@@ -419,6 +447,7 @@ mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
 let SkierSpeed = -20
 let RockSpawnTime = 2000
+// @highlight
 let PurpleGateTimer = 5000
 ```
 
@@ -428,6 +457,7 @@ let PurpleGateTimer = 5000
 - :redo: Grab a ``||loops:forever loop||`` container from the ``||loops:loops||`` category. 
 
 ```blocks
+	// @highlight
 	forever(function () {
 	
 })
@@ -448,6 +478,7 @@ let PurpleGateTimer = 5000
 }
 let PurpleGate: Sprite = null
 	forever(function () {
+    // @highlight
     PurpleGate = sprites.create(img``, SpriteKind.PGate)
 })
 ```
@@ -463,6 +494,7 @@ let PurpleGate: Sprite = null
 }
 let PurpleGate: Sprite = null
 	    forever (function (){
+	    // @highlight
 	    PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
 })
 ```
@@ -470,9 +502,8 @@ let PurpleGate: Sprite = null
 ## Let's not reinvent the wheel
 ### We are going to use code that we already wrote to make this process a bit easier. 
 
-- :mouse pointer: Duplicate the ``||sprites:set Rocks position||`` block from the Rock Spawn ``||loops:forever loop||``. This can be done by right clicking on the block you would like to copy and then selecting **Duplicate** from the menu. 
-- :mouse pointer: Change **Rocks** to **PurpleGate**.
-
+- :mouse pointer: Duplicate the ``||sprites:set Rocks position||`` block from the Rock Spawn ``||loops:forever loop||``. This can be done by **right clicking** on the block you would like to copy and then selecting **Duplicate** from the menu. 
+- :mouse pointer: Change ``||variables:Rocks||`` to ``||variables:PurpleGate||``.
 
 ```blocks
 	namespace SpriteKind {
@@ -482,6 +513,7 @@ let PurpleGate: Sprite = null
 
 	forever(function () {
        PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
+    // @highlight
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
 })
 ```
@@ -491,25 +523,37 @@ let PurpleGate: Sprite = null
 
 - :mouse pointer: Duplicate the ``||sprites:set Rocks vx 0 and vy SkierSpeed||`` block from the Rock's ``||loops:forever loop||`` and add it to your new ``||loops:forever loop||``.
 
-- :mouse pointer: change **Rocks** to **PurpleGate**. 
+- :mouse pointer: Change ``||variables:Rocks||`` to ``||variables:PurpleGate||``. 
 
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+let PurpleGate: Sprite = null
+
 	forever(function () {
     PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    // @highlight
     PurpleGate.setVelocity(0, SkierSpeed)
 })
 ```
 
 ## Adding a timer to your Purple Gate Code
-- :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:loop||`` category to the top of the ``||loops:forever loop||`` you just added.
-- :bars: Grab the ``||variables:PurpleGateTimer||`` variable circle from the ``||variables:variables||`` category and add it to the ``||loops:pause 100ms||`` block's value space. 
+- :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:Loop||`` category to the top of the ``||loops:forever loop||`` you just added.
+- :bars: Grab the ``||variables:PurpleGateTimer||`` variable circle from the ``||variables:Variables||`` category and add it to the ``||loops:pause 100ms||`` block's value space. 
 
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+let PurpleGate: Sprite = null
+
 forever(function () {
     PurpleGate = sprites.create(assets.image`Purple Gate`, SpriteKind.PGate)
     PurpleGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     PurpleGate.setVelocity(0, SkierSpeed)
+    // @highlight
     pause(PurpleGateTimer)
 })
 ```
@@ -517,10 +561,14 @@ forever(function () {
 
 ### Let's make our purple gate do something
  
-- :paper plane: Add an ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container onto the workspace.
+- :paper plane: Add an ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category onto the workspace.
 - :mouse pointer: Change the ``||variables:otherSprite||`` kind from **Player** to **PGate**.
 
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+// @highlight
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
 	
 })
@@ -538,31 +586,42 @@ forever(function () {
 	
 ```blocks
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
+    // @highlight
     otherSprite.destroy(effects.coolRadial, 200)
 })
 ```
 ## Increasing the Skier's Speed. 
 ### Let's use our Purple Gate to increase our Skier's speed
 
-- :bars: Add a ``||variables:change SkierSpeed by 1||`` block from the ``||variables:variables||`` category to the ``||sprites:Purple Gate overlap||`` container.
+- :bars: Add a ``||variables:change SkierSpeed by 1||`` block from the ``||variables:Variables||`` category to the ``||sprites:PurpleGate overlap||`` container.
 - :mouse pointer: Change the value to **-5**. 
 
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
+    // @highlight
     SkierSpeed += -5
 })
 ```
 ## Scoring Additional Points for our Skier
 ### When our Skier runs into the Purple Gate they should score extra points.
 
-- :id card: Add a ``||info:change score by 1||`` block from the ``||info:info category||`` to the ``||sprites:overlap||`` code.
+- :id card: Add a ``||info:change score by 1||`` block from the ``||info:Info||`` category to the ``||sprites:overlap||`` code.
 - :mouse pointer: Change the value from **1** to **3**.
 
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
+
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     otherSprite.destroy(effects.coolRadial, 200)
     SkierSpeed += -5
+    // @highlight
     info.changeScoreBy(3)
 })
 ```
@@ -570,7 +629,7 @@ forever(function () {
 ## Adding Distance values
 ### Set your variable in the on start container
 - :bars: Create a new ``||variables:variable||``by clicking on the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category. 
-- :bars: Name the variable **distance**.
+- :bars: Name the variable ``||variables:distance||``.
 - :bars: Add a ``||variables:Set distance to 0||`` block to your ``||loops:on start||`` container. 	
 	
 ```blocks
@@ -579,10 +638,11 @@ forever(function () {
 	controller.moveSprite(mySprite)
 	mySprite.setStayInScreen(true)
 	mySprite.setPosition(80, 11)
-	let distance = 0
 	let SkierSpeed = -20
 	let RockSpawnTime = 2000
 	let PurpleGateTimer = 5000
+	// @highlight
+	let distance = 0
 ```
 	
 	
@@ -590,16 +650,17 @@ forever(function () {
 
 ### To adjust our distance variable we need to set up a forever loop to do so. 
 
-- :redo: Add a ``||loops:forever loop||`` container from the ``||loops:loops||`` category into the workspace.
-- :redo: Add a ``||loops: pause||``block from the ``||loops:loops||`` category to the ``||loops:forever||`` container. 
+- :redo: Add a ``||loops:forever loop||`` container from the ``||loops:Loops||`` category into the workspace.
+- :redo: Add a ``||loops: pause||``block from the ``||loops:Loops||`` category to the ``||loops:forever||`` container. 
 
  ```blocks
+	 // @highlight
 	 forever(function () {
     pause(100)
 })
 ```
 
-##Going the Distance
+## Going the Distance
 
 ### Now we will add blocks to increase our distance over time based off the Skier's Speed. 
 	
@@ -612,6 +673,7 @@ forever(function () {
 ```blocks
 	forever(function () {
     pause(100)
+    // @highlight
     distance += SkierSpeed * -0.05
 })
 ```
@@ -623,6 +685,7 @@ forever(function () {
 - :mouse pointer: Set the text to appear in the **center** of the screen.
 ```blocks
 	info.onLifeZero(function () {
+    // @highlight
     game.showLongText("", DialogLayout.Center)
     game.over(false)
 })
@@ -635,6 +698,7 @@ forever(function () {
 - :mouse pointer: Add a third value space by clicking the **+** button on the ``||text:join "Hello" "World"||``circle. 
 ```blocks
 	info.onLifeZero(function () {
+    // @highlight
     game.showLongText("Hello" + "World" + "", DialogLayout.Center)
     game.over(false)
 })
@@ -648,6 +712,7 @@ forever(function () {
 
 ```blocks
 	info.onLifeZero(function () {
+    // @highlight
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     game.over(false)
 })
@@ -664,17 +729,20 @@ forever(function () {
 ```blocks
 	info.onLifeZero(function () {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
+// @highlight
 info.changeScoreBy(Math.round(distance))
     game.over(false)
 })
 ```
 
-# Creating a Win Condition
+
+## Creating a Win Condition
 ### Let's give our player a way to win the game. 
 - :redo: Add a ``||forever loop||`` container from the ``||loop:Loops||`` category. 
 - :random: Add an ``||logic: if true then||`` container from the ``||logic:Logic||`` category and add it too the ``||loops:forever||``container.
 
 ```blocks
+	// @highlight
 	forever(function () {
     if (true) {
     	
@@ -692,6 +760,7 @@ info.changeScoreBy(Math.round(distance))
 
 ```blocks
 	forever(function () {
+    // @highlight
     if (distance >= 500) {
     	
     }
@@ -714,6 +783,7 @@ info.changeScoreBy(Math.round(distance))
 	
 	forever(function () {
     if (distance >= 500) {
+        // @highlight
         CheckGate = sprites.create(img` `, SpriteKind.CGate)
     }
 })
@@ -724,8 +794,14 @@ info.changeScoreBy(Math.round(distance))
 - :mouse pointer: Click on the grey box and select the **checkered gate** from the my Assets section.
 	
 ```blocks
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	forever(function () {
     if (distance >= 500) {
+        // @highlight
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
     }
 })
@@ -735,25 +811,22 @@ info.changeScoreBy(Math.round(distance))
 ### We need to create a new variable that will be used as a timer to spawn the Checkered Gate. 
 
 - :bars: Create a new ``||variables: variable||`` by clicking the ``||variables: Make A Variable||`` button in the ``||variables:Variables||`` category. 
-- :mouse pointer: name the new variable **CGateTimer**
+- :mouse pointer: name the new variable ``||variables:CGateTimer||``
 - :bars: Add a ``||variables:set CGateTimer to 0||`` block to our ``||loops:on start||`` container.
 - :mouse pointer: change the value from **0** to **7000**. 
 
 
 ```blocks
-let CheckGate: Sprite = null
-let PurpleGate: Sprite = null
-let Rocks: Sprite = null
-let distance = 0
 scene.setBackgroundColor(1)
 let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 controller.moveSprite(mySprite)
 mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
-distance = 0
+let distance = 0
 let SkierSpeed = -20
 let RockSpawnTime = 2000
 let PurpleGateTimer = 5000
+// @highlight
 let CGateTimer = 7000
 ```
 
@@ -761,15 +834,21 @@ let CGateTimer = 7000
 
 ### We want the checkered gate to function in a similar way to the Purple Gate. To set this up we are going to copy blocks from the Purple Gate Spawn Code. 
 
-- :mouse pointer: Copy the ``||sprites: set PurpleGate position to x||`` ``||math:pick random 0 to||`` ``||scene:screen width||`` ``||sprites: y||`` ``||scene: screen height||`` by **right clicking** on the block and selecting duplicate. 
+- :mouse pointer: Copy the ``||sprites: set PurpleGate position to x||`` ``||math:pick random 0 to||`` ``||scene:screen width||`` ``||sprites: y||`` ``||scene: screen height||`` by **right clicking** on the block and selecting **duplicate**. 
 - :mouse pointer: Add the duplicated block to the Checkered Gate ``||loops:forever loop||`` container. 
 - :mouse pointer: Change ``||variables:PurpleGate||`` to ``||variables:CheckGate||``
 
  
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	forever(function () {
     if (distance >= 500) {
         CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        // @highlight
         CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     }
 })
@@ -785,10 +864,16 @@ let CGateTimer = 7000
 - :mouse pointer: change ``||variables:PurpleGate||`` to ``||variables:CheckGate||``.
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	forever(function () {
     if (distance >= 500) {
-        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        let CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
         CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+        // @highlight
         CheckGate.setVelocity(0, SkierSpeed)
     }
 })
@@ -800,12 +885,18 @@ let CGateTimer = 7000
 - :bars: Add the ``||variables:CGateTimer||`` circle from the ``||variables:Variables||`` category and add it to the value space in the ``||loops:pause||`` block. 
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	forever(function () {
     if (distance >= 500) {
-        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        let CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
         CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
         CheckGate.setVelocity(0, SkierSpeed)
     }
+    // @highlight
     pause(CGateTimer)
 })
 ```
@@ -816,6 +907,12 @@ let CGateTimer = 7000
 - :mouse pointer: Change the kind of ``||variables:otherSprite||`` from **Player** to **CGate**.
  
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
+	// @highlight
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
 	
 })
@@ -830,7 +927,13 @@ let CGateTimer = 7000
 - :mouse pointer: Add the duplicated block to the ``||sprites:on overlap||`` container we just added. 
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
+    // @highlight
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
 })
@@ -843,9 +946,15 @@ let CGateTimer = 7000
 - :mouse pointer: Feel free to add an effect by clicking on the **+** button. 
 
 ```blocks
+	namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+    export const PGate = SpriteKind.create()
+    export const CGate = SpriteKind.create()
+}
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.CGate, function (sprite, otherSprite) {
     game.showLongText("\"you went\"" + Math.round(distance) + "\"feet!\"", DialogLayout.Center)
     info.changeScoreBy(Math.round(distance))
+    // @highlight
     game.over(true)
 })
 ```
