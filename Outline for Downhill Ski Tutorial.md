@@ -29,7 +29,7 @@
 
 ```blocks
 	scene.setBackgroundColor(1)
-	// @highlight
+
 	let mySprite = sprites.create(assets.image`Skier`,SpriteKind.Player)
 ```
 
@@ -235,11 +235,11 @@ let RockSpawnTime = 2000
     export const Rock = SpriteKind.create()
 }
 
+	// @highlight
 	forever(function () {
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     Rocks.setVelocity(0, -50)
-   // @highlight
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
 ```
