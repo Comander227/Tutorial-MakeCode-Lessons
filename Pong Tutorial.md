@@ -3,38 +3,42 @@ https://arcade.makecode.com/#tutorial:42774-97417-65865-25080
  
 # Pong
 ## Part 1: Setting Up Key Variables
-We will use the ``||Variables:variable||`` category to create our players and our background image.
-## Step 1: Setting Up the Players Variables
-Create a ``||variables: players||`` variable from the variables section by clicking on the ``||Variables: Make a Variable ||`` button.
-Name the variable ``||variables: players||``.
-Drag a ``||variables:set players to 0||`` block to the ``||loops:on start||`` container.
-Set the value of ``||variables: players||`` to **1**.
+We will use the ``||Variables:Variable||`` category to create our players and our background image.
+## Setting Up the Players Variables
+- :bars: Create a ``||variables: players||`` variable from the variables section by clicking on the ``||Variables: Make a Variable ||`` button.
+- :bars: Name the variable ``||variables: players||``.
+- :bars: Drag a ``||variables:set players to 0||`` block from the ``||variables:Variables||`` category to the ``||loops:on start||`` container.
+- :mouse pointer: Set the value of ``||variables: players||`` to **1**.
+
 ```blocks
 //@highlight
 let players = 1
 ```
-## Step 2: Setting Up the Background Variable
-We need to create an image to use as our background.
-Use the ``||Variables: Make a Variable ||`` button to create a variable named Background for our background image. 
-Add a ``||variables:set Background||`` block to the ``||loops:on start||`` loop
+## Setting Up the Background Variable
+### We need to create an image to use as our background.
+- :bars: Use the ``||Variables: Make a Variable ||`` button to create a variable.
+- :bars: name the variable **Background** for our background image. 
+- :bars: Add a ``||variables:set Background||`` block from the ``||variables:Variables||`` category to the ``||loops:on start||`` loop
+
 ```blocks
 let players = 1
 //@highlight
 let Background = (0)
 ```
 
-## Step 3: Setting Up the Background Image
-Open the **Advanced** section of the toolbox.
-Click on the Images category.
-Grab a ``||images: create image width () height()||`` circle and place it in the value space for the ``||variables: set Background||`` block.
+## Setting Up the Background Image
+- :chevron down: Open the **Advanced** section of the toolbox.
+- :image: Click on the ``||images:Images||`` category.
+- :image: Grab a ``||images: create image width () height()||`` circle from the ``||images: Images||`` category and place it in the value space for the ``||variables: set Background||`` block.
+
 ```blocks
 let players = 1
 //@highlight
 let Background =image.create(0, 0)
 ```
-## Step 4: Set the Size of the Image
-Open the ``||scene:scene||`` category.
-Add a ``||scene:screenWidth||`` circle to the image's width and a ``||scene:screenHeight||`` circle to the image height.
+## Set the Size of the Image
+- :tree: Open the ``||scene:Scene||`` category.
+- :tree: Add a ``||scene:screenWidth||`` circle to the image's width and a ``||scene:screenHeight||`` circle to the image height.
 ```blocks
 let players = 1
 //@highlight
@@ -42,11 +46,13 @@ let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
 ```
  
 ## Part 2: Setting Up the Net
-Here is where we will edit our background picture to include a net.
+### Here is where we will edit our background picture to include a net.
 We will use a ``||loops:for loop||`` to create a uniform net.
-## Step 1: Using a For Loop
-Add a ``||loops:for loop||`` to the ``||loops: on start||`` container.
-Add the ``||scene: screenHeight||`` circle to the max index value.
+
+## Using a For Loop
+- :redo: Add a ``||loops:for loop||`` from the ``||loops:Loops||`` category to the ``||loops: on start||`` container.
+- :tree: Add the ``||scene: screenHeight||`` circle from the ``||scene:Scene||`` category to the max index value.
+
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
@@ -54,9 +60,10 @@ let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
 for (let index = 0; index <= scene.screenHeight(); index++) {
 }
 ```
-## Step 2: Using an If Statement to Set Up the Net
-Grab an ``||logic:if then loop||`` and add it to the ``||loops:for||`` loop.
-Add a ``||logic: 0 < 0 ||`` diamond (also known as a ``||logic:comparison diamond||``) to the ``||logic:if then loop||``.
+## Using an If Statement to Set Up the Net
+- :random: Grab an ``||logic:if then loop||`` from the ``||logic:Logic||`` category and add it to the ``||loops:for||`` loop.
+- :random: Add a ``||logic: 0 < 0 ||`` diamond (also known as a ``||logic:comparison diamond||``) from the ``||logic:Logic||`` category to the ``||logic:if then loop||``.
+
 ```blocks
 let players = 1
 let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
@@ -65,9 +72,9 @@ for (let index = 0; index <= scene.screenHeight(); index++) {
 if (0 < 0) {
 }}
 ```
-## Step 3: Adding the Math
-Add a ``||math: remainder of||`` to the ``||logic: comparison||`` diamond.  
-Then the drag the local ``||variables:index||`` to the ``||math: ÷||`` circle.
+## Adding the Math
+- :calculator: Add a ``||math: remainder of 0 ÷ 1||`` to the first value space in the ``||logic: comparison||`` diamond.  
+- :mouse pointer: Then the drag the local ``||variables:index||`` to the ``||math: ÷||`` circle.
 Set the values so it reads ``||logic:if||`` the ``||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
@@ -1058,7 +1065,8 @@ controller.player2.moveSprite(Player2,0,100)
  
  
 ## Finish
-Congrats on completing your own version of Pong. Feel free to play a few rounds and challenge your friends.
+### Congrats on completing your own version of Pong. Feel free to play a few rounds and challenge your friends.
+
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
   players = 2
