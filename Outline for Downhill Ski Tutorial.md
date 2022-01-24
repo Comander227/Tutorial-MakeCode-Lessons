@@ -1,3 +1,6 @@
+https://arcade.makecode.com/#tutorial:87675-41978-26701-01915
+
+
 # Downhill Ski Game Jam 
 
 ## Setting your background
@@ -273,9 +276,9 @@ let RockSpawnTime = 2000
 	forever(function () {
     let Rocks = sprites.create(assets.image`mediumOceanRock`, SpriteKind.Rock)
     Rocks.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
+    // @highlight
     Rocks.setVelocity(0, SkierSpeed)
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
-    // @highlight
     pause(RockSpawnTime)
 })
 ```
@@ -585,6 +588,9 @@ forever(function () {
 - :mouse pointer: Feel free to press the **+** button to add an effect for your gate. 	
 	
 ```blocks
+	namespace SpriteKind {
+    export const PGate = SpriteKind.create()
+}
 	sprites.onOverlap(SpriteKind.Player, SpriteKind.PGate, function (sprite, otherSprite) {
     // @highlight
     otherSprite.destroy(effects.coolRadial, 200)
@@ -633,6 +639,7 @@ forever(function () {
 - :bars: Add a ``||variables:Set distance to 0||`` block to your ``||loops:on start||`` container. 	
 	
 ```blocks
+	let distance = 0
 	scene.setBackgroundColor(1)
 	let mySprite = sprites.create(assets.image`Skier`, SpriteKind.Player)
 	controller.moveSprite(mySprite)
@@ -642,7 +649,7 @@ forever(function () {
 	let RockSpawnTime = 2000
 	let PurpleGateTimer = 5000
 	// @highlight
-	let distance = 0
+	distance = 0
 ```
 	
 	
@@ -680,7 +687,7 @@ forever(function () {
 
 ## Showing the distance value
 
-- :circle: Add a show long text block from the ``||game:game||`` category to your ``||info:on life zero||`` container. 
+- :circle: Add a ``||game:show long text||`` block from the ``||game:Game||`` category to your ``||info:on life zero||`` container. 
 - :mouse pointer: Be sure to add it **above** the game over block. 
 - :mouse pointer: Set the text to appear in the **center** of the screen.
 ```blocks
@@ -847,7 +854,7 @@ let CGateTimer = 7000
 }
 	forever(function () {
     if (distance >= 500) {
-        CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
+        let CheckGate = sprites.create(assets.image`CheckGate`, SpriteKind.CGate)
         // @highlight
         CheckGate.setPosition(randint(0, scene.screenWidth()), scene.screenHeight())
     }
