@@ -3,6 +3,9 @@ https://arcade.makecode.com/#tutorial:87675-41978-26701-01915
 
 # Downhill Ski Game Jam 
 
+## Part 1: Creating our Player Character
+### In the first part we are going to set up our environment as well as the character our player is going to control. 
+
 ## Setting your background
 ### Set up your background to white for your snow
 - :tree: Add a ``||scene:set background color to ()||`` block from the ``||scene:Scene||`` category to your ``||loops:on start||`` container.
@@ -72,7 +75,8 @@ mySprite.setStayInScreen(true)
 mySprite.setPosition(80, 11)
 ```
 
-
+## Part 2: Creating Obstacles
+### A good game should contain some obstacles that our player needs to overcome in order to score points or win the game. 
 
 ## Creating our Rock Obstacle
 ### Setting up the container
@@ -187,6 +191,9 @@ game.onUpdateInterval(500, function () {
     Rocks.setFlag(SpriteFlag.AutoDestroy, true)
 })
 ```
+
+## Part 3: Let's Speed Things Up
+### The game will get boring if nothing changes as the player progresses. Let's make the skier move faster the longer they are actively playing. 
 
 ## Creating a Skier Speed Variable
 ### Let's adjust the speed of this using a variable that we can manipulate. 
@@ -353,6 +360,10 @@ let RockSpawnTime = 2000
 })
 ```
 
+## Part 4: Making An Impact
+### In this part we are going to add collision code to have our sprites and obstacles interact. 
+
+
 ## Setting up the Collision Code
 ### MakeCode Arcade uses overlap containers to determine when object collide. 
 
@@ -415,6 +426,9 @@ namespace SpriteKind {
     game.over(false)
 })
 ```
+
+## Part 5: Scoring Points 
+### In this part we are going to set up some code that will allow our player to score points and progress further in the game. 
 
 ## Giving Our Player Some Points
 ### Let's have our player score some points for every Rock that they avoid. 
@@ -561,7 +575,6 @@ forever(function () {
 })
 ```
 ## What happens when our Skier hits a Purple Gate
-
 ### Let's make our purple gate do something
  
 - :paper plane: Add an ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category onto the workspace.
@@ -632,6 +645,9 @@ forever(function () {
 })
 ```
 
+## Part 6: Going the Distance
+### Let's create a new variable to determine the total distance our player has gone. 
+
 ## Adding Distance values
 ### Set your variable in the on start container
 - :bars: Create a new ``||variables:variable||``by clicking on the ``||variables:Make A Variable||`` button in the ``||variables:Variables||`` category. 
@@ -667,7 +683,7 @@ forever(function () {
 })
 ```
 
-## Going the Distance
+## Going the Distance based off the Skier's Speed
 
 ### Now we will add blocks to increase our distance over time based off the Skier's Speed. 
 	
@@ -741,6 +757,9 @@ info.changeScoreBy(Math.round(distance))
     game.over(false)
 })
 ```
+
+## Part 7: Winning the Game
+### Every good video game needs a way for the player to win the game. Let's code our win condition. 
 
 
 ## Creating a Win Condition

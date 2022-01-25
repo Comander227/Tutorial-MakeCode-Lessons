@@ -737,11 +737,11 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 17: Resetting the Ball's Horizontal Position to Player2
-Add a ``||math:subtraction||`` circle to the x value ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||``.
-Add a ``||sprites:mySprite x||`` circle to the beginning of your ``||math:subtraction circle||``.
-Change ``||variables:mySprite||`` to ``||variables:Player2||``.
-Use the ``||math:subtraction||``to subtract ``||math: 3||`` to the ``||variables:projectile||`` ``||sprites:x value||``.
+## Resetting the Ball's Horizontal Position to Player2
+- :calculator: Add a ``||math:subtraction||`` circle (``||math: 0 - 0||``) from the ``||math:Math||`` category to the x value ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||``.
+- :paper plane: Add a ``||sprites:mySprite x||`` circle from the ``||sprites:Sprites||`` category to the first value of your ``||math:subtraction circle||``.
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:Player2||``.
+- :mouse pointer: Use the ``||math:subtraction||``to subtract ``||math: 3||`` to the ``||variables:projectile||`` ``||sprites:x value||``.
 
 ```blocks
 let projectile: Sprite = null
@@ -762,10 +762,10 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 18: Resetting the Ball's Vertical Position to Player2
-Add a ``||sprites:mySprite x||`` circle to the ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||`` y value. 
-Change ``||variables:mySprite||`` to ``||variables:Player2||``.
-Change ``||sprites:x||`` to ``||sprites:y||``.
+## Resetting the Ball's Vertical Position to Player2
+- :paper plane: Add a ``||sprites:mySprite x||`` circle from the ``||sprites:Sprites||`` category to the ``||sprites: set||`` ``||variables:projectile||`` ``||sprites:position||`` y value. 
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:Player2||``.
+- :mouse pointer: Change ``||sprites:x||`` to ``||sprites:y||``.
 
 ```blocks
 let projectile: Sprite = null
@@ -786,9 +786,9 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 19: Resetting the Ball's Velocity.
-Add a ``||sprites:set mySprite velocity to vx() vy()||`` block under your ``||sprites:set projectile position||`` block.
-Change ``||variables:mySprite||`` to ``||variables:projectile||``.
+## Resetting the Ball's Velocity.
+- :paper plane: Add a ``||sprites:set mySprite velocity to vx() vy()||`` block from the ``||sprites:Sprites||`` category under your ``||sprites:set projectile position||`` block.
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:projectile||``.
 
 ```blocks
 let projectile: Sprite = null
@@ -810,10 +810,10 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 20:Setting the Ball's Velocity Values.
-Add a ``||math:pick random||`` circle to the ``||sprites:vx||`` and the``||sprites:vy||`` values.
-Set the ``||sprites:vx value||`` to ``||math: -75 min and -50 max||``.
-Set the ``||sprites:vy value||`` to ``||math: -50 min and -25 max||``.
+## Setting the Ball's Velocity Values.
+- :calculator: Add a ``||math:pick random||`` circle from ``||math:Math||`` category to the ``||sprites:vx||`` and the``||sprites:vy||`` values.
+- :mouse pointer: Set the ``||sprites:vx value||`` to ``||math: -75 min and -50 max||``.
+- :mouse pointer: Set the ``||sprites:vy value||`` to ``||math: -50 min and -25 max||``.
 
 ```blocks
 let projectile: Sprite = null
@@ -835,9 +835,9 @@ game.onUpdate(function(){
 })
 ```
  
-## Step 21: Setting up Player1's Starting Score.
-Add one ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
-Change ``||info:set player 2 score to 0||`` to ``||info:set player 1 score to 0||``.
+## Setting up Player1's Starting Score.
+- :id card: Add one ``||info:set player 2 score to 0||`` from the ``||info:Info||`` category to your ``||loops: on start||`` container.
+- :mouse pointer: Change ``||info:set player 2 score to 0||`` to ``||info:set player 1 score to 0||``.
 
 ```blocks
 let players = 1
@@ -861,8 +861,8 @@ projectile.setBounceOnWall(true)
 info.player1.setScore(0)
 ```
 
-## Step 21: Setting up Player2's Starting Score.
-Add another ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
+## Setting up Player2's Starting Score.
+- :id card: Add another ``||info:set player 2 score to 0||`` to your ``||loops: on start||`` container.
 
 ```blocks
 let players = 1
@@ -888,11 +888,11 @@ info.player2.setScore(0)
 ```
  
 ## Part 6: Making an Impact.
-Now we will use an ``||sprites:On Overlap||`` container to make our ball bounce off the paddles.
+### Now we will use an ``||sprites:On Overlap||`` container to make our ball bounce off the paddles.
  
-## Step 1: Adding the New Container.
-Add an new ``||sprites: on Overlap||`` container to the workspace.
-Change the ``||variables:otherSprite||`` ``||sprites:kind||`` from ``||sprites:player||`` to ``||sprites:projectile||``.
+## Adding the New Container.
+- :paper plane: Add a new ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category to the workspace.
+- :mouse pointer: Change the ``||variables:otherSprite||`` ``||sprites:kind||`` from ``||sprites:Player||`` to ``||sprites:Projectile||``.
 
 ```blocks
 //@highlight
@@ -901,9 +901,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 })
 ```
 
-## Step 2: Updating the Ball's Velocity
-Add a ``||sprites:set mySprite x to ()||`` to the ``||sprites:on Overlap||`` container.
-Add ``||math:multiplication||`` circle to the value. 
+## Updating the Ball's Velocity
+- :paper plane: Add a ``||sprites:set mySprite x to ()||`` from the ``||sprites:Sprites||`` category to the ``||sprites:on Overlap||`` container.
+- :calculator: Add ``||math:multiplication||`` circle (``||math: 0 * 0||``) from the ``||math:Math||`` category to the value. 
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
@@ -915,9 +915,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 ```
 
 
-## Step 3: Altering the Value
-Add a``||sprites: mySprite x||`` circles to your ``||math:multiplication||`` value.
-Drag the local ``||variables:otherSprite||`` over the all of the ``||variables:mySprite||`` variables
+## Altering the Value
+- :paper plane: Add a``||sprites: mySprite x||`` circle from the ``||sprites:Sprites||`` category to your second ``||math:multiplication||`` value.
+- :mouse pointer: Drag the local ``||variables:otherSprite||`` over the all of the ``||variables:mySprite||`` variables.
 
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
@@ -928,9 +928,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 
 })
 ```
-## Step 4: Duplicating the Block.
-Copy the ``||sprites:set otherSprite x to||`` ``||math:(0 * otherSprite.x)||`` by right clicking on the whole block and selecting duplicate. 
-Set the new block below the previous one.
+## Duplicating the Block.
+- :mouse pointer: Duplicate the ``||sprites:set otherSprite x to||`` ``||math:(0 * otherSprite.x)||`` by **right clicking** on the whole block and selecting duplicate. 
+- :mouse pointer: Set the new block below the previous one.
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
@@ -941,9 +941,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 ``` 
  
  
-## Step 4: Setting the vx Values
-Change the first ``||sprites:set otherSprite X||`` to ``||sprites:set otherSprite vx||``.
-Set the ``||math:multiplication||`` circle to read ``||math: -1.1 x||`` ``||variables:otherSprite||`` ``||sprites:vx||``.
+## Setting the vx Values
+- :mouse pointer: Change the first ``||sprites:set otherSprite x||`` to ``||sprites:set otherSprite vx||``.
+- :mouse pointer: Set the ``||math:multiplication||`` circle to read ``||math: -1.1 *||`` ``||variables:otherSprite||`` ``||sprites:vx||``.
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
@@ -953,9 +953,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 })
 ```
  
-## Step 5: Setting the vy Values
-Change the second ``||sprites:set otherSprite X||`` to ``||sprites:set otherSprite vy||``.
-Set the ``||math:multiplication||`` circle to read ``||math: 1.1 x||`` ``||variables:otherSprite||`` ``||sprites:vy||``.
+## Setting the vy Values
+- :mouse pointer: Change the second ``||sprites:set otherSprite x||`` to ``||sprites:set otherSprite vy||``.
+- :mouse pointer: Set the ``||math:multiplication||`` circle to read ``||math: 1.1 *||`` ``||variables:otherSprite||`` ``||sprites:vy||``.
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
@@ -966,9 +966,9 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 })
 ```
  
-## Step 6: Adding A Sound Effect.
-Add ``||music:play tone at Middle C for 1/2 beat||`` to the ``||sprites:on overlap||`` container.
-Change ``||music: Middle C||`` to ``||music:Middle B||``. If you can't find Middle B, enter the value **494**.
+## Adding A Sound Effect.
+- :headphones: Add ``||music:play tone at Middle C for 1/2 beat||`` from the ``||music:Music||`` category to the ``||sprites:on overlap||`` container.
+- :mouse pointer: Change ``||music: Middle C||`` to ``||music:Middle B||``. If you can't find Middle B, enter the value **494**.
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
@@ -981,10 +981,10 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 ```
 
 ## Part 7 Setting Up Solo Mode
-Now we are going to set up our Player2 paddle to function as a computer so we can play on our own. 
+### Now we are going to set up our Player2 paddle to function as a computer so we can play on our own. 
 
-## Step 1: Adding a New Container
-Grab a new ``||game:on game update||`` container.
+## Adding a New Container
+ - :circle: Grab a new ``||game:on game update||`` container from the ``||game:Game||`` category.
 
 ```blocks
 //@highlight
@@ -993,9 +993,9 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 2: Adding Logic
-Add an ``||logic:if then loop||`` to your ``||game: on game update||`` container.
-Add an ``||logic: and||`` diamond to the ``||logic:if then loop||``.
+## Adding Logic
+- :random: Add an ``||logic:if then loop||`` from the ``||logic:Logic||`` category to your ``||game: on game update||`` container.
+- :random: Add an ``||logic: and||`` diamond from the ``||logic:Logic||`` category to the ``||logic:if then loop||``.
 
 ```blocks
 game.onUpdate(function(){
@@ -1005,12 +1005,12 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 3: Setting Up the Core If Then Loop.
-Add a ``||logic:>||`` comparison diamond to the ``||logic: and||`` diamond.
-Add a ``||math:division||`` circle to the``||logic:comparison||`` diamond.
-Add a ``||sprites:mySprite x||`` circle to the ``||logic:>||`` comparison diamond.
-Add a ``||scene:screenWidth||`` circle to the other side of the ``||logic:>||`` comparison diamond.
-Set the diamond so it reads ``||variables:projectile||`` ``||sprites:y||`` ``||logic:>||`` ``||scene:screenWidth||`` ``||math:/2||``
+## Setting Up the Core If Then Loop.
+- :random: Add a ``||logic:0 > 0||`` comparison diamond from the ``||logic:Logic||`` category to the ``||logic: and||`` diamond.
+- :calculator: Add a ``||math:division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the``||logic:comparison||`` diamond.
+- :paper plane: Add a ``||sprites:mySprite x||`` circle from the ``||sprites:Sprites||`` category to the ``||logic: 0 > 0||`` comparison diamond.
+- :tree: Add a ``||scene:screenWidth||`` circle from the ``||scene:Scene||`` category to the other side of the ``||logic: 0 > 0||`` comparison diamond.
+- :mouse pointer: Set the diamond so it reads ``||variables:projectile||`` ``||sprites:y||`` ``||logic:>||`` ``||scene:screenWidth||`` ``||math: ÷ 2||``
 
 ```blocks
 let projectile: Sprite = null
@@ -1021,12 +1021,12 @@ game.onUpdate(function(){
 })
 ```
  
-## Step 4: How Many Players Do We Have?
-We need to check how many players we have. 
-Add an ``||logic: =||`` comparison diamond to the second half of the ``||logic:and||`` diamond.
-Add the ``||variables:players||`` from the ``||variables:variables||`` category to the ``|||logic:=||``comparison diamond.
-Set the value to **1**.
-It should read ``||variables:players||`` ``||logic:=||`` **1**.
+## How Many Players Do We Have?
+### We need to check how many players we have. 
+- :random: Add an ``||logic: 0 = 0||`` comparison diamond from the ``||logic:Logic||`` category to the second half of the ``||logic:and||`` diamond.
+- :bars: Add the ``||variables:players||`` from the ``||variables:Variables||`` category to the ``|||logic: 0 = 0||``comparison diamond.
+- :mouse pointer: Set the second value to **1**.
+- :check: It should read ``||variables:players||`` ``||logic:=||`` **1**.
 
 ```blocks
 let projectile: Sprite = null
@@ -1037,8 +1037,8 @@ game.onUpdate(function(){
 })
 ```
  
-## Step 5: Adding More Logic to Our Computer Opponent.
-Add an ``||logic: if then else loop||`` to the ``||logic: if then loop||`` you already have.
+## Adding More Logic to Our Computer Opponent.
+- :random: Add an ``||logic: if then else loop||`` from the ``||logic:Logic||`` category to the ``||logic: if then loop||`` you already have.
 
 ```blocks
 let projectile: Sprite = null
@@ -1052,10 +1052,10 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 6: Comparing the Computer's Position to the Ball's Position.
-Add a ``||logic:comparison||`` diamond to the ``||logic:if then loop||`` you just added.
-Add a ``||sprites:mySprite x||`` circle to both parts of the ``||logic:comparison||`` diamond.
-Set the ``||variables:variables||`` so the ``||logic:comparison||`` diamon reads ``||variables:projectile||`` ``||sprites:y||`` ``||logic: >||`` ``||variables:Player2||`` ``||sprites:y||``.
+## Comparing the Computer's Position to the Ball's Position.
+- :random: Add a ``||logic:comparison||`` diamond <``||logic: 0 > 0||``> from the ``||logic:Logic||`` category to the ``||logic:if then loop||`` you just added.
+- :paper plane: Add a ``||sprites:mySprite x||`` circle to both parts of the ``||logic: 0 > 0||`` comparison diamond.
+- :mouse pointer: Set the ``||variables:variables||`` so the ``||logic:comparison||`` diamond reads ``||variables:projectile||`` ``||sprites:y||`` ``||logic: >||`` ``||variables:Player2||`` ``||sprites:y||``.
 
 ```blocks
 let Player2: Sprite = null
@@ -1070,10 +1070,9 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 7: Moving the Computer's Paddle.
-Add a ``||sprites:change mySprite x by ()||`` block to the ``||logic:if the loop||`` and the ``||logic:else loop||``.
-Set the first block to read ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by 2||``.
-Set the second block to read  ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by -2||``.
+## Moving the Computer's Paddle.
+- :paper plane: Add a ``||sprites:change mySprite x by ()||`` block from the ``||sprites:Sprites||`` category to the ``||logic:if the loop||``.
+- :mouse pointer: Set the block to read ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by 2||``.
 
 ```blocks
 let Player2: Sprite = null
@@ -1089,9 +1088,10 @@ game.onUpdate(function(){
 })
 ```
 
-## Step 8: Moving the Computer's Paddle.
-Duplicate the ``||sprites:change mySprite x by ()||`` block in the ``||logic:if the loop||`` and add it to the ``||logic:else loop||``.\
-Change the values so the second block reads  ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by -2||``.
+## Moving the Computer's Paddle.
+- :mouse pointer: Duplicate the ``||sprites:change mySprite x by ()||`` block in the ``||logic:if the loop||`` by **right clicking** the block and selecting **Duplicate** and add it to the ``||logic:else loop||``.
+- :mouse pointer: Set the block to read  ``||sprites: change||`` ``||variables:Player2||`` ``||sprites:y by -2||``.
+
 
 ```blocks
 let Player2: Sprite = null
@@ -1110,11 +1110,11 @@ game.onUpdate(function(){
 ```
  
 ## Part 8: Controlling Player 2
-Now we are going to establish the controls for Player 2.
+### Now we are going to establish the controls for Player 2.
  
-## Step 1: Adding a New Controller Container
-Drag a ``||controller: on player 2 A button pressed||`` to the workspace.
-Change ``||controller: A||`` to ``||controller: up||``.
+## Adding a New Controller Container
+- :gamepad: Drag a ``||controller: on player 2 A button pressed||`` from the ``||controller:Controller||`` category to the workspace.
+- :mouse pointer: Change ``||controller: A||`` to ``||controller: up||``.
 
 ```blocks
 //@highlight
@@ -1122,9 +1122,9 @@ controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Press
 })
 ```
  
-## Step 2: Altering the Number of Players
-Add a ``||variables:set players to 0||`` block to the ``||controller: on player 2 up button pressed||`` container.
-Change the value from ``||variables:0||`` to ``||variables:2||``.
+## Altering the Number of Players
+- :bars: Add a ``||variables:set players to 0||`` block from the ``||variables:Variables||`` category to the ``||controller: on player 2 up button pressed||`` container.
+- :mouse pointer: Change the value from ``||variables:0||`` to ``||variables:2||``.
 
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
@@ -1134,11 +1134,11 @@ let players = 2
 ```
  
  
-## Step 3: Adding Controller Blocks
-Add a ``||controller: player 2 move mySprite with buttons||`` to the ``||controller: on player 2 up button pressed||`` container.
-Change ``||variables:mySprite||`` to ``||variables:Player2||``.
-Click on the ``||controller: +||`` button.
-Change the ``||controller: vx||`` value to **0**.
+## Adding Controller Blocks
+- :gamepad: Add a ``||controller: player 2 move mySprite with buttons||`` from the ``||controller: Controller||`` category to the ``||controller: on player 2 up button pressed||`` container.
+- :bars: Change ``||variables:mySprite||`` to ``||variables:Player2||``.
+- :mouse pointer: Click on the ``||controller: +||`` button.
+- :mouse pointer: Change the ``||controller: vx||`` value to **0**.
 
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
@@ -1148,10 +1148,10 @@ controller.player2.moveSprite(Player2,0,100)
 })
 ```
  
-## Step 4: Duplicating the Controller Container
-Right click on the ``||controller: on player 2 up button pressed||`` container.
-Click on Duplicate.
-Change ``||controller: up||`` to ``||controller:down||``.
+## Duplicating the Controller Container
+- :mouse pointer: **Right click** on the ``||controller: on player 2 up button pressed||`` container.
+- :mouse pointer: Click on **Duplicate**.
+- :mouse pointer: Change ``||controller: up||`` to ``||controller:down||``.
 
 ```blocks
 controller.player2.onButtonEvent(ControllerButton.Up,ControllerButtonEvent.Pressed, function(){
