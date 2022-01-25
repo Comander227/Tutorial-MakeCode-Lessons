@@ -471,7 +471,7 @@ let PurpleGateTimer = 5000
 ## Spawning the Purple Gate
 ### First we need to set up a new container. 
 
-- :redo: Grab a ``||loops:forever loop||`` container from the ``||loops:loops||`` category. 
+- :redo: Grab a ``||loops:forever loop||`` container from the ``||loops:Loops||`` category. 
 
 ```blocks
 	// @highlight
