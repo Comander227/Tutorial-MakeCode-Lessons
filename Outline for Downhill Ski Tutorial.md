@@ -1,4 +1,4 @@
-https://arcade.makecode.com/#tutorial:87675-41978-26701-01915
+https://arcade.makecode.com/#tutorial:51992-12898-43218-12178
 
 
 # Downhill Ski Game Jam 
@@ -557,7 +557,7 @@ let PurpleGate: Sprite = null
 ```
 
 ## Adding a timer to your Purple Gate Code
-- :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:Loop||`` category to the top of the ``||loops:forever loop||`` you just added.
+- :redo:Add a ``||loops:pause 100 ms||`` block from the ``||loops:Loops||`` category to the top of the ``||loops:forever loop||`` you just added.
 - :bars: Grab the ``||variables:PurpleGateTimer||`` variable circle from the ``||variables:Variables||`` category and add it to the ``||loops:pause 100ms||`` block's value space. 
 
 ```blocks
@@ -592,7 +592,7 @@ forever(function () {
 ## Removing the Gate
 ### To properly set up our overlap code we need to remove the gate once our skier collides with it. 
 
-- :paper plane: Add a ``||sprites:destroy mySprite||`` block from the ``||sprites:Sprite||`` category. 
+- :paper plane: Add a ``||sprites:destroy mySprite||`` block from the ``||sprites:Sprites||`` category. 
 
 - :mouse pointer: Grab the local ``||variables:otherSprite||`` circle from the ``||sprites:overlap||`` container and use it to replace ``||variables:mySprite||`` in the ``||sprites:destroy mySprite||`` block.  
 
@@ -609,7 +609,7 @@ forever(function () {
     otherSprite.destroy(effects.coolRadial, 200)
 })
 ```
-## Increasing the Skier's Speed. 
+## Increasing the Skier's Speed 
 ### Let's use our Purple Gate to increase our Skier's speed
 
 - :bars: Add a ``||variables:change SkierSpeed by 1||`` block from the ``||variables:Variables||`` category to the ``||sprites:PurpleGate overlap||`` container.
@@ -776,7 +776,7 @@ info.changeScoreBy(Math.round(distance))
 })
 ```
 
-## Deciding when to spawn the Win Condition.
+## Deciding when to spawn the Win Condition
 ### We want the player to have to go a certain distance in order to have the chance to win the game.
 
 - :random: Add a ``||logic:comparison||`` diamond (``||logic: 0 < 0||``) from the ``||logic:Logic||`` category to the **true** value of the ``||logic:if true then||`` container. 
@@ -793,7 +793,7 @@ info.changeScoreBy(Math.round(distance))
 })
 ```
 
-## Adding the the checkered gate. 
+## Adding the the checkered gate 
 
 - :paper plane: Add a ``||sprites:set mySprite2 to sprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category and add it to our ``||logic:if distance ≥ 500 then||`` container.
 - :mouse pointer: Rename **mySprite2** to **CheckGate** by clicking on the name and choosing the ``||variables:Rename Variable||`` option.
@@ -815,7 +815,7 @@ info.changeScoreBy(Math.round(distance))
 })
 ```
 
-## Assigning the Checked Gate its asset. 
+## Assigning the Checked Gate its asset 
 
 - :mouse pointer: Click on the grey box and select the **checkered gate** from the my Assets section.
 	
@@ -905,9 +905,9 @@ let CGateTimer = 7000
 })
 ```
 
-## Implementing our CheckGate Timer.
+## Implementing our CheckGate Timer
 
-- :redo: Add a ``||loops:pause 100ms||`` block from the ``||loops:Loop||`` category to the end of your Checkered Gate  ``||loops:forever loop||`` container so it is **outside** the ``||logic:if then||`` container.
+- :redo: Add a ``||loops:pause 100ms||`` block from the ``||loops:Loops||`` category to the end of your Checkered Gate  ``||loops:forever loop||`` container so it is **outside** the ``||logic:if then||`` container.
 - :bars: Add the ``||variables:CGateTimer||`` circle from the ``||variables:Variables||`` category and add it to the value space in the ``||loops:pause||`` block. 
 
 ```blocks

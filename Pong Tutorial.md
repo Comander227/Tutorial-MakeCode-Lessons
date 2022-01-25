@@ -1,9 +1,9 @@
-https://arcade.makecode.com/#tutorial:42774-97417-65865-25080 
- 
+https://arcade.makecode.com/#tutorial:98284-82261-76586-23908
+
  
 # Pong
 ## Part 1: Setting Up Key Variables
-### We will use the ``||Variables:Variable||`` category to create our players and our background image.
+### We will use the ``||Variables:Variables||`` category to create our players and our background image.
 ## Setting Up the Players Variables
 - :bars: Create a ``||variables: players||`` variable from the variables section by clicking on the ``||Variables: Make a Variable ||`` button.
 - :bars: Name the variable ``||variables: players||``.
@@ -40,7 +40,7 @@ let Background =image.create(0, 0)
 
 ## Set the Size of the Image
 - :tree: Open the ``||scene:Scene||`` category.
-- :tree: Add a ``||scene:screenWidth||`` circle to the image's width and a ``||scene:screenHeight||`` circle to the image height.
+- :tree: Add a ``||scene:screen width||`` circle to the image's width and a ``||scene:screen height||`` circle to the image height.
 
 ```blocks
 let players = 1
@@ -54,7 +54,7 @@ let Background = image.create(scene.screenWidth(), scene.screenHeight(),)
 
 ## Using a For Loop
 - :redo: Add a ``||loops:for loop||`` from the ``||loops:Loops||`` category to the ``||loops: on start||`` container.
-- :tree: Add the ``||scene: screenHeight||`` circle from the ``||scene:Scene||`` category to the max index value.
+- :tree: Add the ``||scene: screen height||`` circle from the ``||scene:Scene||`` category to the max index value.
 
 ```blocks
 let players = 1
@@ -80,7 +80,7 @@ if (0 < 0) {
 ## Adding the Math
 - :calculator: Add a ``||math: remainder of 0 ÷ 1||`` to the first value space in the ``||logic: comparison||`` diamond.  
 - :mouse pointer: Then the drag the local ``||variables:index||`` to the ``||math: ÷||`` circle.
-Set the values so it reads ``||logic:if||`` the ``||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
+Set the values so it reads ``||logic:if||````||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 
@@ -94,10 +94,10 @@ if (index % 6 < 4) {
 ```
 
 ## Creating Our Net
-- :image: Add a ``||images:set picture at x () y () color||`` block from the ``||image:Image||`` category to the ``||logic:if then loop||``.
+- :image: Add a ``||images:set picture at x () y () color||`` block from the ``||images:Image||`` category to the ``||logic:if then loop||``.
 - :bars: Add a ``||variables: Background||`` circle from the ``||variables:Variable||`` category to the ``||images:set picture at x () y () color||`` block.
 - :calculator: Add a ``||math: division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the **x** coordinate space.
-- :tree: Add the ``||scene: screenHeight||`` circle from the ``||scene:Scene||`` category to the first value in the ``||math: division||`` circle. 
+- :tree: Add the ``||scene: screen height||`` circle from the ``||scene:Scene||`` category to the first value in the ``||math: division||`` circle. 
 - :mouse pointer: Set the divisor to **2**.
 - :paint brush: **Remember to select a color for your net by clicking on the circle at the end of the block.**
 
@@ -330,7 +330,7 @@ Player2.setStayInScreen(true)
 ### Now we are going to set up our game ball.
 
 ## Setting up a Projectile
-- :paper plane: Add a ``||sprites: set Projectile [] From mySprite with vx 50 vy 50 ||`` block from the ``||sprites:Sprites||`` category to the ``||loops:on start||``.
+- :paper plane: Add a ``||sprites: set Projectile [] From mySprite with vx 0 vy 0 ||`` block from the ``||sprites:Sprites||`` category to the ``||loops:on start||``.
 - :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:Player1||`` as we want the ball to spawn from Player1.
 
 ```blocks
@@ -377,8 +377,8 @@ Player2.setStayInScreen(true)
 let projectile = sprites.createProjectileFromSprite(assets.image`Ball`,Player1,0,0)
 ```
 
-## Step 3: Assigning Random vx and vy Values.
-- :calculator: Add a ``||math:pick random (min) to (max)||`` circle from the ``||math:Math||`` category to the **vx** and **vy** value of the ``||sprites:set Projectile from mySprite with vx 50 vy 50||`` block.
+## Assigning Random vx and vy Values.
+- :calculator: Add a ``||math:pick random (min) to (max)||`` circle from the ``||math:Math||`` category to the **vx** and **vy** value of the ``||sprites:set Projectile from mySprite with vx 0 vy 0||`` block.
 - :mouse pointer: Set the vx values to a minimum of **50** and maximum of **75**.
 - :mouse pointer: Set the vy values to a minimum of **25** and maximum of **50**.
 
@@ -903,7 +903,7 @@ sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,other
 
 ## Updating the Ball's Velocity
 - :paper plane: Add a ``||sprites:set mySprite x to ()||`` from the ``||sprites:Sprites||`` category to the ``||sprites:on Overlap||`` container.
-- :calculator: Add ``||math:multiplication||`` circle (``||math: 0 * 0||``) from the ``||math:Math||`` category to the value. 
+- :calculator: Add ``||math:multiplication||`` circle (``||math: 0 * 0||``) from the ``||math:Math||`` category to the value space of the ``||sprites:set mySprite x to ()||``. 
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player,SpriteKind.Projectile, function(sprite,otherSprite){
