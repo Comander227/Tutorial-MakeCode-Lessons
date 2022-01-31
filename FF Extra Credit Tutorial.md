@@ -57,11 +57,12 @@ game.onUpdateInterval(2100, function () {
 
 # Feeding Frenzy Extra Credit
 
-## Step 1: Controlling the Lasers
+## Controlling the Lasers
 
-** Now let's give the shark lasers! **
+**Now let's give the shark lasers!**
 ---
-To make the shark fire a laser each time you press the (A) button, open the ``||controller:Controller||`` category and drag ``||controller:on [A] button [pressed]||`` container into an empty area of the workspace.
+
+- :gamepad: To make the shark fire a laser each time you press the (A) button, open the ``||controller:Controller||`` category and drag ``||controller:on [A] button [pressed]||`` container into an empty area of the workspace.
 
 ```blocks
 // @highlight
@@ -69,11 +70,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 ```
 
-## Step 2: Adding the Lasers
+## Adding the Lasers
 
-From ``||sprites:Sprites||`` drag ``||variables:set [projectile] to projectile [ ] from [mySprite] with vx [50] vy [50]||`` into the empty  ``||controller:on [A] button [pressed]||``.
-To send your lasers moving quickly toward the right side, change the ``||sprites:vx||`` (horizontal [__*velocity*__](#veloc "speed in a given direction")) value to **200**.
-Set the ``||sprites:vy||`` (vertical velocity) value to **0** so the lasers don't move up or down.
+- :paper plane: From ``||sprites:Sprites||`` drag ``||variables:set [projectile] to projectile [ ] from [mySprite] with vx [50] vy [50]||`` into the empty  ``||controller:on [A] button [pressed]||``.
+- :mouse pointer: To send your lasers moving quickly toward the right side, change the ``||sprites:vx||`` (horizontal [__*velocity*__](#veloc "speed in a given direction")) value to **200**.
+- :mouse pointer: Set the ``||sprites:vy||`` (vertical velocity) value to **0** so the lasers don't move up or down.
+
 ```blocks
 let mySprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -81,11 +83,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     let projectile = sprites.createProjectileFromSprite(img``, mySprite, 200, 0)
 })
 ```
-## Step 3: Assigning Our Laser Sprite 
+## Assigning Our Laser Sprite 
 
-** Set lasers to FUN! **
- ---
- Click on the gray square to open the image editor, then toggle to **My Assets** to choose the **laser** sprite.
+**Set lasers to FUN!**
+---
+
+- :mouse pointer: Click on the gray square to open the image editor, then toggle to **My Assets** to choose the **laser** sprite.
 
 ```blocks
 let mySprite: Sprite = null
@@ -95,21 +98,23 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 ```
 
-## Step 4: Test Your Lasers
+## Test Your Lasers
 
-** 🎮 Time to play with your laser shark 🎮 **
+**🎮 Time to play with your laser shark 🎮**
 ---
+
 Take a look at your game window and move your shark around while pressing the (A) button.  Are your lasers working?
 
 
 
-## Step 5: Give Me Something to Shoot
+## Give Me Something to Shoot
 
 **🕓 Timing is everything 🕗**
 ---
-Let's add a container for code that will run every 2.5 seconds.
-From the  ``||game:Game||`` category, drag ``||game:on game update every [500] ms||`` into an empty area of the workspace.
-Click inside the text box and ignore the dropdown menu.  You'll want to use your keyboard to change **500** to **2500**.
+
+- :circle: Let's add a container for code that will run every 2.5 seconds.
+- :circle: From the  ``||game:Game||`` category, drag ``||game:on game update every [500] ms||`` into an empty area of the workspace.
+- :mouse pointer: Click inside the text box and ignore the dropdown menu.  You'll want to use your keyboard to change **500** to **2500**.
 
 ```blocks
 //@highlight
@@ -117,12 +122,14 @@ game.onUpdateInterval(2500, function () {
 })
 ```
 
-## Step 6: Establishing Our Enemy
-** Make some enemies **
+## Establishing Our Enemy
+**Make some enemies**
 ---
-From ``||sprites:Sprites||``, drag ``||variables: set [mySprite2] to sprite [ ] of kind [Player]||`` into the empty ``||game:on game update every [2500] ms||`` container.
-To rename this to **myEnemy**, click **mySprite2** to open a dropdown menu and choose ``||variables:Rename variable...||``. Enter **myEnemy** and click **Ok**.
-Change the kind from **Player** to **Enemy**.
+
+- :paper plane: From ``||sprites:Sprites||``, drag ``||variables: set [mySprite2] to sprite [ ] of kind [Player]||`` into the empty ``||game:on game update every [2500] ms||`` container.
+- :mouse pointer: To rename this to **myEnemy**, click **mySprite2** to open a dropdown menu and choose ``||variables:Rename variable...||``. Enter **myEnemy** and click **Ok**.
+- :mouse pointer: Change the kind from **Player** to **Enemy**.
+
 ```blocks
 game.onUpdateInterval(2500, function () {
 // @highlight
@@ -130,9 +137,9 @@ game.onUpdateInterval(2500, function () {
 })
 ```
 
-## Step 7: Assigning Our Enemy Sprite
+## Assigning Our Enemy Sprite
 
-Click the gray box inside the ``||variables: set [myEnemy] to sprite [ ] of kind [Enemy]||`` block and toggle to **My Assets** to choose the **enemy** submarine, then click **Done**.
+- :mouse pointer: Click the gray box inside the ``||variables: set [myEnemy] to sprite [ ] of kind [Enemy]||`` block and toggle to **My Assets** to choose the **enemy** submarine, then click **Done**.
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -140,16 +147,17 @@ game.onUpdateInterval(2500, function () {
     let myEnemy = sprites.create(assets.image`enemy`, SpriteKind.Enemy)
 })
 ```
-## Step 8: Setting the Spawn Point for Our Enemy
+
+## Setting the Spawn Point for Our Enemy
 
 **Location, Location, Location!**
 
 It's time to tell the new enemy sprites where to spawn.
-
 ---
-From ``||sprites:Sprites||``, drag a ``||sprites:set [mySprite] position to x [0] y [0]||`` block into **the end** of the ``||game:on game update every [2500] ms||``  container.
 
-Change ``||variables:mySprite||`` to ``||variables:myEnemy||``.
+- :paper plane: From ``||sprites:Sprites||``, drag a ``||sprites:set [mySprite] position to x [0] y [0]||`` block into **the end** of the ``||game:on game update every [2500] ms||``  container.
+
+- :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:myEnemy||``.
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -159,13 +167,13 @@ game.onUpdateInterval(2500, function () {
 })
 ```
 
-## Step 9: Positioning the Spawn Point
+## Positioning the Spawn Point
 
 **Let's start all of the enemies at the furthest edge of the screen.**
 (This means you'll need to set the **x** value to the full width of the screen.)
-
 ---
-From the ``||scene:Scene||`` category, drag ``||scene:screen width||`` into the **x** value of the ``||sprites:set [mySprite] position to x [0] y [0]||`` block.
+
+- :tree:From the ``||scene:Scene||`` category, drag ``||scene:screen width||`` into the **x** value of the ``||sprites:set [mySprite] position to x [0] y [0]||`` block.
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -176,16 +184,15 @@ game.onUpdateInterval(2500, function () {
 ```
 
 
-## Step 10: Randomizing the Enemy Spawn Point
+## Randomizing the Enemy Spawn Point
 
 **Shake up the enemy**
 Let's start the submarine at a random height to keep things interesting.
-
 ---
 
-From ``||math:Math||`` grab  ``||math:pick random [0] to [10]||``  and snap it in to replace the **y** value of **0**.
+- :calculator: From ``||math:Math||`` grab  ``||math:pick random [0] to [10]||``  and snap it in to replace the **y** value of **0**.
 
-Change the random values to go from a min of **0** (the very top of the screen) to a max of **120** (the very bottom of the screen).
+- :mouse pointer: Change the random values to go from a min of **0** (the very top of the screen) to a max of **120** (the very bottom of the screen).
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -197,14 +204,14 @@ let mySprite: Sprite = null
 ```
 
 
-## Step 11: Making My Enemy Move
+## Making My Enemy Move
 
 **Enemies on the move**
-
 ---
-Send your enemies after the shark by adding the ``||sprites:set [myEnemy] follow [mySprite]||`` block to **the end** of the ``||game:on game update every [2500] ms||`` container where ``||variables:myEnemy||`` is made.
 
-Click the plus sign (**+**) to the right of the ``||sprites:set [myEnemy] follow [mySprite]||`` block and set the enemy speed to **30** so it doesn't attack too fast.
+- :paper plane: Send your enemies after the shark by adding the ``||sprites:set [myEnemy] follow [mySprite]||`` block to **the end** of the ``||game:on game update every [2500] ms||`` container where ``||variables:myEnemy||`` is made.
+
+- :mouse pointer: Click the plus sign (**+**) to the right of the ``||sprites:set [myEnemy] follow [mySprite]||`` block and set the enemy speed to **30** so it doesn't attack too fast.
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -217,14 +224,14 @@ let mySprite: Sprite = null
 ```
 
 
-## Step 12: Enemies Attack
+## Enemies Attack
 
 **☠️On a dangerous path ☠️**
 To subtract hitpoints when the enemy reaches the shark, we'll need a container to run code whenever the two overlap.
-
 ---
-From ``||sprites:Sprites||``, drag an ``||sprites:on [sprite] of kind [Player] overlaps [otherSprite] of kind [Player]||`` container into an empty area of the workspace.
-Change the second **kind** from **Player** to **Enemy**.
+
+- :paper plane: From ``||sprites:Sprites||``, drag an ``||sprites:on [sprite] of kind [Player] overlaps [otherSprite] of kind [Player]||`` container into an empty area of the workspace.
+- :mouse pointer: Change the second **kind** from **Player** to **Enemy**.
 
 
 ```blocks
@@ -232,15 +239,14 @@ Change the second **kind** from **Player** to **Enemy**.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
 })
 ```
-## Step 13: Destroy On Impact
+## Destroy On Impact
 
 To keep the submarine from attacking again and again, we need to destroy it before removing a life from the player.
-
 ---
 
-From ``||sprites:Sprites||``, drag ``||sprites:destroy [mySprite]||`` into the empty **on overlaps** container.
+- :paper plane: From ``||sprites:Sprites||``, drag ``||sprites:destroy [mySprite]||`` into the empty **on overlaps** container.
 
-Grab the ``||variables:otherSprite||`` value from the title of the **on overlaps** block and drag it in to replace ``||variables:mySprite||``.
+- :mouse pointer: Grab the ``||variables:otherSprite||`` value from the title of the **on overlaps** block and drag it in to replace ``||variables:mySprite||``.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
@@ -251,10 +257,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 ```
 
 
-## Step 14: Lose A Life
+## Lose A Life
 
 
-From ``||info:Info||``, grab ``||info:change life by [-1]||`` and snap it below the ``||sprites:destroy [otherSprite]||`` block.
+- :id card: From ``||info:Info||``, grab ``||info:change life by [-1]||`` and snap it below the ``||sprites:destroy [otherSprite]||`` block.
+
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
@@ -263,8 +270,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 ```
 
-## Step 15: Shake Things Up
-For more fun, make the camera shake on impact by adding a ``||scene:camera shake by [4] pixels for [500] ms||`` block (from the ``||scene:Scene||`` category) beneath ``||info:change life by [-1]||``.
+## Shake Things Up
+
+- :tree: For more fun, make the camera shake on impact by adding a ``||scene:camera shake by [4] pixels for [500] ms||`` block (from the ``||scene:Scene||`` category) beneath ``||info:change life by [-1]||``.
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -275,7 +283,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 ```
 
-## Step 15.1: Game Over on Life Zero
+## Game Over on Life Zero
 - :id card: Add an ``||info:on life zero||`` container to your workspace from the ``||info:info||`` category. 
 - :circle: Add a ``||game:game over||`` block to the ``||info:on life zero||`` container. 
 - :mouse pointer: Set the value to Lose and feel free to add an effect by clicking the + button.
@@ -286,20 +294,21 @@ info.onLifeZero(function () {
 })
 ```   
 
-## Step 16: Destroying Our Enemy
-Add another ``||sprites:on Overlap||`` container. 
-Change the first Sprite Kind from **Player** to **Projectile**.
-Change the second Sprite Kind from **Player** to **Enemy**.
+## Destroying Our Enemy
+- :paper plane: Add another ``||sprites:on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category. 
+- :mouse pointer: Change the sprite kind from **Player** to **Projectile**.
+- :mouse pointer: Change the otherSprite kind from **Player** to **Enemy**.
+
 ```blocks
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
 })
 ```
 
-## Step 17: Removing the Laser Sprite
-Add a ``||sprites: destroy mySprite||`` block to the ``||sprites:on Overlap||`` container. 
-Replace ``||variables:mySprite||`` with the local ``||variables:sprite||`` variable.
-Open the effects (**+**) and set it to disintegrate. 
-Change the value from **500** to **100**.
+## Removing the Laser Sprite
+- :paper plane: Add a ``||sprites: destroy mySprite||`` block from the ``||sprites:Sprites||`` category to the ``||sprites:on Overlap||`` container. 
+- :mouse pointer: Replace ``||variables:mySprite||`` with the local ``||variables:sprite||`` variable.
+- :mouse pointer: Open the effects (**+**) and set it to disintegrate. 
+- :mouse pointer: Change the value from **500** to **100**.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
@@ -309,11 +318,11 @@ sprite.destroy(effects.disintegrate,100)
 })
 ```
 
-## Step 18: Removing the Enemy Sprite
-Right click on the ``||sprites:destroy sprite||`` block and select duplicate.
-Add that block to the container.
-Replace ``||variables:sprite||`` with the local ``||variables:otherSprite||``.
-Add the same effect used for when the Enemy runs into the shark.
+## Removing the Enemy Sprite
+- :mouse pointer: **Right click** on the ``||sprites:destroy sprite||`` block and select **duplicate**.
+- :mouse pointer: Add that block to the container.
+- :mouse pointer: Replace ``||variables:sprite||`` with the local ``||variables:otherSprite||``.
+- :mouse pointer: Add the same effect used for when the Enemy runs into the shark.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
@@ -324,9 +333,10 @@ otherSprite.destroy(effects.bubbles,100)
 })
 ```
 
-## Step 19: Scoring Points.
-Add an ``||info:change score by 1||`` block to the container. 
-Change the value of **1** to **3**.
+## Scoring Points
+- :id card: Add an ``||info:change score by 1||`` block from the ``||info:Info||`` category to the container. 
+- :mouse pointer: Change the value of **1** to **3**.
+
 ```blocks
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
 sprite.destroy(effects.disintegrate,100)
@@ -338,17 +348,16 @@ info.changeScoreBy(3)
 
 
 
-## Step 20 - Spit It Out
+## Spit It Out
 
 **💥 Spitting Lasers Animation 💥**
 The shark always spits lasers toward the right edge, so let's give it an appropriate animation!
-
 ---
 
 
-From ``||animation:Animation||``, drag ``||animation:animate [mySprite]||`` into **the bottom** of the existing ``||controller:on [A] button [pressed]||`` container that contains the code for the laser projectile.
+- :sync: From ``||animation:Animation||``, drag ``||animation:animate [mySprite]||`` into **the bottom** of the existing ``||controller:on [A] button [pressed]||`` container that contains the code for the laser projectile.
 
-Click the gray box and toggle to **My Assets** to choose the **shooting shark** animation, then click **Done**.
+- :mouse pointer: Click the gray box and toggle to **My Assets** to choose the **shooting shark** animation, then click **Done**.
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -363,15 +372,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 ```
 
-## Step 21 - And On and On
+## And On and On
 
 **🔁 And do it AGAIN 🔁**
 
 ---
 
-The same animation block can be used to add a wiggle to your fish and bubbles to your sub!  Try it on your own!
+- :sync: The same animation block can be used to add a wiggle to your fish and bubbles to your sub!  Try it on your own!
 
-💡 Just make sure to change ``||variables:mySprite||`` to ``||variables:myFood||`` or ``||variables:myEnemy||`` or things won't look quite right!
+- :mouse pointer: 💡 Just make sure to change ``||variables:mySprite||`` to ``||variables:myFood||`` or ``||variables:myEnemy||`` or things won't look quite right!
 
 ```blocks
 game.onUpdateInterval(2500, function () {
@@ -398,15 +407,15 @@ game.onUpdateInterval(2100, function () {
 })
 ```
 
-## Step 22: Adding a PowerUp
+## Adding a PowerUp
 **We are going to create a function to provide the chance for the subs to drop a PowerUp.**
-
 ---
-Open the Advanced section of the toolbox and click on the Function category.
-Click on the ``||functions: Make A Function||`` button.
-Name the Function PowerUp
-Add a Sprite parameter to your function by clicking on the **sprite** button in the parameter list.
-Name it ESprite.
+
+- :chevron down: Open the Advanced section of the toolbox and click on the Function category.
+- :mouse pointer: Click on the ``||functions: Make A Function||`` button.
+- :mouse pointer: Name the Function PowerUp
+- :mouse pointer: Add a Sprite parameter to your function by clicking on the **sprite** button in the parameter list.
+- :mouse pointer: Name it **ESprite**.
 
 ![Creating Functions](/static/lessons/block-out/creating-functions.gif)
 
@@ -415,10 +424,10 @@ function PowerUp (ESprite:Sprite){
 }
 ```
 
-## Step 23: Destroying the Enemy
-Add a ``||sprites:destroy mySprite||`` block to the newly created function.
-Drag the local ``||variables:ESprite||`` variable and replace the ``||variables:mySprite||`` variable.
-Set the effects (**+**) to the same as what you have when the laser destroys the sub. 
+## Destroying the Enemy
+- :paper plane: Add a ``||sprites:destroy mySprite||`` block from the ``||sprites:Sprites||`` category to the newly created function.
+- :mouse pointer: Drag the local ``||variables:ESprite||`` variable and replace the ``||variables:mySprite||`` variable.
+- :mouse pointer: Set the effects (**+**) to the same as what you have when the laser destroys the sub. 
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
@@ -428,8 +437,9 @@ ESprite.destroy(effects.bubbles,100)
 }
 ```
 
-## Step 24: Setting Up the PowerUp Logic
-Add an ``||logic:if then loop||`` to your function under the ``||sprites:destroy Sprite||`` block.
+## Setting Up the PowerUp Logic
+- :random: Add an ``||logic:if then loop||`` from the ``||logic:Logic||`` category to your function under the ``||sprites:destroy ESprite||`` block.
+
 ```blocks
 function PowerUp (ESprite:Sprite){
 ESprite.destroy(effects.bubbles,100)
@@ -438,9 +448,11 @@ if (true){
 }
 }
 ```
-## Step 25: Setting Up the PowerUp Drop Chance
-Add a ``||math: % chance||`` diamond to the ``||logic:if then loop||``.
-Change the value from **0** to **25**.
+
+## Setting Up the PowerUp Drop Chance
+- :calculator: Add a ``||math: % chance||`` diamond from the ``||math:Math||`` category to the ``||logic:if then loop||``.
+- :mouse pointer: Change the value from **0** to **25**.
+
 ```blocks
 function PowerUp (ESprite:Sprite){
 ESprite.destroy(effects.bubbles,100)
@@ -450,10 +462,11 @@ if (Math.percentChance(25)){
 }
 ```
 
-## Step 26: Spawning Our Powerup
-Add a ``||sprites:set mySprite||`` block.
-Rename the sprite from ``||variables:mySprite||`` to ``||variables:myPowerup||``.
-Create a new kind named **Powerup**.
+## Spawning Our Powerup
+- :paper plane Add a ``||sprites:set mySprite [] of kind Player||`` block from the ``||sprites:Sprites||`` category.
+- :mouse pointer Rename the sprite from ``||variables:mySprite||`` to ``||variables:myPowerup||`` by **right clicking** on the block and choosing the **Rename Variable** option.
+- :mouse pointer: Set the **myPowerup** sprite to the kind of **Powerup** by clicking on the kind and selecting **create new**.
+
 ```blocks
 namespace SpriteKind {
     export const Powerup = SpriteKind.create()
@@ -468,10 +481,11 @@ let myPowerup = sprites.create(img``,SpriteKind.Powerup)
 }
 ```
 
-## Step 27: Assigning Our PowerUp A Sprite
-Click on the gray sprite box. 
-Open up the **my Assets** tab.
-Click on the shark **fin** image. 
+## Assigning Our PowerUp A Sprite
+- :paint brush: Click on the gray sprite box. 
+- :mouse pointer: Open up the **my Assets** tab.
+- :mouse pointer: Click on the shark **fin** image. 
+
 ```blocks
 namespace SpriteKind {
     export const Powerup = SpriteKind.create()
@@ -486,11 +500,11 @@ let myPowerup = sprites.create(assets.image`fin`,SpriteKind.Powerup)
 }
 ```
 
-## Step 28: Positioning Our Powerup Horizontally
-Add a ``||sprites:set mySprite x ()||`` blocks into the if statement. 
-Change ``||variables:mySprite||`` to ``||variables:myPowerup||``.
-Grab a ``||sprites:mySprite x||`` circle and place it over the value space.
-Drag the local ``||variables:ESprite||`` and replace ``||variables:mySprite||``.
+## Positioning Our Powerup Horizontally
+- :paper plane: Add a ``||sprites:set mySprite x ()||`` blocks from the ``||sprites:Sprites||`` category into the ``||logic:if then container||``. 
+- :bars:Change ``||variables:mySprite||`` to ``||variables:myPowerup||``.
+- :paper plane: Grab a ``||sprites:mySprite x||`` circle from the ``||sprites:Sprites||`` category and place it over the value space.
+- :mouse pointer: Drag the local ``||variables:ESprite||`` and replace ``||variables:mySprite||``.
 
 ```blocks
 namespace SpriteKind {
@@ -508,9 +522,11 @@ function PowerUp (ESprite: Sprite) {
 }
 ```
 
-## Step 29: Positioning our Powerup Vertically
-Right click on the ``||sprites:set myPowerup x||`` block and duplicate it. 
-Change the **x** values to **y** values. 
+## Positioning our Powerup Vertically
+
+- :mouse pointer: Right click on the ``||sprites:set myPowerup x||`` block and duplicate it.
+- :mouse pointer: Add the duplicated block to your ``||logic:if then container||``.
+- :mouse pointer: Change the **x** values to **y** values. 
 
 ```blocks
 namespace SpriteKind {
@@ -530,11 +546,11 @@ function PowerUp (ESprite: Sprite) {
 }
 ```
 
-## Step 30: Adding A vy Value to Our Powerup
-Grab another ``||sprites:set mySprite x ()||`` block.
-Change ``||variables:mySprite||`` to ``||variables:myPowerup||``.
-Change ``||sprites:x||`` to ``||sprites:vy||``.
-Change the value **0** to **-25**.
+## Adding A vy Value to Our Powerup
+- :paper plane: Grab another ``||sprites:set mySprite x ()||`` block from the ``||sprites:Sprites||`` category.
+- :bars: Change ``||variables:mySprite||`` to ``||variables:myPowerup||``.
+- :paper plane: Change ``||sprites:x||`` to ``||sprites:vy||``.
+- :mouse pointer: Change the value **0** to **-25**.
 
 ```blocks
 namespace SpriteKind {
@@ -555,11 +571,11 @@ function PowerUp (ESprite: Sprite) {
 }
 ```
 
-## Step 31: Replacing Outdated Code
-Find the ``||sprites:on Overlap||`` container for when your laser impacts the enemy sub.
-Delete the ``||sprites:destroy otherSprite||`` block.
-Add a ``||functions: Call Powerup||`` block. 
-Replace the ``||variables:mySprite||`` with the local ``||variables:otherSprite||`` variable.
+## Replacing Outdated Code
+- :mouse pointer: Find the ``||sprites:on Overlap||`` container for when your laser impacts the enemy sub.
+- :mouse pointer: Delete the ``||sprites:destroy otherSprite||`` block.
+- :mouse pointer: Add a ``||functions: Call Powerup||`` block. 
+- :mouse pointer: Replace the ``||variables:mySprite||`` with the local ``||variables:otherSprite||`` variable.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
@@ -584,9 +600,9 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 })
 ```
 
-## Step 32: Making Our Powerup Do Something
-Drag a new ``||sprites:on Overlap||`` container to the workspace.
-Change the second Sprite Kind from **Player** to **Powerup**.
+## Making Our Powerup Do Something
+- :paper plane: Drag a new ``||sprites:on Overlap||`` container from the ``||sprites:Sprites||`` category to the workspace.
+- :mouse pointer: Change the second Sprite Kind from **Player** to **Powerup**.
 
 ```blocks
 namespace SpriteKind {
@@ -598,11 +614,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Powerup, function (sprite, other
 })
 ```
 
-## Step 33: Removing our PowerUp on Contact
-Add a ``||sprites:destroy mySprite||`` block to the new ``||sprites:on Overlap||`` container.
-Drag the local ``||variables:otherSprite||`` to replace the ``||variables:mySprite||`` variable. 
-Feel free to change the destroy effect.
+## Removing our PowerUp on Contact
+- :paper plane: Add a ``||sprites:destroy mySprite||`` block from the ``||sprites:Sprites||`` category to the new ``||sprites:on Overlap||`` container.
+- :mouse pointer: Drag the local ``||variables:otherSprite||`` to replace the ``||variables:mySprite||`` variable. 
+- :mouse pointer: Feel free to change the destroy effect.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
+
 ```blocks
 namespace SpriteKind {
     export const Powerup = SpriteKind.create()
@@ -614,11 +631,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Powerup, function (sprite, other
 })
 ```
 
-## Step 34: Adding Bonuses
-Add an ``||info:change life by -1||`` block to the ``||sprites:on Overlap||`` container. 
-Change the value **-1** to **1**.
-Add an ``||info: change score by 1||`` block.
-Change the value **1** to **5**.
+## Adding Bonuses
+- :id card: Add an ``||info:change life by -1||`` block from the ``||info:Info||`` category to the ``||sprites:on Overlap||`` container. 
+- :mouse pointer: Change the value **-1** to **1**.
+- :id card: Add an ``||info: change score by 1||`` block from the ``||info:Info||`` category to you ``||sprites:on Overlap||`` container.
+- :mouse pointer: Change the value **1** to **5**.
 
 ```blocks
 namespace SpriteKind {
@@ -632,9 +649,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Powerup, function (sprite, other
 })
 ```
 
-## Step 35: Resetting the Countdown
-Add a ``||info:start countdown 10 (s)||`` block to the ``||sprites:on Overlap||`` container.
-Change the value of **10** to **15**
+## Resetting the Countdown
+- :id card: Add a ``||info:start countdown 10 (s)||`` block from the ``||info:Info||`` category to the ``||sprites:on Overlap||`` container.
+- :mouse pointer: Change the value of **10** to **15**
+
 ```blocks
 namespace SpriteKind {
     export const Powerup = SpriteKind.create()
