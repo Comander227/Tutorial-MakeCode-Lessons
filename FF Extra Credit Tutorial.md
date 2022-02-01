@@ -62,7 +62,7 @@ game.onUpdateInterval(2100, function () {
 **Now let's give the shark lasers!**
 ---
 
-- :gamepad: To make the shark fire a laser each time you press the (A) button, open the ``||controller:Controller||`` category and drag ``||controller:on [A] button [pressed]||`` container into an empty area of the workspace.
+- :game: To make the shark fire a laser each time you press the (A) button, open the ``||controller:Controller||`` category and drag ``||controller:on [A] button [pressed]||`` container into an empty area of the workspace.
 
 ```blocks
 // @highlight

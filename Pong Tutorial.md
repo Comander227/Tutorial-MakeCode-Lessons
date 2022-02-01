@@ -166,7 +166,7 @@ let Player1 = sprites.create(assets.image`Player 1`,SpriteKind.Player)
 ```
 
 ## Moving Player1
-- :gamepad: Add a ``||controller:move||`` ``||variables:mySprite||`` ``||controller:with buttons||`` block from the ``||controller:Controller||`` category.
+- :game: Add a ``||controller:move||`` ``||variables:mySprite||`` ``||controller:with buttons||`` block from the ``||controller:Controller||`` category.
 - :mouse pointer: Change ``||variables:mySprite||`` to ``||variables:Player1||``.
 
 ```blocks
@@ -1113,7 +1113,7 @@ game.onUpdate(function(){
 ### Now we are going to establish the controls for Player 2.
  
 ## Adding a New Controller Container
-- :gamepad: Drag a ``||controller: on player 2 A button pressed||`` from the ``||controller:Controller||`` category to the workspace.
+- :game: Drag a ``||controller: on player 2 A button pressed||`` from the ``||controller:Controller||`` category to the workspace.
 - :mouse pointer: Change ``||controller: A||`` to ``||controller: up||``.
 
 ```blocks
@@ -1135,7 +1135,7 @@ let players = 2
  
  
 ## Adding Controller Blocks
-- :gamepad: Add a ``||controller: player 2 move mySprite with buttons||`` from the ``||controller: Controller||`` category to the ``||controller: on player 2 up button pressed||`` container.
+- :game: Add a ``||controller: player 2 move mySprite with buttons||`` from the ``||controller: Controller||`` category to the ``||controller: on player 2 up button pressed||`` container.
 - :bars: Change ``||variables:mySprite||`` to ``||variables:Player2||``.
 - :mouse pointer: Click on the ``||controller: +||`` button.
 - :mouse pointer: Change the ``||controller: vx||`` value to **0**.
