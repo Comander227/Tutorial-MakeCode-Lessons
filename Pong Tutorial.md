@@ -80,9 +80,8 @@ if (0 < 0) {
 ## Adding the Math
 - :calculator: Add a ``||math: remainder of 0 ÷ 1||`` to the first value space in the ``||logic: comparison||`` diamond.  
 - :mouse pointer: Then the drag the local ``||variables:index||`` to the ``||math: ÷||`` circle.
-Set the values so it reads ``||logic:if||````||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
+- :mouse pointer: Set the values so it reads ``||logic:if||````||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
-
 
 ```blocks
 let players = 1
@@ -99,6 +98,7 @@ if (index % 6 < 4) {
 - :calculator: Add a ``||math: division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the **x** coordinate space.
 - :tree: Add the ``||scene: screen height||`` circle from the ``||scene:Scene||`` category to the first value in the ``||math: division||`` circle. 
 - :mouse pointer: Set the divisor to **2**.
+- :mouse pointer: Grab the local ``||variables:index||`` variable and place it in the **y** value
 - :paint brush: **Remember to select a color for your net by clicking on the circle at the end of the block.**
 
 ```blocks
