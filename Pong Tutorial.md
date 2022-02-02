@@ -80,7 +80,7 @@ if (0 < 0) {
 ## Adding the Math
 - :calculator: Add a ``||math: remainder of 0 ÷ 1||`` to the first value space in the ``||logic: comparison||`` diamond.  
 - :mouse pointer: Then the drag the local ``||variables:index||`` to the ``||math: ÷||`` circle.
-- :mouse pointer: Set the values so it reads ``||logic:if||````||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
+- :mouse pointer: Set the values so it reads ``||logic:if||`` ``||math:remainder of the||`` ``||variables:index||`` ``||math:÷ by 6||`` ``||logic:<||`` 4.
 ![Grabbing variable from block](/static/skillmap/space/give-var.gif "So that's how you do that!")
 
 ```blocks
