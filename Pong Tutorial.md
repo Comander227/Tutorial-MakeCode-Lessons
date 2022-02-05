@@ -1,5 +1,4 @@
-https://arcade.makecode.com/#tutorial:98284-82261-76586-23908
-
+https://arcade.makecode.com/#tutorial:68525-32956-97103-19855
  
 # Pong
 ## Part 1: Setting Up Key Variables
@@ -1007,8 +1006,8 @@ game.onUpdate(function(){
 
 ## Setting Up the Core If Then Loop.
 - :random: Add a ``||logic:0 > 0||`` comparison diamond from the ``||logic:Logic||`` category to the ``||logic: and||`` diamond.
-- :calculator: Add a ``||math:division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the``||logic:comparison||`` diamond.
 - :paper plane: Add a ``||sprites:mySprite x||`` circle from the ``||sprites:Sprites||`` category to the ``||logic: 0 > 0||`` comparison diamond.
+- :calculator: Add a ``||math:division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the``||logic:comparison||`` diamond.
 - :tree: Add a ``||scene:screenWidth||`` circle from the ``||scene:Scene||`` category to the other side of the ``||logic: 0 > 0||`` comparison diamond.
 - :mouse pointer: Set the diamond so it reads ``||variables:projectile||`` ``||sprites:y||`` ``||logic:>||`` ``||scene:screenWidth||`` ``||math: ÷ 2||``
 
