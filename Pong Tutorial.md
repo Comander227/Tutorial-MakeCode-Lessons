@@ -95,7 +95,7 @@ if (index % 6 < 4) {
 - :image: Add a ``||images:set picture at x () y () color||`` block from the ``||images:Image||`` category to the ``||logic:if then loop||``.
 - :bars: Add a ``||variables: Background||`` circle from the ``||variables:Variable||`` category to the ``||images:set picture at x () y () color||`` block.
 - :calculator: Add a ``||math: division||`` circle (``||math: 0 ÷ 0||``) from the ``||math:Math||`` category to the **x** coordinate space.
-- :tree: Add the ``||scene: screen height||`` circle from the ``||scene:Scene||`` category to the first value in the ``||math: division||`` circle. 
+- :tree: Add the ``||scene: screen width||`` circle from the ``||scene:Scene||`` category to the first value in the ``||math: division||`` circle. 
 - :mouse pointer: Set the divisor to **2**.
 - :bars: Grab the **local** ``||variables:index||`` variable and place it in the **y** value
 - :paint brush: **Remember to select a color for your net by clicking on the circle at the end of the block.**

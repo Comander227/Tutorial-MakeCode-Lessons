@@ -412,9 +412,9 @@ game.onUpdateInterval(2100, function () {
 ---
 
 - :chevron down: Open the Advanced section of the toolbox and click on the Function category.
-- :mouse pointer: Click on the ``||functions: Make A Function||`` button.
-- :mouse pointer: Name the Function PowerUp
-- :mouse pointer: Add a Sprite parameter to your function by clicking on the **sprite** button in the parameter list.
+- :function: Click on the ``||functions: Make A Function||`` button.
+- :function: Name the Function PowerUp
+- :function: Add a Sprite parameter to your function by clicking on the **sprite** button in the parameter list.
 - :mouse pointer: Name it **ESprite**.
 
 ![Creating Functions](/static/lessons/block-out/creating-functions.gif)
