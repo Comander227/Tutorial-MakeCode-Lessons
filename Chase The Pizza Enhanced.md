@@ -223,6 +223,139 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
 ```
-## Step 11: Adding an End Game Condition
+## Step 11: Adding a Sense of Urgency
+### Right now there is no motivation for our player to move quickly. We need to give them a timer to let them know when the game ends. 
+
+- :id card: Open the ``||info:Info||`` category and grab the ``||info:start countdown (10)s||`` and place it into the bottom of the ``||loops:on start||`` container. 
+
+```blocks
+let mySprite2: Sprite = null
+scene.setBackgroundColor(10)
+let mySprite = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Player)
+controller.moveSprite(mySprite)
+mySprite.setStayInScreen(true)
+mySprite2 = sprites.create(img`
+    . . . . . . b b b b . . . . . . 
+    . . . . . . b 4 4 4 b . . . . . 
+    . . . . . . b b 4 4 4 b . . . . 
+    . . . . . b 4 b b b 4 4 b . . . 
+    . . . . b d 5 5 5 4 b 4 4 b . . 
+    . . . . b 3 2 3 5 5 4 e 4 4 b . 
+    . . . b d 2 2 2 5 7 5 4 e 4 4 e 
+    . . . b 5 3 2 3 5 5 5 5 e e e e 
+    . . b d 7 5 5 5 3 2 3 5 5 e e e 
+    . . b 5 5 5 5 5 2 2 2 5 5 d e e 
+    . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
+    . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
+    b d 3 2 d 5 5 5 d d d 4 4 . . . 
+    b 5 5 5 5 d d 4 4 4 4 . . . . . 
+    4 d d d 4 4 4 . . . . . . . . . 
+    4 4 4 4 . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+//@highlight
+info.startCountdown(10)
+```
+
+## Step 12: Keep the Snowball Rolling
+### We don't want to make the game that short so let's see if we can allow the player to extend the game time.
+
+- :id card: Open the ``||info:Info||`` category and grab a ``||info:set countdown (10)s||`` block and add it to the bottom of our ``||Sprites:overlap||`` container.
+- :mouse pointer: You may adjust the amount of time the player has once they catch the chase object. 
+
+```blocks
+let mySprite2: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
+    //@highlight
+    info.startCountdown(10)
+})
+```
+
+
+## Step 13: Adding an End Game Condition
 ### All good things must come to an end, same with our video game. We are going to add a timer to create an end to our game. 
+
+- :id card: Grab the ``||info:on countdown ends||`` container and place it in the workspace. 
+
+- :circle: Open the ``||game:Game||`` category and grab the ``||game:game over||`` block and place it inside the ``||info:on countdown ends||`` container. 
+- :mouse pointer: Set the ``||game:game over||`` value to **Win**. Feel free to click the **+** button to add an effect. 
+
+```blocks
+//@highlight
+info.onCountdownEnd(function () {
+    game.over(true, effects.confetti)
+})
+```
+
+## Step 14: Complete Game
+
+### Here is the complete code for the game so far. 
+
+```blocks
+
+info.onCountdownEnd(function () {
+    game.over(true, effects.confetti)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
+    info.startCountdown(10)
+})
+let mySprite2: Sprite = null
+scene.setBackgroundColor(10)
+let mySprite = sprites.create(img`
+    e e e . . . . e e e . . . . 
+    c d d c . . c d d c . . . . 
+    c b d d f f d d b c . . . . 
+    c 3 b d d b d b 3 c . . . . 
+    f b 3 d d d d 3 b f . . . . 
+    e d d d d d d d d e . . . . 
+    e d f d d d d f d e . b f b 
+    f d d f d d f d d f . f d f 
+    f b d d b b d d 2 f . f d f 
+    . f 2 2 2 2 2 2 b b f f d f 
+    . f b d d d d d d b b d b f 
+    . f d d d d d b d d f f f . 
+    . f d f f f d f f d f . . . 
+    . f f . . f f . . f f . . . 
+    `, SpriteKind.Player)
+controller.moveSprite(mySprite)
+mySprite.setStayInScreen(true)
+mySprite2 = sprites.create(img`
+    . . . . . . b b b b . . . . . . 
+    . . . . . . b 4 4 4 b . . . . . 
+    . . . . . . b b 4 4 4 b . . . . 
+    . . . . . b 4 b b b 4 4 b . . . 
+    . . . . b d 5 5 5 4 b 4 4 b . . 
+    . . . . b 3 2 3 5 5 4 e 4 4 b . 
+    . . . b d 2 2 2 5 7 5 4 e 4 4 e 
+    . . . b 5 3 2 3 5 5 5 5 e e e e 
+    . . b d 7 5 5 5 3 2 3 5 5 e e e 
+    . . b 5 5 5 5 5 2 2 2 5 5 d e e 
+    . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
+    . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
+    b d 3 2 d 5 5 5 d d d 4 4 . . . 
+    b 5 5 5 5 d d 4 4 4 4 . . . . . 
+    4 d d d 4 4 4 . . . . . . . . . 
+    4 4 4 4 . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+info.startCountdown(10)
+
+```
 
