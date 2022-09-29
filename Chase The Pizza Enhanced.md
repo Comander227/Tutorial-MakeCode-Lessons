@@ -208,3 +208,21 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     mySprite2.setPosition(randint(0, 10), randint(0, 10))
 })
 ```
+
+## Step 10: Even More Randomization
+
+### Randomizing the positions between 0 and 10 is not enough. Let's stretch that range a bit. 
+
+- :tree: From the ``||scene:Scene||`` category, grab the ``||scene:screen width||`` circle and place it in the ``||sprites:x||`` value's **10** circle. 
+- :tree: From the ``||scene:Scene||`` category, grab the ``||scene:screen hight||`` circle and place it in the ``||sprites:y||`` value's **10** circle. 
+
+```blocks
+let mySprite2: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    mySprite2.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
+})
+```
+## Step 11: Adding an End Game Condition
+### All good things must come to an end, same with our video game. We are going to add a timer to create an end to our game. 
+
