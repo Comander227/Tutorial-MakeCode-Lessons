@@ -51,7 +51,8 @@ let mySprite = sprites.create(img`
 
 ```blocks
 scene.setBackgroundColor(12)
-let mySprite = sprites.create(img`
+let mySprite: Sprite = null
+mySprite = sprites.create(img`
     e e e . . . . e e e . . . . 
     c d d c . . c d d c . . . . 
     c b d d f f d d b c . . . . 
@@ -153,6 +154,57 @@ let mySprite2 = sprites.create(img`
 
 ### Now that we have an object to catch, we need to setup the collision code for our game to work.
 
-- :paper plane: Grab the  
+- :paper plane: Grab an ``||sprites: on sprite of kind Player overlaps otherSprite of kind Player||`` container from the ``||sprites:Sprites||`` category and place it into the workspace.
+- :mouse pointer: Change the ``||variables:otherSprite||`` kind from ``||sprites:Player||`` to ``||sprites:Food||``.
 
-        
+
+```blocks
+//@highlight
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+	
+})
+``` 
+## Step 7: Adding A Score.
+
+### Every good video game needs a scoring system. Let's add one to our game. 
+ 
+- :id card: Open the ``||info:Info||`` category and add the ``||info: change score by 1||`` block to the new ``||sprites:overlap||`` container that we just added. 
+
+```blocks
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+	//@highlight
+	 info.changeScoreBy(1)
+})
+``` 
+
+
+## Step 8: Too Many Points
+### Right now we are scoring too many points because our chase sprite does not move. We need to fix this.
+
+- :paper plane: From the ``||sprites:Sprites||`` category grab a ``||sprites: set mySprite position to x (0) y (0)||`` block and place it in the ``||sprites:overlap||`` container.
+- :mouse pointer: Change **mySprite** to **mySprite2**. 
+
+```blocks
+let mySprite2: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    //@highlight
+    mySprite2.setPosition(0, 0)
+})
+```
+
+## Step 9: Randomizing The Position of our Chase Object
+### Now that our chase object moves, we need to add some randomness to the game to make it a challenge. 
+
+- :calculator: Open the ``||math:Math||`` category and grab the ``||math: pick random (0) to (10)||`` circle and place it in the ``||sprites: x(0)||`` value.
+- :calculator: Grab another ``||math: pick random (0) to (10)||`` circle and place it in the ``||sprites: y(0)||`` value. 
+
+```blocks
+let mySprite2: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    //@highlight
+    mySprite2.setPosition(randint(0, 10), randint(0, 10))
+})
+```
