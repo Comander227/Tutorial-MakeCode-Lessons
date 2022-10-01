@@ -262,7 +262,7 @@ info.startCountdown(10)
 ```
 
 ## Step 2: Fixing our Sprite's Movement
-###Right now our player can not access the rest of the tilemap because we have locked them to the screen. Let's change the property of the sprite so it can leave the screen.
+### Right now our player can not access the rest of the tilemap because we have locked them to the screen. Let's change the property of the sprite so it can leave the screen.
 
 - :mouse pointer: Change the value for ``||sprites:set mySprite stay on screen||`` from **On** to **Off**. 
 
@@ -280,8 +280,8 @@ mySprite.setStayInScreen(false)
 Balloons = sprites.create(assets.image`Balloons`, SpriteKind.Collectible)
 info.startCountdown(10)
 ```
-##Step 3: Following Our Character
-###Now that we have given our player access to the rest of the tilemap, we need to make sure that they can see their character. 
+## Step 3: Following Our Character
+### Now that we have given our player access to the rest of the tilemap, we need to make sure that they can see their character. 
 
 - :tree:Grab the ``||scene:camera follow sprite||`` ``||variables:mySprite||`` from the ``||scene:Scene||`` category and place it in the ``||loops:on start||``container under the ``||sprites:set mySprite stay on screen||`` block. 
 
@@ -300,11 +300,11 @@ scene.cameraFollowSprite(mySprite)
 Balloons = sprites.create(assets.image`Balloons`, SpriteKind.Collectible)
 info.startCountdown(10)
 ```   
-##Step 4: Setting the Starting Position.
-###We don't want the player to start in a random position every time. So let's set a specific set of starting positions for the player. 
+## Step 4: Setting the Starting Position.
+### We don't want the player to start in a random position every time. So let's set a specific set of starting positions for the player. 
 
 - :tree: From the ``||scene:Scene||`` category grab the block ``||scene:place||`` ``||variables:mySprite||`` ``||scene:on top of random []||`` block and place it under the ``||scene:camera follow sprite||`` ``||variables:mySprite||`` block in the ``||loops:on start||`` container. 
-- :mouse pointer: **Click** on the **grey** box and select the **blue** tile. 
+- :mouse pointer: **Click** on the **grey** box and select the **blue** tile labeled **Start**. 
 
 
 ```blocks
@@ -324,9 +324,9 @@ Balloons = sprites.create(assets.image`Balloons`, SpriteKind.Collectible)
 info.startCountdown(10)
 
 ```
-##Step 5: Fixing the Collectible Spawning. 
+## Step 5: Fixing the Collectible Spawning. 
 
-###Now that we have fixed the start point for our player character, we need to fix the way that our collectible spawns. 
+### Now that we have fixed the start point for our player character, we need to fix the way that our collectible spawns. 
 
 
 - :tree: Add another ``||scene:place||`` ``||variables:mySprite||`` ``||scene:on top of random []||`` from the ``||scene:Scene||`` category and add it under the ``||variables:Set Balloons to||`` ``||sprites: sprite [] of kind Food||`` in the ``||loops:on start||`` container. 
@@ -351,8 +351,8 @@ tiles.placeOnRandomTile(Balloons, assets.tile`Spawn`)
 info.startCountdown(10)
 ```
 
-##Step 6: Fixing the Collision Code.
-###We need to update the code that runs when we try to pick up our object. This means adding a new block and removing one that no longer works.  
+## Step 6: Fixing the Collision Code.
+### We need to update the code that runs when we try to pick up our object. This means adding a new block and removing one that no longer works.  
 
 - :mouse pointer: **Right Click** on the ``||scene:place||`` ``||variables:Balloons||`` ``||scene:on top of random [spawn]||`` and select **Duplicate**.
 - :mouse pointer: Drag your new ``||scene:place||`` ``||variables:Balloons||`` ``||scene:on top of random [spawn]||`` block to the ``||sprites: on sprite of kind Player overlaps otherSprite of kind Food||`` container. 
@@ -370,8 +370,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Collectible, function (sprite, o
     info.startCountdown(10)
 })
 ```
-##Step 7:Customize the Complete Game
-###Now that you have a tilemap to play with, feel free to reskin this game with your own sprites, tiles, and background. 
+## Step 7:Customize the Complete Game
+### Now that you have a tilemap to play with, feel free to reskin this game with your own sprites, tiles, and background. 
 
 - :paint brush: Open the **Assets** section and click on the green **New** square. Here is where you can add and create your own assets including sprites, images, tiles, tile maps, and animations. 
 - :paper plane: **Sprites** are used as characters as well as the base for animations.
