@@ -1,4 +1,4 @@
-# Chase The Ballons Enhanced
+# Chase The Balloons Enhanced
 
 ## {Introduction @unplugged}
 
