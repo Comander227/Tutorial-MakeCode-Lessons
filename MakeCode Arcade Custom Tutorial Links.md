@@ -8,6 +8,7 @@
 This tutorial is an expansion on the [Chase the Pizza](https://arcade.makecode.com/#tutorial:/tutorials/chase-the-pizza) tutorial by MakeCode Arcade. This guide expands on the initial concept and adds a tile map to create a more controlled spawning system as well as a larger map for the player to explore. At the end you will have a chance to modify or create your own tile map for your game. 
 
 ###Tile Map Example
+
 [Lake Lougai Maze](https://arcade.makecode.com/S35698-43061-58432-30968) 
 
 Using the concepts shown in the previous tutorial you can make a similar maze game to this example using original tile maps and sprites. 
@@ -16,6 +17,7 @@ Using the concepts shown in the previous tutorial you can make a similar maze ga
 
 
 ##Shark Attack Extension 
+
 [Feeding Frenzy Extension](https://arcade.makecode.com/#tutorial:67095-52275-80214-36662)
 
 This is a tutorial meant to serve as an extension on [MakeCode Arcade’s Shark Attack Skillmap](https://arcade.makecode.com/--skillmap#shark). _Be sure to check that one out first so you have more context for the extension._  
