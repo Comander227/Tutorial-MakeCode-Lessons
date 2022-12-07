@@ -52,6 +52,7 @@ This is a project that I have been developing. It uses concepts that are touched
 
 
 #Saving Your Work
+
 ##Method 1: Signing into a personal Google account or Microsoft account
 
 MakeCode Arcade is a cloud based program meaning that all of your work is stored in the cloud if you connect an email to a MakeCode account. Connecting your email might require additional authentication as these are public computers. 
