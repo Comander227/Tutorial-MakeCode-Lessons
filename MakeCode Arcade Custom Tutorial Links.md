@@ -50,3 +50,14 @@ Use this tutorial to create a version of the classic arcade game Pong. This vers
 This is a project that I have been developing. It uses concepts that are touched upon in the Shark Attack Extension, the Downhill Ski Tutorial, and [MakeCode Arcade's Space Adventure Skillmap](https://arcade.makecode.com/--skillmap#space). I even went further and developed a boss fight for the end of the game. This boss fight took a long time to develop and I referred to various videos from the [MakeCode Youtube Channel](https://www.youtube.com/@MicrosoftMakeCode) to figure out exactly how to code it. Feel free to explore my game and use some of the concepts to create your own original game. 
 
 
+
+#Saving Your Work
+##Method 1: Signing into a personal Google account or Microsoft account
+
+MakeCode Arcade is a cloud based program meaning that all of your work is stored in the cloud if you connect an email to a MakeCode account. Connecting your email might require additional authentication as these are public computers. 
+
+##Method 2: Saving a local file
+
+Once you finish and leave the tutorial your project will open in the full MakeCode editor. _(If completing a skill-map be sure to save your game to my projects by selecting the block on the skill map page and clicking on the **Save to My Projects** button to open the project in the full editor)_
+
+Within the full editor click the **Save** button on the bottom next to the title of the game. This will create a .png file which can be shared via a flash drive. If you drag this file into the MakeCode editor, it will load the code from the saved project. 
