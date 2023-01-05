@@ -1,4 +1,4 @@
-https://arcade.makecode.com/#tutorial:51992-12898-43218-12178
+https://arcade.makecode.com/#tutorial:48028-69030-12359-29777
 
 
 # Downhill Ski Game Jam 
