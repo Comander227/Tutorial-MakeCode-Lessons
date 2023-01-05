@@ -30,7 +30,7 @@ In this tutorial you will expand Shark Attack game by adding enemy subs, project
 
 ##Downhill Ski Tutorial
 
-[Downhill Ski Tutorial](https://arcade.makecode.com/#tutorial:51992-12898-43218-12178)
+[Downhill Ski Tutorial](https://arcade.makecode.com/#tutorial:48028-69030-12359-29777)
 
 This tutorial will walk you through the process of creating a scrolling arcade style game with the theme of skiing. This game uses various sprite kinds to create positive and negative items for the player to avoid or pick up. Keep in mind how the speed mechanic is coded as it can be used in various ways to create specific outcomes or alterations to a game. 
 
