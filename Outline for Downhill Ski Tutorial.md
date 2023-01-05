@@ -221,7 +221,7 @@ let SkierSpeed = -20
 - :bars: Click on the ``||variables:variables||`` category. 
 - :mouse pointer: Click on the button that says ``||variables:Make A Variable||``.
 - :mouse pointer: Name the new variable ``||variables:RockSpawnTimer||``.
-- :bars: Add a ``||variables:set SkierSpeed to 0||`` block to our ``||loops:on start||`` container. 
+- :bars: Add a ``||variables:set RockSpawnTimer to 0||`` block to our ``||loops:on start||`` container. 
 - :mouse pointer: Set the value to **2000**.
 
 ```blocks
