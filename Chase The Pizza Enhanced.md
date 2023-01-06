@@ -1,3 +1,6 @@
+https://arcade.makecode.com/beta#tutorial:github:comander227/tutorial-test-chase/chase-tutorial
+
+
 # Chase The Balloons Enhanced
 
 ## {Introduction @unplugged}

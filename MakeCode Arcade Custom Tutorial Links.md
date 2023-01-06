@@ -3,7 +3,7 @@
 
 ##Chase The Balloons Tile Map Extension
 
-[Chase the Balloons](https://arcade.makecode.com/#tutorial:97796-08116-35806-19960)
+[Chase the Balloons](https://arcade.makecode.com/beta#tutorial:github:comander227/tutorial-test-chase/chase-tutorial)
 
 This tutorial is an expansion on the [Chase the Pizza](https://arcade.makecode.com/#tutorial:/tutorials/chase-the-pizza) tutorial by MakeCode Arcade. This guide expands on the initial concept and adds a tile map to create a more controlled spawning system as well as a larger map for the player to explore. At the end you will have a chance to modify or create your own tile map for your game. 
 
@@ -30,7 +30,7 @@ In this tutorial you will expand Shark Attack game by adding enemy subs, project
 
 ##Downhill Ski Tutorial
 
-[Downhill Ski Tutorial](https://arcade.makecode.com/#tutorial:48028-69030-12359-29777)
+[Downhill Ski Tutorial](https://arcade.makecode.com/beta#tutorial:github:comander227/downhill-skiing-tutorial/Downhill-Ski-Tutorial)
 
 This tutorial will walk you through the process of creating a scrolling arcade style game with the theme of skiing. This game uses various sprite kinds to create positive and negative items for the player to avoid or pick up. Keep in mind how the speed mechanic is coded as it can be used in various ways to create specific outcomes or alterations to a game. 
 

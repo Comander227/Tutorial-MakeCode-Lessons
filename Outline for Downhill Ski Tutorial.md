@@ -1,5 +1,4 @@
-https://arcade.makecode.com/#tutorial:48028-69030-12359-29777
-
+https://arcade.makecode.com/beta#tutorial:github:comander227/downhill-skiing-tutorial/Downhill-Ski-Tutorial
 
 # Downhill Ski Game Jam 
 
