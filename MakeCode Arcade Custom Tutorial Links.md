@@ -18,7 +18,7 @@ Using the concepts shown in the previous tutorial you can make a similar maze ga
 
 ##Shark Attack Extension 
 
-[Feeding Frenzy Extension](https://arcade.makecode.com/#tutorial:67095-52275-80214-36662)
+[Feeding Frenzy Extension](https://arcade.makecode.com/beta#tutorial:github:comander227/shark-attack-part-2-custom-tutorial/Custom-Tutorial-FF-Part2)
 
 This is a tutorial meant to serve as an extension on [MakeCode Arcade’s Shark Attack Skillmap](https://arcade.makecode.com/--skillmap#shark). _Be sure to check that one out first so you have more context for the extension._  
 

@@ -1,5 +1,4 @@
-https://arcade.makecode.com/#tutorial:67095-52275-80214-36662
-
+https://arcade.makecode.com/beta#tutorial:github:comander227/shark-attack-part-2-custom-tutorial/Custom-Tutorial-FF-Part2
 
 
 ```template
