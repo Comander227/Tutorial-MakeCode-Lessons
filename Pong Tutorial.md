@@ -1,4 +1,4 @@
-https://arcade.makecode.com/#tutorial:68525-32956-97103-19855
+https://arcade.makecode.com/beta#tutorial:github:comander227/pong-custom-tutorial/Custom-Pong-Tutorial
  
 # Pong
 ## Part 1: Setting Up Key Variables

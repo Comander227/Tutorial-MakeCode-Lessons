@@ -37,7 +37,7 @@ This tutorial will walk you through the process of creating a scrolling arcade s
 
 ##Pong
 
-[Pong Tutorial](https://arcade.makecode.com/#tutorial:68525-32956-97103-19855)
+[Pong Tutorial](https://arcade.makecode.com/beta#tutorial:github:comander227/pong-custom-tutorial/Custom-Pong-Tutorial)
 
 Use this tutorial to create a version of the classic arcade game Pong. This version has a single player and two player mode so you can play against your friends. 
 
