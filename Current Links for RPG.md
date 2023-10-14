@@ -1,6 +1,6 @@
-Current Links for MCA Games to add to RPG
+# Current Links for MCA Games to add to RPG
 
-
+## Games
 Ezra Chase
 https://arcade.makecode.com/S35766-95158-60405-48841
 
@@ -32,7 +32,25 @@ Pong Tutorial
 https://arcade.makecode.com/beta#tutorial:github:comander227/pong-custom-tutorial/Custom-Pong-Tutorial
 
 
+## Tutorial Testing Space
 
 http://arcade.makecode.com/#tutorial:https://github.com/comander227/shark-attack-part-2-custom-tutorial/Custom-Tutorial-FF-Part2
 
 http://arcade.makecode.com/#tutorial:https://github.com/comander227/rpg-shark-attack-part-2/tutorial
+
+
+
+## Ed Info
+
+Turkey Day Ed Info
+https://arcade.makecode.com/skillmap/educator-info/turkey-map-info
+
+
+Shark Attack Ed Info
+https://arcade.makecode.com/skillmap/educator-info/simple-shark-map-info
+
+
+Space Adventure Ed Info
+https://arcade.makecode.com/skillmap/educator-info/space-map-info
+
+
