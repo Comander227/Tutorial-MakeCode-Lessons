@@ -16,6 +16,9 @@ https://arcade.makecode.com/S29552-66954-20186-98693
 Dino Run with Functions
 https://arcade.makecode.com/S68837-72315-08670-48652
 
+Lake Lougai Maze
+https://arcade.makecode.com/S35698-43061-58432-30968
+
 Turkey Day Skill Map
 https://arcade.makecode.com/--skillmap#turkey
 
@@ -28,8 +31,22 @@ https://arcade.makecode.com/--skillmap#shark
 Shark Attack Completed
 https://arcade.makecode.com/S53176-94558-40242-25293
 
+Advanced Shark Attack [Temp Code]
+https://arcade.makecode.com/#tutorial:44826-41043-02128-31773
+
+Space Adventure Skill Map
+https://arcade.makecode.com/--skillmap#space
+
+Space Adventure Complete
+https://arcade.makecode.com/S84239-84550-94505-64585
+
+
 Pong Tutorial
 https://arcade.makecode.com/beta#tutorial:github:comander227/pong-custom-tutorial/Custom-Pong-Tutorial
+
+Pong Built
+https://arcade.makecode.com/S97084-04558-88033-55729
+
 
 
 ## Tutorial Testing Space
