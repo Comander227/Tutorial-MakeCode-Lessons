@@ -70,4 +70,13 @@ https://arcade.makecode.com/skillmap/educator-info/simple-shark-map-info
 Space Adventure Ed Info
 https://arcade.makecode.com/skillmap/educator-info/space-map-info
 
+## Brainstorm notes
+    Shopkeepers Dad is the one who was the great programer.
+    Candy Shop recently becomes infected after you complete the Turkey Day Fix
+    Supliment fixes with actual code printout of somekind?
+    Set up event series.
+    Quiz From Shopkeeper
+    Possible 2nd password.
 
+
+    
