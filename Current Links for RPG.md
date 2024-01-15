@@ -4,6 +4,13 @@
 Ezra Chase
 https://arcade.makecode.com/S35766-95158-60405-48841
 
+Ezra Chase 2.1 (Current JS Code)
+https://arcade.makecode.com/S38968-18656-45512-14741
+
+Ezra CHase Blank (Assest Only)
+https://arcade.makecode.com/S92955-72634-07325-10896   ![image](https://github.com/Comander227/Tutorial-MakeCode-Lessons/assets/90338917/1e2e007f-e0b2-4526-bff3-0406d3c15092)
+
+
 Downhill Skiing 2.0 (Need Tutorial)
 https://arcade.makecode.com/S34035-02209-84595-70927
 
